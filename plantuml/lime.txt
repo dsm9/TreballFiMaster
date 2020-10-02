@@ -1,0 +1,110 @@
+@startuml
+package lime {
+	class lime_surveys_languagesettings {
+		#surveyls_survey_id
+		#surveyls_language
+		#sid
+		--
+		survey_title
+	}
+	
+	class lime_ocu_encuestas_campania {
+		#sid
+		--
+		codEncuesta
+		codCampania
+		nombreCampania
+		codTipoCampania
+		descripcionTipoCampania
+		flagArchivada	
+	}
+
+	class lime_surveys {
+		#sid
+		--
+		language
+		active
+		startdate
+		expires
+		listpublic
+	}
+
+	class lime_groups {
+		#gid
+		#language
+		#sid
+		--
+		group_name
+		group_order
+		description
+	}
+
+	class lime_questions {
+		#qid
+		#language
+		#sid
+		--
+		gid
+		parent_qid
+		type
+		title
+		question
+		preg
+		mandatory
+		question_order
+	}
+
+	class lime_answers {
+		#qid
+		#code
+		#language
+		#sid
+		#escale_id
+		--
+		answer
+		sortorder
+		assessment_value
+	}
+}
+package result {
+	class sb_xx_meta_survey {
+		#sid
+		#metadato
+		--
+		valor
+	}
+
+	class sb_xx_meta_user {
+		#sid
+		#tid
+		#participant_id
+		#fieldname
+		--
+		attribute_name
+		attribute_value
+	}
+
+	class sb_xx_res {
+		#sid
+		#gid
+		#qid
+		--
+		question
+		sub_question
+		answer
+		fieldname
+		response
+	}
+}
+
+lime_surveys "1"--"*" lime_surveys_languagesettings
+lime_surveys "1"--"1" lime_ocu_encuestas_campania
+lime_surveys "1"--"*" lime_groups
+lime_surveys "1"--"*" lime_questions
+lime_groups "1"--"*" lime_questions
+lime_questions "1"--"*" lime_answers
+lime_surveys "1"--"*" sb_xx_meta_survey
+lime_surveys "1"--"*" sb_xx_meta_user
+lime_surveys "1"--"*" sb_xx_res
+
+@enduml

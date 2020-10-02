@@ -1,0 +1,74 @@
+@startgantt
+projectscale weekly
+Project starts 2020-07-01
+
+-- [Fase uno] --
+[Recopilación datos pruebas] lasts 30 days
+[Definición metodologia] lasts 30 days
+[Definición interfaz usuario] lasts 30 days
+[Estudio alternativas IA] lasts 30 days
+[Validacion interfaz usuario] lasts 30 days
+[Seleccion herramienta IA] lasts 30 days
+[Seleccion herramienta programación]  lasts 30 days
+[Análisis requerimientos completado] happens at [Validacion interfaz usuario]'s end
+
+--[Fase dos] --
+[Implementacion IA detección] lasts 50 days
+[Implementacion interfaz consulta] lasts 50 days
+[Validación detección] lasts 10 days
+[Prototipo deteccion completado] happens at [Validación detección]'s end
+
+-- [Fase tres] --
+[Implementacion IA modificacion] lasts 50 days
+[Implementacion interfaz modificacion] lasts 50 days
+[Validacion modificacion] lasts 10 days
+[Prototipo modificacion completado] happens at [Validacion modificacion]'s end
+
+[Recopilacion datos reales] lasts 15 days
+[Prueba con datos reales] lasts 15 days
+
+-- [Fase cuatro] --
+[Implementacion IA analisis sentimiento] lasts 50 days
+[Implementacion Interfaz analisis sentimiento] lasts 50 days
+[Validación analisis sentimiento] lasts 10 days
+[Prototipo sentimiento completado] happens at [Validación analisis sentimiento]'s end
+
+-- [Fase cinco] --
+[Redacción memoria] lasts 50 days
+[Defensa TFM] lasts 10 days
+[TFM completado] happens at [Defensa TFM]'s end
+
+[Definición metodologia] -> [Estudio alternativas IA]
+[Definición metodologia] -> [Definición interfaz usuario]
+[Definición interfaz usuario] -> [Validacion interfaz usuario]
+[Estudio alternativas IA] -> [Seleccion herramienta IA]
+[Definición interfaz usuario] -> [Seleccion herramienta programación]
+
+[Validacion interfaz usuario] -> [Análisis requerimientos completado]
+[Seleccion herramienta IA] -> [Implementacion IA detección]
+[Seleccion herramienta programación] -> [Implementacion interfaz consulta]
+
+
+[Implementacion interfaz consulta] -> [Validación detección]
+[Implementacion IA detección] -> [Validación detección]
+[Validación detección] -> [Implementacion IA modificacion]
+[Validación detección] -> [Implementacion interfaz modificacion]
+[Validación detección] -> [Prototipo deteccion completado]
+
+[Implementacion IA modificacion] -> [Validacion modificacion]
+[Implementacion interfaz modificacion] -> [Validacion modificacion]
+[Validacion modificacion] -> [Prototipo modificacion completado]
+
+[Validacion modificacion] -> [Recopilacion datos reales]
+[Recopilacion datos reales] -> [Prueba con datos reales]
+[Prueba con datos reales] -> [Implementacion IA analisis sentimiento]
+[Prueba con datos reales] -> [Implementacion Interfaz analisis sentimiento]
+[Implementacion IA analisis sentimiento] -> [Validación analisis sentimiento]
+[Implementacion Interfaz analisis sentimiento] -> [Validación analisis sentimiento]
+[Validación analisis sentimiento] -> [Prototipo sentimiento completado]
+
+[Validación analisis sentimiento] -> [Redacción memoria]
+[Redacción memoria] -> [Defensa TFM]
+[Defensa TFM] -> [TFM completado]
+
+@endgantt
