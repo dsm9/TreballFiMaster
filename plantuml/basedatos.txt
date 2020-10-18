@@ -1,0 +1,64 @@
+@startuml
+package tfmsurvey {
+	class campaign_type {
+		#id
+		--
+		cod_tipo_campania_lime
+		name
+	}
+	
+	class campaign {
+		#id
+		--
+		cod_campania_lime
+		fechaExtraccion_lime
+		name
+		importDate
+	}
+	
+	class survey {
+		#id
+		--
+		campaign_id
+		cod_encuesta_lime
+		sid_lime
+		name
+	}
+	
+	class comment {
+		#id
+		--
+		survey_id
+		qid_lime
+		tid_lime
+		name
+		bloq_type
+		prof_name
+		prof_surname1
+		prof_surname2
+		original_value
+		new_value
+		issue_type_id
+		solution_type_id
+	}
+	
+	class issue_type {
+		#id
+		--
+		name
+	} 
+	
+	class solution_type {
+		#id
+		--
+		name
+	}
+	
+	campaign_type "1"--"*" campaign
+	campaign "1"--"*" survey
+	survey "1"--"*" comment
+	issue_type "1"--"*" comment
+	solution_type "1"--"*" comment
+}
+
+@enduml
