@@ -7,7 +7,7 @@ from django.shortcuts import resolve_url
 from django.test.runner import DiscoverRunner
 from splinter.browser import Browser
 
-os.environ["DJANGO_SETTINGS_MODULE"] = "ftmsurveys.settings"
+os.environ["DJANGO_SETTINGS_MODULE"] = "tfmsurveys.settings"
 
 class ExtendedContext(Context):
     def get_url(self, to=None, *args, **kwargs):

@@ -135,4 +135,33 @@ $ python3 manage.py makemigrations tfmsurveysapp
 $ python3 manage.py migrate
 ```
 
+Agile Behaviour Driven Development (BDD)
+========================================
+Following the Agile Behavour Drive Development the features of the project have been defined:
+
+The goal of this application it's manage de revision, analysis and modification of comments in the surveys of the UdL.
+
+The detected features are:
+
+The intended features of the application are:
+- Login
+- List Campaign Surveys
+- List Survey comments
+- Edit Comment
+
+To facilitate the description of the feature scenarios will be used the Gherkin syntax an the Behave tool.
+
+And to test the application in a browser will be used Splinter. 
+
+Also it's necessary install ChromeDriver to make possible automate testing with Chome.
+
+The commands to install behave and splinter are:
+
+```
+$ pipenv install behave
+
+$ pipenv install splinter
+
+$ apt install chromium-chromedriver
+``` 
 
