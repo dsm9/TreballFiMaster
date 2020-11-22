@@ -1,0 +1,93 @@
+{% load static %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" />
+    <script src="https://code.jquery.com/jquery-2.2.3.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+	<title>{% block title %}Enquesta virtual - An&agrave;lisi i revisi&oacute; de comentaris{% endblock %}</title>
+	<meta name="Description" content="" />
+	<meta name="KeyWords" content="" />
+    <link rel="stylesheet" href="{% static "style/base.css" %}" />
+	<script type="text/javascript" src="{% static "js/mm_functions.js" %}" ></script>
+
+	<style type="text/css">
+	<!--
+	body {
+		margin-left: 0px;
+		margin-top: 0px;
+		margin-right: 0px;
+		margin-bottom: 0px;
+	}
+	-->
+	</style>
+<!-- Datatables CSS -->
+	<link rel="stylesheet" type="text/css" href="{% static "datatables/css/jquery.dataTables.css" %}" />
+
+<!-- JQuery -->
+	<script type="text/javascript" charset="utf8" src="{% static "datatables/js/jquery.js" %}"></script>
+
+<!-- DataTables -->
+	<script type="text/javascript" charset="utf8" src="{% static "datatables/js/jquery.dataTables.js" %}"></script>
+
+	<script type="text/javascript" language="javascript" class="init">
+		$(document).ready(function() {
+			$('#Lista').DataTable( {
+				"language": {	url: "{% static "datatables/localisation/catala.json" %}"	}
+			} );
+		} );
+	</script>
+
+</head>
+
+<body >
+
+<div id="header">
+    {% block header %}
+  	<table width="100%"  border="0" cellpadding="0" cellspacing="0" bgcolor="#F0F0F0">
+    	<tr >
+      		<td width="20%" align="left" nowrap bgcolor="#831453">
+      			<a href="http://www.udl.cat/" target="_black">
+      			<img src="{% static "img/Logo-udl-2.gif" %}" alt="Universitat de Lleida" width="297" height="103">
+      			</a>
+      		</td>
+      		<td align="center" bgcolor="#831453" class="TituloCabecera">Enquesta virtual<br>
+        		An&agrave;lisi i revisi&oacute; de comentaris</td>
+      		<td width="10%" align="right" valign="middle" bgcolor="#831453">&nbsp;</td>
+      		<td width="10%" align="center" valign="middle" nowrap bgcolor="#831453" class="TextoUsuario">
+      		{% if user.is_authenticated %}
+
+      			<a href="login.php" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('bntSalir','','{% static 'img/salir_up.gif' %}',1)">
+      			<img src="{% static "img/salir.gif" %}" alt="Salir" name="bntSalir" width="32" height="32" border="0"></a>
+      		{% endif %}
+      		</td>
+    	</tr>
+	</table>
+	{% if user.is_authenticated %}
+    	<p>User: {{ user.username }} </p>
+    {% endif %}
+    {% endblock %}
+</div>
+
+<div id="content">
+    {% block content %}
+        {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+    {% endblock %}
+</div>
+
+<div id="footer">
+    {% block footer %}
+	<table width="100%"  border="0" cellpadding="0" cellspacing="5" bgcolor="#831453">
+  		<tr >
+    		<td align="center" class="TextoPie" >
+    			Universitat de Lleida - M&agrave;ster en Enginyeria Inform&agrave;tica - Treball Final de M&agrave;ster - David S&aacute;nchez Mar&iacute;n
+    		</td>
+  		</tr>
+	</table>
+    {% endblock %}
+</div>
+
+</body>
+</html>

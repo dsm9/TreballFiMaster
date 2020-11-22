@@ -1,0 +1,40 @@
+{% extends "tfmsurveysapp/base.html" %}
+{% block content %}
+<div class="TituloPagina">Sel·lecci&oacute; de campanya:</div>
+<br/>
+<table align="center" width="95%">
+	<tr><td>
+<table align="center" id="Lista" class="display">
+<!--	<table align="center" id="Lista">  -->
+ 	<thead>
+	<tr>
+		<th height="17" align="center">Codi campanya</td>
+		<th align="center">Nom campanya</td>
+		<th align="center">Codi Tipus campanya</td>
+		<th align="center">Tipus campanya</th>
+		<th align="center">Data extracci&oacute;</td>
+	</tr>
+	</thead>
+	<tbody>
+    {% for campaign in campaigns_list %}
+    <tr>
+		<td align="center">
+			<a href="#">
+			{{ campaign.cod_campania_lime }}
+			</a>
+		</td>
+		<td align="left">{{ campaign.name }}</td>
+		<td align="center">{{ campaign.type_campaign_id }}</td>
+		<td align="left">{{ campaign.type_campaign.name }}</td>
+		<td align="center">{{ campaign.import_date }}</td>
+	</tr>
+    {% empty %}<div align="center">No existeixen campanyes que acompleixin aquestes condicions.</div>
+    {% endfor %}
+	</tbody>
+</table>
+		</td>
+	</tr>
+</table>
+<br/>
+</tr>
+{% endblock %}

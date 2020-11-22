@@ -1,0 +1,136 @@
+#header
+{
+    margin: 0px;
+    padding: 0px;
+    text-align: right;
+}
+#content
+{
+    margin: 0px;
+    padding: 0px;
+}
+#sidebar
+{
+    float: left;
+    width: 190px;
+}
+#footer
+{
+    margin: 0;
+    padding: 0px;
+    text-align: center;
+}
+body
+{
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+textarea, input[type=number], input[type=url]
+{
+    height: 1.25em;
+    width: 25em;
+}
+
+a {	text-decoration: none }
+
+a:link {
+	color: #000000;
+}
+a:active {
+	font-weight=bold;
+	color: #112288;
+	}
+a:visited {
+	color: #000000 ;
+}
+a:hover {
+	font-weight: bold;
+}
+
+
+.TextoPie {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #FFFFFF;
+}
+.TituloCabecera {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 20px;
+	color: #FFFFFF;
+	font-weight: bold;
+}
+.TextoLogin {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #FFFFFF;
+}
+.TituloPagina {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	font-weight: bold;
+	color: #FFFFFF;
+	background-color: #CC2083;
+	padding: 5px;
+}
+.EtiquetaTitulo {
+
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	font-weight: normal;
+	color: #FFFFFF;
+	background-color: #CC2083;
+	margin: 5px;
+	padding: 5px;
+}
+
+.TablaResumen {
+	font-family: Arial, Helvetica, sans-serif;
+	border: 1px solid #000000;
+	background-color: #D9EDF7;
+}
+.ValorResumen {
+	font-weight: bold;
+}
+.ListaComenta {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+.BotonGrande {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	font-weight: bold;
+	cursor: pinter;
+}
+.SubtituloPagina {
+
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	color: #FFFFFF;
+	background-color: #E868B1;
+	margin: 5px;
+	padding: 5px;
+}
+.EtiquetaSubtitulo {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: normal;
+	color: #FFFFFF;
+	background-color: #E868B1;
+	margin: 5px;
+	padding: 5px;
+}
+.TablaComentario {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	border: thin solid #000000;
+	background-color: #F2F2FF;
+}
+.EtiquetaComentario {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+}
+.CampoComentario {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+}

@@ -1,0 +1,41 @@
+{% extends "tfmsurveysapp/base.html" %}
+{% load static %}
+{% block content %}
+    {% if form.errors %}
+        <p>Your username and password didn't match. Please try again.</p>
+    {% endif %}
+
+    <form method="post" action="{% url 'login' %}">
+     	<br />
+	    <br />
+	    <br />
+	    <br/>
+        <br/>
+	    <table align="center" border="0" cellpadding="10" cellspacing="0" bgcolor="#831453" style="border:solid thin black;">
+		    <tr><td colspan="4"><img src="{% static 'img/espacio.gif' %}" width="10" height="10" /></td></tr>
+            <tr>
+                <td class="TextoLogin">{{ form.username.label_tag }}</td>
+                <td>{{ form.username }}</td>
+            </tr>
+            <tr>
+                <td class="TextoLogin" >{{ form.password.label_tag }}</td>
+                <td>{{ form.password }}</td>
+            </tr>
+            <tr>
+                <td><input type="hidden" name="next" value="{{ next }}"/></td>
+            </tr>
+            <tr>
+	    	    <td colspan="4" align="center">
+                    <input type="submit" value="login" />
+                </td>
+            </tr>
+        </table>
+
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        {% csrf_token %}
+    </form>
+{% endblock %}

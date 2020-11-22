@@ -165,3 +165,34 @@ $ pipenv install splinter
 $ apt install chromium-chromedriver
 ``` 
 
+Environment
+===========
+We also need to configure the testing environment. In this case, the Django application tfmsurveysapp.
+
+We do so in a file in the *features/* folder called *environment.py*:
+
+```
+import ...
+
+def before_scenario(context, scenario): ...
+
+def after_scenario(context, scenario): ...
+
+def after_all(context): ...
+
+```
+
+This file defines the Django settings to load and test, the context to be passed to each testing step, and then what to:
+
+* **Before all tests**: setting Django, preparing it for testing and a browser session based on PhantomJS to act as the user.
+* **Before each scenario**: the Django database is initialized, together with the context to be passed to each scenario step implementation with all the data about the current application status.
+* **After each scenario**: the Django database is destroyed so the next scenario will start with a clean one. This way each scenario is independent from previous ones and interferences are avoided.
+* **After all tests**: the testing environment is destroyed together with the browser used for testing.
+
+Development of the TfmSurveysApp Features
+=========================================
+
+Now, I have implemented the identified features. I will start implementing the different steps that constitute each scenario and the application code to make it show the expected behaviour.
+
+## Feature: List Campaign Surveys ##
+
