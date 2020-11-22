@@ -68,3 +68,35 @@ a:hover {
 	font-weight: bold;
 	cursor: pinter;
 }
+.SubtituloPagina {
+
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	color: #FFFFFF;
+	background-color: #E868B1;
+	margin: 5px;
+	padding: 5px;
+}
+.EtiquetaSubtitulo {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: normal;
+	color: #FFFFFF;
+	background-color: #E868B1;
+	margin: 5px;
+	padding: 5px;
+}
+.TablaComentario {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	border: thin solid #000000;
+	background-color: #F2F2FF;
+}
+.EtiquetaComentario {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+}
+.CampoComentario {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+}

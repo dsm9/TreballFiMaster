@@ -52,28 +52,29 @@
     </td>
   </tr>
   <tr>
-  <tr>
-    <td class="TituloPagina">Selecci&oacute; de campanya:</td>
+    <td colspan="2" class="TituloPagina">Selecci&oacute; de campanya:</td>
   </tr>
-    <td valign="top" class="PaginaCentral" >
+  <tr>
+    <td colspan="2" valign="top" class="PaginaCentral" >
      
   <!--	Inicio parte particular 	-->
               
       <form id="datos" name="datos" method="post" action="login.php"><br />
  	<br />
 	<br />
-	<table width="90%" align="center">
+	<table width="90%" align="center" border="0">
 	<tr><td>
-	<table align="center" id="Lista" class="display">
-	<thead>	
+	<table align="center" id="Lista" class="display">	
+<!--	<table align="center" id="Lista">  -->
+ 	<thead>	 
 	<tr>
 		<th height="17" align="left">Codi campanya</td>
 		<th align="left">Nom campanya</td>
 		<th align="left">Tipus campanya</td>
 		<th align="left">Data extracci&oacute;</td>
 	</tr>
-	</thead>	
-	<tbody>
+	</thead>  	
+<!--	<tbody>  -->
 	<tr>
 		<td height="17" align="right" sdval="185" sdnum="3082;">
 		<a href="ficha.php">185</a></td>
@@ -459,7 +460,7 @@
 		<td align="left">Enquesta de Pr&agrave;cticum - Estudiantat</td>
 		<td align="left" sdnum="3082;0;@">2019-03-07 12:26:10</td>
 	</tr>
-	</tbody>
+<!--	</tbody>  -->
 	</table>
 	</td></tr>
 	</table>

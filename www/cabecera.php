@@ -38,7 +38,7 @@ function MM_swapImage() { //v3.0
     <tr > 
       <td width="20%" align="left" nowrap bgcolor="#831453"><img src="img/Logo-udl-2.gif" alt="Universitat de Lleida" width="297" height="103"><a href="http://www.udl.cat/" target="_black"></a>      </td>
       <td align="center" bgcolor="#831453" class="TituloCabecera">Enquesta virtual<br>
-        Anàlisi i revisió de comentaris</td>
+        Analisi i revisio de comentaris</td>
       <td width="10%" align="right" valign="middle" bgcolor="#831453">&nbsp;</td>
       <td width="10%" align="center" valign="middle" nowrap bgcolor="#831453" class="TextoUsuario"><a href="login.php" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('bntSalir','','img/salir_up.gif',1)"><img src="img/salir.gif" alt="Salir" name="bntSalir" width="32" height="32" border="0"></a></td>
     </tr>
