@@ -25,6 +25,17 @@ package tfmsurvey {
 		name
 	}
 	
+	class professor {
+		#id
+		--
+		survey_id
+		sid_lime
+		num_prof_lime
+		name
+		surname1
+		surname2
+	}
+	
 	class comment {
 		#id
 		--
@@ -33,13 +44,9 @@ package tfmsurvey {
 		tid_lime
 		name
 		bloq_type
-		prof_name
-		prof_surname1
-		prof_surname2
+		professor_id
 		original_value
 		new_value
-		issue_type_id
-		solution_type_id
 	}
 	
 	class issue_type {
@@ -57,8 +64,9 @@ package tfmsurvey {
 	campaign_type "1"--"*" campaign
 	campaign "1"--"*" survey
 	survey "1"--"*" comment
-	issue_type "1"--"*" comment
-	solution_type "1"--"*" comment
+	professor "0"--"*" comment
+	issue_type "*"--"*" comment : comment_issue
+	solution_type "*"--"*" comment : comment_solution
 }
 
 @enduml
