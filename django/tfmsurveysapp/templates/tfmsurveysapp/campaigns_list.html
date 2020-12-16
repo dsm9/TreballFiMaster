@@ -19,12 +19,12 @@
     {% for campaign in campaigns_list %}
     <tr>
 		<td align="center">
-			<a href="{% url 'tfmsurveysapp:surveys_list' campaign.id %}">
+			<a href="{% url 'tfmsurveysapp:comments_list' campaign.id %}">
 			{{ campaign.cod_campania_lime }}
 			</a>
 		</td>
 		<td>
-			<a href="{% url 'tfmsurveysapp:surveys_list' campaign.id %}">
+			<a href="{% url 'tfmsurveysapp:comments_list' campaign.id %}">
 			{{ campaign.name }}
 			</a>
 		</td>

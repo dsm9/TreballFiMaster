@@ -9,6 +9,8 @@ from django.utils.decorators import method_decorator
 from django.views.generic import DetailView
 from django.views.generic.edit import CreateView, UpdateView
 
+from tfmsurveysapp.models import Comment
+
 # Security Mixins
 
 class LoginRequiredMixin(object):
@@ -22,3 +24,12 @@ class CheckIsOwnerMixin(object):
         if not obj.user == self.request.user:
             raise PermissionDenied
         return obj
+
+
+class CommentDetail(DetailView):
+    model = Comment
+    template_name = 'tfmsurveysapp/comment_detail.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(CommentDetail, self).get_context_data(**kwargs)
+        return context

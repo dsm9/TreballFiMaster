@@ -1,7 +1,7 @@
 from django.forms import ModelForm
-from tfmsurveysapp.models import Campaign
+from tfmsurveysapp.models import Comment
 
-class CampaignsForm(ModelForm):
+class CommentForm(ModelForm):
     class Meta:
-        model = Campaign
+        model = Comment
         exclude = ()

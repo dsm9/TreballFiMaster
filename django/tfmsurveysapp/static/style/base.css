@@ -27,11 +27,6 @@ body
     margin-right: 0px;
     margin-bottom: 0px;
 }
-textarea, input[type=number], input[type=url]
-{
-    height: 1.25em;
-    width: 25em;
-}
 
 a {	text-decoration: none }
 
@@ -103,13 +98,11 @@ a:hover {
 	cursor: pinter;
 }
 .SubtituloPagina {
-
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	font-size: 14px;
 	font-weight: bold;
 	color: #FFFFFF;
 	background-color: #E868B1;
-	margin: 5px;
 	padding: 5px;
 }
 .EtiquetaSubtitulo {
@@ -133,4 +126,7 @@ a:hover {
 .CampoComentario {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	font-size: 14px;
+}
+.Marco {
+    border: 1px;
 }

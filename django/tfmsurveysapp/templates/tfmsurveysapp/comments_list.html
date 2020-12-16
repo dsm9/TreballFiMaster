@@ -1,0 +1,59 @@
+{% extends "tfmsurveysapp/base.html" %}
+{% block content %}
+<div class="TituloPagina">Sel·lecci&oacute; de comentari:</div>
+<table width="100%" class="TituloPagina">
+	<tr>
+		<td class="EtiquetaTitulo">Campanya:</td>
+		<td>{{ comments_list.first.survey.campaign.name }}</td>
+		<td class="EtiquetaTitulo">Tipus campanya:</td>
+		<td>{{ comments_list.first.survey.campaign.type_campaign.name }} </td>
+		<td class="EtiquetaTitulo">Data exportaci&oacute;:</td>
+		<td>{{ comments_list.first.survey.campaign.fecha_extraccion_lime }}</td>
+		<td>&nbsp;</td>
+	</tr>
+</table>
+<br/>
+<table align="center" width="95%">
+	<tr><td>
+		{{ campaign_detail.survey_set  }}
+<table align="center" id="Lista" class="display">
+<!--	<table align="center" id="Lista">  -->
+ 	<thead>
+	<tr>
+		<th height="17" align="center">sid</td>
+		<th align="left">Descripci&oacute;</td>
+		<th align="center">Codi pregunta</td>
+		<th align="left">Pregunta</th>
+		<th align="center">tid</td>
+		<th align="left">Comentari original</th>
+		<th align="left">Tipus incid&egrave;ncia</th>
+		<th align="left">Soluci&oacute;</th>
+		<th align="left">Comentari proposat</th>
+		<th align="center">Acceptar</th>
+	</tr>
+	</thead>
+	<tbody>
+    {% for comment in comments_list %}
+
+    <tr>
+		<td align="center">{{ comment.survey.sid_lime }}</td>
+		<td align="left">{{ comment.survey.name }}</td>
+		<td align="center">{{ comment.question_id_lime }}</td>
+		<td align="left">{{ comment.question }}</td>
+		<td align="center">{{ comment.tid_lime }}</td>
+		<td align="left">{{ comment.original_value }}</td>
+		<td align="left">.</td>
+		<td align="left">.</td>
+		<td align="left">{{ comment.new_value }}</td>
+		<td align="center"><a href="{% url 'tfmsurveysapp:comment_detail' comment.id %}">Editar</a></td>
+	</tr>
+    {% empty %}<div align="center">No existeixen comentaris a la campanya sel·leccinada.</div>
+    {% endfor %}
+	</tbody>
+</table>
+		</td>
+	</tr>
+</table>
+<br/>
+</tr>
+{% endblock %}
