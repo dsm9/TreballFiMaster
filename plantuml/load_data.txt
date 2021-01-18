@@ -1,0 +1,13 @@
+@startuml
+start
+:Delete previous files;
+:Load folders;
+:Load files;
+:Validate file;
+:Process file;
+:Detect language;
+:Write_file;
+:Analize files;
+end
+@enduml
+

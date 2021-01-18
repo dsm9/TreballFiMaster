@@ -1,73 +1,74 @@
-Curs,TipusPregunta,TipusIncidencia,Comentari,Idioma
-2017-18,P,,Gran profesor,en
-2017-18,A,,"AL PINCIPIO DESCORDINACIÓN DE LA ASIGNATURA , PERO AL FINAL SE ACLARÓ.",en
-2018-19,P,No ha impartit classe a aquest grup,No l'hem tingut,en
-2018-19,P,No ha impartit classe a aquest grup,no l´he tingut,en
-2018-19,P,No ha impartit classe a aquest grup,No he tingut aquesta professora,en
-2018-19,P,No ha impartit classe a aquest grup,No he tingut a aquest professor.,en
-2018-19,P,No ha impartit classe a aquest grup,No he tingut aquesta professora ,en
+Curs,TipusPregunta,TipusIncidencia,Comentari,IdiomaSpacy,IdiomaPyCld2,Idioma
+2017-18,P,,Gran profesor,en,fy,en
+2017-18,A,,"AL PINCIPIO DESCORDINACIÓN DE LA ASIGNATURA , PERO AL FINAL SE ACLARÓ.",en,es,en
+2018-19,P,No ha impartit classe a aquest grup,No he tingut aquesta professora.,en,ca,en
+2018-19,P,No ha impartit classe a aquest grup,No l'hem tingut,en,tk,en
+2018-19,P,No ha impartit classe a aquest grup,no l´he tingut,en,ca,en
+2018-19,P,No ha impartit classe a aquest grup,No he tingut a aquest professor.,en,ca,en
+2018-19,P,No ha impartit classe a aquest grup,No he tingut aquesta professora ,en,ca,en
 2018-19,A,,"strength: was practical and useful for social field works
-aspects of improvement: could be with more credit hours and better if course is divided into lectures of many classes rather than in single day",en
-2018-19,A,,It was a very interactive class and learning through practice.  ,en
-2018-19,A,Comentari excel·lent,This course is a excellent start of the studies in Lleida. The profesor is very inviting and knowledgable. Short but very interesting! I would reccomend it to anyone.,en
-2018-19,P,Comentari excel·lent,"Gloria Dominguez Torres, not Jose A B. I have very much enjoyed prod Gloria and her teching methods. Very good job at keeping the lessons interesting even with the intensive nature of the classes!",en
-2018-19,A,,It is very short and basic course. My suggestion is about increase ECT and make it more advance. Thanks,en
-2018-19,P,No ha impartit classe a aquest grup,No l’hem tingut,en
-2018-19,P,No ha impartit classe a aquest grup,No l'hem tingut,en
-2018-19,P,No ha impartit classe a aquest grup,No l´he tingut,en
-2018-19,P,No ha impartit classe a aquest grup,No l’hem tingut,en
-2018-19,A,,"The lecturers need to improve the communication between them, sometimes look like they are telling us different things that they want for the same task/assignment.",en
-2018-19,P,,"She is open to help, support and solve any issue related to the subject.",en
-2018-19,P,,"For this subject he was our lecturer just for 2 technical workshops, I do not have enough information to evaluate him..",en
-2018-19,P,,"Excellent lecturer, good methods, explanations and support.",en
-2018-19,P,,És mlt bon professor ;),en
-2018-19,P,,"GRAN FACILITAT PER ATREURE L'ATENCIÓ DELS ALUMNES, GRAN CAPACITAT DE TRANSMISSIÓ DE CONEIXEMENTS I MOLT COHERENT A L'HORA DE DUR A TERME LES ACTIVITATS AVALUATIVES.",en
-2018-19,A,,"First part is almost the same than in previous year, specifically pandas library. Marks weren't always justified, and in some cases we obtaied worse marks without a clear reason. Second part could be more dynamic.",en
-2018-19,P,Comentari d'assignatura,"Lack of coordination with the other Big Data subjects. He repeated the same than in the previous subjects. Also, in a master degree I expected to learn something more than a library that I can search in Google.",en
-2018-19,A,Comentari de professor,"Francesc Guitart lacks of teaching experience which makes him unsuitable for teaching, even if he might be a great professional at GFT. Not only he repeated most of the contents teached in the past year (poor coordination), but also he is expecting us to memorize the solutions rather than understand them and develop our own. The subject would have been more educative if the contents had been original, professors were motivated and the assignments challenged us to develop meaningful data mining solutions.",en
-2018-19,P,,"Francesc Guitart lacks of teaching experience which makes him unsuitable for teaching, even if he might be a great professional at GFT. Not only he repeated most of the contents teached in the past year (poor coordination), but also he is expecting us to memorize the solutions rather than understand them and develop our own.",en
-2018-19,A,,The lecturers need to improve their communication.,en
-2018-19,P,,Good lecturer and excellent English level.,en
-2018-19,P,,Good lecturer and excellent English level.,en
-2018-19,P,No ha impartit classe a aquest grup,No l’he tingut,en
-2018-19,P,No ha impartit classe a aquest grup,No l’he tingut,en
-2018-19,A,,Needs Better teaching materials and more information on the subject especially for people learning the subject for the first time,en
+aspects of improvement: could be with more credit hours and better if course is divided into lectures of many classes rather than in single day",en,en,en
+2018-19,A,,It was a very interactive class and learning through practice.  ,en,en,en
+2018-19,A,Comentari excel·lent,This course is a excellent start of the studies in Lleida. The profesor is very inviting and knowledgable. Short but very interesting! I would reccomend it to anyone.,en,en,en
+2018-19,P,Comentari excel·lent,"Gloria Dominguez Torres, not Jose A B. I have very much enjoyed prod Gloria and her teching methods. Very good job at keeping the lessons interesting even with the intensive nature of the classes!",en,en,en
+2018-19,A,,It is very short and basic course. My suggestion is about increase ECT and make it more advance. Thanks,en,en,en
+2018-19,P,No ha impartit classe a aquest grup,No l’hem tingut,en,tk,en
+2018-19,P,No ha impartit classe a aquest grup,No he tingut aquesta professora.,en,ca,en
+2018-19,P,No ha impartit classe a aquest grup,No l'hem tingut,en,tk,en
+2018-19,P,No ha impartit classe a aquest grup,No l´he tingut,en,ca,en
+2018-19,P,No ha impartit classe a aquest grup,No l’hem tingut,en,tk,en
+2018-19,P,No ha impartit classe a aquest grup,No he tingut aquesta professora,en,ca,en
+2018-19,A,,"The lecturers need to improve the communication between them, sometimes look like they are telling us different things that they want for the same task/assignment.",en,en,en
+2018-19,P,,"She is open to help, support and solve any issue related to the subject.",en,en,en
+2018-19,P,,"For this subject he was our lecturer just for 2 technical workshops, I do not have enough information to evaluate him..",en,en,en
+2018-19,P,,"Excellent lecturer, good methods, explanations and support.",en,en,en
+2018-19,P,,És mlt bon professor ;),en,hu,en
+2018-19,P,,"GRAN FACILITAT PER ATREURE L'ATENCIÓ DELS ALUMNES, GRAN CAPACITAT DE TRANSMISSIÓ DE CONEIXEMENTS I MOLT COHERENT A L'HORA DE DUR A TERME LES ACTIVITATS AVALUATIVES.",en,ca,en
+2018-19,A,,"First part is almost the same than in previous year, specifically pandas library. Marks weren't always justified, and in some cases we obtaied worse marks without a clear reason. Second part could be more dynamic.",en,en,en
+2018-19,P,Comentari d'assignatura,"Lack of coordination with the other Big Data subjects. He repeated the same than in the previous subjects. Also, in a master degree I expected to learn something more than a library that I can search in Google.",en,en,en
+2018-19,A,Comentari de professor,"Francesc Guitart lacks of teaching experience which makes him unsuitable for teaching, even if he might be a great professional at GFT. Not only he repeated most of the contents teached in the past year (poor coordination), but also he is expecting us to memorize the solutions rather than understand them and develop our own. The subject would have been more educative if the contents had been original, professors were motivated and the assignments challenged us to develop meaningful data mining solutions.",en,en,en
+2018-19,P,,"Francesc Guitart lacks of teaching experience which makes him unsuitable for teaching, even if he might be a great professional at GFT. Not only he repeated most of the contents teached in the past year (poor coordination), but also he is expecting us to memorize the solutions rather than understand them and develop our own.",en,en,en
+2018-19,A,,The lecturers need to improve their communication.,en,en,en
+2018-19,P,,Good lecturer and excellent English level.,en,en,en
+2018-19,P,,Good lecturer and excellent English level.,en,en,en
+2018-19,P,No ha impartit classe a aquest grup,No l’he tingut,en,ca,en
+2018-19,P,No ha impartit classe a aquest grup,No l’he tingut,en,ca,en
+2018-19,A,,Needs Better teaching materials and more information on the subject especially for people learning the subject for the first time,en,en,en
 2018-19,A,,"strength: new concepts and ideas
-aspects of improvements: should be given more credit hours and with at most two lectures per day",en
-2018-19,P,,should be more focused on course contents.,en
-2018-19,A,,"We still have not taked our exam so I cannot comment on the assessment part, if it is or is not suitable. Generally speaking, I do not feel like I have benefited too much from this course. The profesor is very knowledgable and full of information, however the way it was presented seems a bit unadapt for the knowledge the studets have. Therefore, many times I was not able to follow the class. Perhaps is the course is no so intensive, with more time students can get a better idea of the course content, more time would allow us to study more and understand better what is being tought. But generally speaking, this is the only course I had issues with, otherwise, I am very happy with the courses offered by the faculty.",en
-2018-19,P,,"Eduardo Rojas, not Jose Antonio Bonet. I feel that prof Rojas is amazingly smart and knowledgable, however, does not transfer his knowledge well onto his students. ",en
-2018-19,A,,The subject should be allowed more time rather than giving it in a block term. More weeks are needed for the student to learn more since the topic itself is wide,en
-2018-19,P,,The ime frame alloted for the subject is very small so to use all techniques for teaching and leanring might be difficult for the professor. but he is very knowlegeable.,en
-2018-19,A,,Molt bon professor,en
-2018-19,P,,Molt bon professor,en
-2018-19,A,,I think it would be better if some classes would be included on basic knowledge of forest management besides five field trips.,en
-2018-19,P,,is a good teacher,en
-2018-19,P,,He is a very good teacher,en
-2018-19,P,,I like her teaching.,en
-2018-19,P,,He is a very good teacher,en
+aspects of improvements: should be given more credit hours and with at most two lectures per day",en,en,en
+2018-19,P,,should be more focused on course contents.,en,en,en
+2018-19,A,,"We still have not taked our exam so I cannot comment on the assessment part, if it is or is not suitable. Generally speaking, I do not feel like I have benefited too much from this course. The profesor is very knowledgable and full of information, however the way it was presented seems a bit unadapt for the knowledge the studets have. Therefore, many times I was not able to follow the class. Perhaps is the course is no so intensive, with more time students can get a better idea of the course content, more time would allow us to study more and understand better what is being tought. But generally speaking, this is the only course I had issues with, otherwise, I am very happy with the courses offered by the faculty.",en,en,en
+2018-19,P,,"Eduardo Rojas, not Jose Antonio Bonet. I feel that prof Rojas is amazingly smart and knowledgable, however, does not transfer his knowledge well onto his students. ",en,en,en
+2018-19,A,,The subject should be allowed more time rather than giving it in a block term. More weeks are needed for the student to learn more since the topic itself is wide,en,en,en
+2018-19,P,,The ime frame alloted for the subject is very small so to use all techniques for teaching and leanring might be difficult for the professor. but he is very knowlegeable.,en,en,en
+2018-19,A,,Molt bon professor,en,ca,en
+2018-19,P,,Molt bon professor,en,ca,en
+2018-19,A,,I think it would be better if some classes would be included on basic knowledge of forest management besides five field trips.,en,en,en
+2018-19,P,,is a good teacher,en,en,en
+2018-19,P,,He is a very good teacher,en,en,en
+2018-19,P,,I like her teaching.,en,en,en
+2018-19,P,,He is a very good teacher,en,en,en
 2018-19,A,,"strengths:practical and on site observation of how forests are being managed
-aspects of improvement: could be even better if some more lectures about the topic are included.",en
+aspects of improvement: could be even better if some more lectures about the topic are included.",en,en,en
 2018-19,A,,"MEDFORMAN is among the best courses I took. All the classes were practical and learning through observation. All the topics, the field trips and the lessons were incredible.  
 
-I have only one comment:   regarding the assessment, I think the presentation was used to assess the final performance of the students. I think it would be better to have more assessment options including a report, presentation, participation etc.  ",en
-2018-19,A,,"Another great course, field trips are a great advatage of Lleida as compared to Lisbon and Padova. This course is very good, not only bevause students get to travel, but the trips are well organised and content is profesional and useful.",en
-2018-19,P,,"Prof Rosario is very kind and helpful, and funny too! My experience with her was short but sweet!",en
-2018-19,P,,"Prof Carlos assisted in the cork field trip, he did a good job.",en
-2018-19,P,,I do not remeber this prof.,en
-2018-19,P,,"Prof Jose Antonio Bonet is a good spirit of Medfor here, and I feel sorry he is not teaching more courses to us. It seems that everyone really likes him, and of course for a reason, he is very helpful and approachable. Good job sir!",en
-2018-19,P,,"Subject and the way of studying is good, but personally I think professor didn’t have the same criterias for everyone in the exams which is not fair",en
-2018-19,A,,"Tell the students before, that the presentation is 8 min and that there are 2 min for questions...",en
-2018-19,P,,He is a very good professor putting so much efforts on this subject.the thing that i didn't like was the qualification method which was in my opinion not a very good way ! ,en
+I have only one comment:   regarding the assessment, I think the presentation was used to assess the final performance of the students. I think it would be better to have more assessment options including a report, presentation, participation etc.  ",en,en,en
+2018-19,A,,"Another great course, field trips are a great advatage of Lleida as compared to Lisbon and Padova. This course is very good, not only bevause students get to travel, but the trips are well organised and content is profesional and useful.",en,en,en
+2018-19,P,,"Prof Rosario is very kind and helpful, and funny too! My experience with her was short but sweet!",en,en,en
+2018-19,P,,"Prof Carlos assisted in the cork field trip, he did a good job.",en,en,en
+2018-19,P,,I do not remeber this prof.,en,en,en
+2018-19,P,,"Prof Jose Antonio Bonet is a good spirit of Medfor here, and I feel sorry he is not teaching more courses to us. It seems that everyone really likes him, and of course for a reason, he is very helpful and approachable. Good job sir!",en,en,en
+2018-19,P,,"Subject and the way of studying is good, but personally I think professor didn’t have the same criterias for everyone in the exams which is not fair",en,en,en
+2018-19,A,,"Tell the students before, that the presentation is 8 min and that there are 2 min for questions...",en,en,en
+2018-19,P,,He is a very good professor putting so much efforts on this subject.the thing that i didn't like was the qualification method which was in my opinion not a very good way ! ,en,en,en
 2018-19,A,,"strength: knowledge on gis and remote sensing
-aspects of improvement: could have more credit hours",en
-2018-19,A,,The only problem was time. I will recommend to expand the time in future.,en
-2018-19,P,,He is a very good teacher and a good person too.,en
-2018-19,A,,This subject was amazing. I have learned a lot in every limited period of time. 9 practical assignments submitted and one final exam performed for this course alone. The only problem with this subject is also the time. It was really limited credit hours allocated to this subject when analysing its importance in forestry applications.  I think it would be better to increase the credit hours if possible for future students. ,en
-2018-19,P,,"For me, Professor Jose Martinez is a unique professor in GIS and Remote Sensing.  His classes were super organized, integrated theory and practical classes, interactive and motivating.    ",en
-2018-19,A,,"There was a lot of homework for students, but it was very useful and interesting. I never had gis courses, and this was a perfect introducion. Please give this course more hours, students can befenit much more from the course and smart professor as well!",en
-2018-19,P,,"My experience with prof Martinez is very positive one, sometimes I did not like that he rushed through things, but there was a reason for it, as he wanted to tell us many things in a limited time. I feel like he did an excellent job in introducing us to this topic. He even went an extra mile, and organised a special, off schedule, meeting before the exam to clarify any doubts we had. Thanks a lot prof!",en
-2018-19,P,,Best professor ever,en
+aspects of improvement: could have more credit hours",en,en,en
+2018-19,A,,The only problem was time. I will recommend to expand the time in future.,en,en,en
+2018-19,P,,He is a very good teacher and a good person too.,en,en,en
+2018-19,A,,This subject was amazing. I have learned a lot in every limited period of time. 9 practical assignments submitted and one final exam performed for this course alone. The only problem with this subject is also the time. It was really limited credit hours allocated to this subject when analysing its importance in forestry applications.  I think it would be better to increase the credit hours if possible for future students. ,en,en,en
+2018-19,P,,"For me, Professor Jose Martinez is a unique professor in GIS and Remote Sensing.  His classes were super organized, integrated theory and practical classes, interactive and motivating.    ",en,en,en
+2018-19,A,,"There was a lot of homework for students, but it was very useful and interesting. I never had gis courses, and this was a perfect introducion. Please give this course more hours, students can befenit much more from the course and smart professor as well!",en,en,en
+2018-19,P,,"My experience with prof Martinez is very positive one, sometimes I did not like that he rushed through things, but there was a reason for it, as he wanted to tell us many things in a limited time. I feel like he did an excellent job in introducing us to this topic. He even went an extra mile, and organised a special, off schedule, meeting before the exam to clarify any doubts we had. Thanks a lot prof!",en,en,en
 2018-19,A,,"NO ÉS UNA ASSIGNATURA QUE COMPORTA LA MATEIXA CARREGA QUE LES DEMÈS ASSIGNATURES, EN COMPORTA MOLTA MÉS, PER TANT POTSER NO ÉS UNA ASSIGNATURA QUE HAURIA DE TINDRE 6 CRÈDITS. CREC QUE TOTS ESTEM D'ACORD EN QUE LA SEGONA PART DE L'ASSIGNATURA ÉS LA COSA MÉS MAL ORGANITZADA I POC COHERENT QUE S'HA VIST EN EL TRANSCURS DEL MÀSTER:
 -MASSA TEMARI, EL QUAL NO VA DONAR TEMPS A ACABAR.
 -POC COMPROMIS DEL PROFESSOR AMB L'ALUMNAT, DIFICULTANT MOLT LA COMUNICACIÓ.
@@ -75,7 +76,7 @@ aspects of improvement: could have more credit hours",en
 
 NO TE SENTIT ARRIBAR A UN EXAMEN AMB UN FORMULARI DE MÉS DE 35 FORMULES, LES QUALS NO HAN SIGUT QUASI NI EXPLICADES. PARLO EN NOM DE LA MAJORIA DE MEMBRES DE L'AULA QUAN DIC QUE ELS EXÀMENS DE LA SEGONA PART HAN SIGUT DESPROPORCIONATS I SENSE RELACIÓ AMB EL DONAT A L'AULA.
 
-EL MATERIAL PROPORCIONAT NO SERVEIX DE RES, JA QUE HI HA DIVERSOS CASOS QUE DEMOSTREN QUE PREPARANT L'EXAMEN DE RECUPERACIÓ LA NOTA ÉS MÉS BAIXA QUE EN L'EXAMEN FINAL HAVENT ESTUDIAT MÉS UTILITZANT EL MATERIAL DEL PROFESSOR. ",en
+EL MATERIAL PROPORCIONAT NO SERVEIX DE RES, JA QUE HI HA DIVERSOS CASOS QUE DEMOSTREN QUE PREPARANT L'EXAMEN DE RECUPERACIÓ LA NOTA ÉS MÉS BAIXA QUE EN L'EXAMEN FINAL HAVENT ESTUDIAT MÉS UTILITZANT EL MATERIAL DEL PROFESSOR. ",en,ca,en
 2018-19,P,,"-INCOHERENT.
 -DEMANA MOLT MÉS DEL QUE DONA.
 -NO ESTÀ BEN ORGANITZAT, LI FALTA TEMPS PER DONAR TOT EL MATERIAL I EN L'EXAMEN ENTRA MASSA MATERIAL. (TOT AIXÒ EN UN MÀSTER D' ""ORGANITZACIÓ INDUSTRIAL"").
@@ -84,303 +85,298 @@ EL MATERIAL PROPORCIONAT NO SERVEIX DE RES, JA QUE HI HA DIVERSOS CASOS QUE DEMO
 M'AGRADARIA FER ESMENT DE QUE LES PERSONES QUE VAN PASSAR LA SEVA PART AL EXAMEN FINAL VAN SORTIR DIENT QUE NO SABIEN FER RES I QUE SIMPLEMENT COM QUE EL DIA ANTERIOR HAVIEN FET EL EXAMEN RESOLT DEL 2017 VAN COPIAR TOT EL PROCÉS EN EL EXAMEN EN QÜESTIÓ.
 
 CREC QUE HA DE MILLORAR MOLT I ENTENDRE MÉS EL TEMPS QUE ES TÉ I MARCAR-SE UNS OBJECTIUS MÉS ASSEQUIBLES.
-",en
-2018-19,A,,aspects of improvement: some lectures would be helpful about what is being done,en
-2018-19,P,,Luis is an outstanding professor and he always wants to help us understand the subject. He is also willing to give as many classes as we need to review some topic that wasn't clear. He's one of the best!,en
-2018-19,A,,It was a good course.,en
-2018-19,P,,I really like him because he is a good teacher and he is dedicated to teach us. He also offers review classes if anyone wants.,en
-2018-19,P,,I like her teaching system.,en
-2018-19,P,,"Professor Luis,  very happy to help and to share his knowledge, arranged more classes than allocated time to help us understand in more details,  teaching both theory and practice in a more interactive way, teaching through experimental learning ",en
-2018-19,P,,He is very kind and cooperative teacher. God bless him with happiness ,en
-2018-19,A,,Nice to take the meassures ourself. ,en
+",en,ca,en
+2018-19,A,,aspects of improvement: some lectures would be helpful about what is being done,en,en,en
+2018-19,P,,Luis is an outstanding professor and he always wants to help us understand the subject. He is also willing to give as many classes as we need to review some topic that wasn't clear. He's one of the best!,en,en,en
+2018-19,A,,It was a good course.,en,en,en
+2018-19,P,,I really like him because he is a good teacher and he is dedicated to teach us. He also offers review classes if anyone wants.,en,en,en
+2018-19,P,,"Professor Luis,  very happy to help and to share his knowledge, arranged more classes than allocated time to help us understand in more details,  teaching both theory and practice in a more interactive way, teaching through experimental learning ",en,en,en
+2018-19,P,,He is very kind and cooperative teacher. God bless him with happiness ,en,en,en
+2018-19,A,,Nice to take the meassures ourself. ,en,en,en
 2018-19,P,,"Sometimes to much and to fast talking, with a strange structure. 
-But a very excited Professor, who motivates the students!",en
-2018-19,P,,Improvement on the Use of English Language in Teaching too for international students to benefit,en
-2018-19,A,,They have improved my training adequately,en
-2018-19,P,,I particularly enjoy this lecture,en
+But a very excited Professor, who motivates the students!",en,en,en
+2018-19,P,,Improvement on the Use of English Language in Teaching too for international students to benefit,en,en,en
+2018-19,A,,They have improved my training adequately,en,en,en
+2018-19,P,,I particularly enjoy this lecture,en,en,en
 2018-19,A,,"The examen should be test and also every part should have different weight in the final mark, due to some professors have done like 1h and other 6h or more. 
-",en
-2018-19,A,,Language improvement in the area of English for international students,en
-2018-19,A,,For me it was an important subject but it had few limitations especially with the time.like we studied everything so quickly we hadn't enough time to digest the information that's why i don't really support the idea of extensive courses in only one week!,en
-2018-19,P,,She is an active and ordered person with good knowledge !! she misses a little being more interactive with us and to focus more on us rather on the slides ! apart from that she provided us with all what we needed!,en
-2018-19,A,,There is a good overview of different products offered in this course. It was more or less what I have expected!,en
-2018-19,P,,This was not our profesor. ,en
-2018-19,A,,"I expected more forest products of Catalan forest, not forest products in generall",en
+",en,en,en
+2018-19,A,,Language improvement in the area of English for international students,en,en,en
+2018-19,A,,For me it was an important subject but it had few limitations especially with the time.like we studied everything so quickly we hadn't enough time to digest the information that's why i don't really support the idea of extensive courses in only one week!,en,en,en
+2018-19,P,,She is an active and ordered person with good knowledge !! she misses a little being more interactive with us and to focus more on us rather on the slides ! apart from that she provided us with all what we needed!,en,en,en
+2018-19,A,,There is a good overview of different products offered in this course. It was more or less what I have expected!,en,en,en
+2018-19,P,,This was not our profesor. ,en,en,en
+2018-19,A,,"I expected more forest products of Catalan forest, not forest products in generall",en,en,en
 2018-19,A,,"strengths: knowledge on what new things are being done in forestry sector
-aspects of improvement: some lectures which are more focused on natural resource management and forest management can be added.",en
-2018-19,A,,"This is an interesting course, I would say that it contributes to students in its diversity and broad scope. There were a few cancelled lessons, which never got rescheduled. For this reason, I have put a bad mark for the professors coordination. Other than that, it feels like a little seminar or a conference of different experts, which is a great advantage of this course! Thanks prof Lluis!",en
-2018-19,P,,"Prof Lluis Coll was just one of many profs that gave us a presentation. I do enjoy him very much. Little problems with coordination of different speakers, but this might not be his fault.",en
-2018-19,P,,Prof Jose Antionio Bonet did not participate in this course as far as I remember. ,en
-2018-19,A,,It was good for me.,en
-2018-19,P,,He is a good teacher.,en
-2018-19,P,,He is a good teacher.,en
-2018-19,P,,no l 'he tingut com a professora,en
-2018-19,P,No ha impartit classe a aquest grup,No l'he tingut,en
-2018-19,P,No ha impartit classe a aquest grup,No he tingut a aquest professor,en
-2018-19,P,No ha impartit classe a aquest grup,No l'hem tingut,en
-2018-19,P,No ha impartit classe a aquest grup,No he tingut aquest professor.,en
-2018-19,P,No ha impartit classe a aquest grup,no L´he tingut,en
-2018-19,P,No ha impartit classe a aquest grup,No he tingut aquest professor ,en
-2018-19,P,No ha impartit classe a aquest grup,No he tingut aquest professor ,en
-2018-19,A,,"Course is my reccomendation to others. Content is useful and there is a lot of individual work. However, it feels like we have done a lot more work for this 2,5ECTS credit course, than for some other courses that carry much more credits. Other than that, there is no complaint. ",en
-2018-19,P,,"Prof Alcazar is a very nice prof, ready to help and talk. He is also very understandable and will not create troubles for his students. ",en
-2018-19,A,,"I learned a lot, also the presentaions helped to get more into the topics",en
-2018-19,P,No ha impartit classe a aquest grup,No l’he tingut,en
-2018-19,P,,No l’hem tingut,en
+aspects of improvement: some lectures which are more focused on natural resource management and forest management can be added.",en,en,en
+2018-19,A,,"This is an interesting course, I would say that it contributes to students in its diversity and broad scope. There were a few cancelled lessons, which never got rescheduled. For this reason, I have put a bad mark for the professors coordination. Other than that, it feels like a little seminar or a conference of different experts, which is a great advantage of this course! Thanks prof Lluis!",en,en,en
+2018-19,P,,"Prof Lluis Coll was just one of many profs that gave us a presentation. I do enjoy him very much. Little problems with coordination of different speakers, but this might not be his fault.",en,en,en
+2018-19,P,,Prof Jose Antionio Bonet did not participate in this course as far as I remember. ,en,en,en
+2018-19,A,,It was good for me.,en,en,en
+2018-19,P,,He is a good teacher.,en,en,en
+2018-19,P,,He is a good teacher.,en,en,en
+2018-19,P,,no l 'he tingut com a professora,en,en,en
+2018-19,P,No ha impartit classe a aquest grup,No l'he tingut,en,ca,en
+2018-19,P,No ha impartit classe a aquest grup,No he tingut a aquest professor,en,ca,en
+2018-19,P,No ha impartit classe a aquest grup,No l'hem tingut,en,tk,en
+2018-19,P,No ha impartit classe a aquest grup,No he tingut aquest professor.,en,ca,en
+2018-19,P,No ha impartit classe a aquest grup,No he tingut aquest professor ,en,ca,en
+2018-19,P,No ha impartit classe a aquest grup,No he tingut aquest professor ,en,ca,en
+2018-19,A,,"Course is my reccomendation to others. Content is useful and there is a lot of individual work. However, it feels like we have done a lot more work for this 2,5ECTS credit course, than for some other courses that carry much more credits. Other than that, there is no complaint. ",en,en,en
+2018-19,P,,"Prof Alcazar is a very nice prof, ready to help and talk. He is also very understandable and will not create troubles for his students. ",en,en,en
+2018-19,A,,"I learned a lot, also the presentaions helped to get more into the topics",en,en,en
+2018-19,P,No ha impartit classe a aquest grup,No l’he tingut,en,ca,en
+2018-19,P,,No l’hem tingut,en,tk,en
 2018-19,A,,"strength: new concepts in modeling
-aspects of improvement: more credit hours needed",en
-2018-19,A,,"The course was quite interactive, interesting and contributed significantly to my knowledge. The only challenge with this course was fewer credit hours. I think it would be better if such very important courses will have more credits like 5 or 6 credit hours.   ",en
-2018-19,P,,"All most all the students including me appreciated Professor Sergio for his simplified way of teaching complex and new concepts. His classes were interactive, practical using software and motivating.  ",en
-2018-19,A,,I am satisfied with this subject,en
-2018-19,P,,"Sergio is really a very good teacher. He knows how to teach. Though it was a difficult subject, he made it easy. I like him so much.",en
-2018-19,P,,"S'HA DE DONAR CLASSE DE CARA A TOT EL PÚBLIC PRESENT, NO NOMÉS DE CARA A LA PISSARRA TOT I ESTAR COMENTAT LES PRESENTACIONS. EL FET DE NO ENCARAR-SE A TOTHOM DIFICULTA EL SEGUIMENT DE LA CLASSE.",en
-2018-19,P,,No l’hem tingut,en
-2018-19,P,,Carlos Colinas is one of the best professors I've had in my academic career.,en
-2018-19,A,,"Course demands a lot of students, in terms of different activites that are mandatory. However this is a great strenght of the course. At times it might have felt like too much, but finally I am glad I took this course, thanks prof Carlos!",en
-2018-19,P,,"He was joining us shortly but the experience was pleasing. There was a little issue with driving the mini van, as it was not organised properly and than, students had to drive, and they did not feel like doing it. ",en
-2018-19,P,,"Prof Carlos is crazy but I love him! He made us work a lot, and it shows, in Winter School, Lleida students were noticebly more knowledgable that other students in Forest Health classes, so thanks a lot prof! Sometimes, some things felt unadequatly explained, but prof always asked us to give hime comments, which we did, and therefor I could say that I feel like he is ready to listen and change things that might not work the best.",en
-2018-19,P,,Very well organized! Nice methods and field trips.,en
-2018-19,P,,Un buen profesional,en
-2018-19,P,,Tot molt correcte. Gran professora.,en
-2018-19,P,,Tot correcte,en
-2018-19,A,,Language improvement for International students should be improved,en
-2018-19,A,,I have enjoyed it very much !,en
-2018-19,P,,Both teachers are great!,en
-2018-19,P,,Both teachers are great!,en
-2018-19,P,,Feedback ràpid ineficient. Satisfactori.,en
-2018-19,P,,CALDRIA CORREGIR LES PRACTIQUES AMB ANTERIORITAT A FER L'EXAMEN,en
-2018-19,P,No ha impartit classe a aquest grup,No he cursado,en
-2018-19,P,,Molt bon profesor Josep.,en
-2018-19,P,,"Bon professor, millor persona",en
+aspects of improvement: more credit hours needed",en,en,en
+2018-19,A,,"The course was quite interactive, interesting and contributed significantly to my knowledge. The only challenge with this course was fewer credit hours. I think it would be better if such very important courses will have more credits like 5 or 6 credit hours.   ",en,en,en
+2018-19,P,,"All most all the students including me appreciated Professor Sergio for his simplified way of teaching complex and new concepts. His classes were interactive, practical using software and motivating.  ",en,en,en
+2018-19,A,,I am satisfied with this subject,en,en,en
+2018-19,P,,"Sergio is really a very good teacher. He knows how to teach. Though it was a difficult subject, he made it easy. I like him so much.",en,en,en
+2018-19,P,,"S'HA DE DONAR CLASSE DE CARA A TOT EL PÚBLIC PRESENT, NO NOMÉS DE CARA A LA PISSARRA TOT I ESTAR COMENTAT LES PRESENTACIONS. EL FET DE NO ENCARAR-SE A TOTHOM DIFICULTA EL SEGUIMENT DE LA CLASSE.",en,ca,en
+2018-19,P,,No l’hem tingut,en,tk,en
+2018-19,P,,Carlos Colinas is one of the best professors I've had in my academic career.,en,en,en
+2018-19,A,,"Course demands a lot of students, in terms of different activites that are mandatory. However this is a great strenght of the course. At times it might have felt like too much, but finally I am glad I took this course, thanks prof Carlos!",en,en,en
+2018-19,P,,"He was joining us shortly but the experience was pleasing. There was a little issue with driving the mini van, as it was not organised properly and than, students had to drive, and they did not feel like doing it. ",en,en,en
+2018-19,P,,"Prof Carlos is crazy but I love him! He made us work a lot, and it shows, in Winter School, Lleida students were noticebly more knowledgable that other students in Forest Health classes, so thanks a lot prof! Sometimes, some things felt unadequatly explained, but prof always asked us to give hime comments, which we did, and therefor I could say that I feel like he is ready to listen and change things that might not work the best.",en,en,en
+2018-19,P,,Very well organized! Nice methods and field trips.,en,en,en
+2018-19,P,,Un buen profesional,en,es,en
+2018-19,P,,Tot molt correcte. Gran professora.,en,ca,en
+2018-19,P,,Tot correcte,en,en,en
+2018-19,A,,Language improvement for International students should be improved,en,en,en
+2018-19,A,,I have enjoyed it very much !,en,en,en
+2018-19,P,,Both teachers are great!,en,en,en
+2018-19,P,,Both teachers are great!,en,en,en
+2018-19,P,,Feedback ràpid ineficient. Satisfactori.,en,en,en
+2018-19,P,,CALDRIA CORREGIR LES PRACTIQUES AMB ANTERIORITAT A FER L'EXAMEN,en,ca,en
+2018-19,P,No ha impartit classe a aquest grup,No he cursado,en,en,en
+2018-19,P,,Molt bon profesor Josep.,en,ca,en
+2018-19,P,,"Bon professor, millor persona",en,ca,en
 2018-19,A,,"strength: comprehensive with field visits
-aspects of improvement: could be better if more topics on wildlife management were included",en
+aspects of improvement: could be better if more topics on wildlife management were included",en,en,en
 2018-19,P,,"Strengths: uses suitable methods of teaching and on field explanation
-aspects of improvement: clarity in explanation (in terms of speech) and better communication",en
+aspects of improvement: clarity in explanation (in terms of speech) and better communication",en,en,en
 2018-19,P,,"strengths: Explanations are good and use of suitable method of teaching with field visits
-aspects of improvement: could include more practical on site visits and field observations for better understanding",en
-2018-19,P,,"I am sure that prof Jesus is an excellent profesor, however his skills of giving a lecture in English language are relatively poor and most times I did not understand what was being tought. ",en
-2018-19,P,,"Very cool profesor, we had a great time with him on our fieldtrip, he was engaging and happy to talk to us about all topics!",en
-2018-19,P,,Crack.,en
+aspects of improvement: could include more practical on site visits and field observations for better understanding",en,en,en
+2018-19,P,,"I am sure that prof Jesus is an excellent profesor, however his skills of giving a lecture in English language are relatively poor and most times I did not understand what was being tought. ",en,en,en
+2018-19,P,,"Very cool profesor, we had a great time with him on our fieldtrip, he was engaging and happy to talk to us about all topics!",en,en,en
+2018-19,P,,Crack.,en,en,en
 2018-19,A,,"Strengths: Practical and added to the existing knowledge
-Aspects of improvement: Too much information to be covered in short and extensive period. Would be better if more credit is given to the course and course completed in more classes than just in three extensive days.",en
+Aspects of improvement: Too much information to be covered in short and extensive period. Would be better if more credit is given to the course and course completed in more classes than just in three extensive days.",en,en,en
 2018-19,P,,"Strengths: High knowledge of the subject and good explanation.
-Aspects of improvement: Should have clear grading schemes before the examination.",en
-2018-19,A,,Interesing and useful,en
-2018-19,P,,"The profesor is great and helpful, and just like his other collegues from Valencia, I have enjoyed his lessons. ",en
-2018-19,A,,This will help me in future,en
-2018-19,P,,I liked his teaching,en
-2018-19,P,,Molt bon professor!,en
-2018-19,P,,Molt bon professor!,en
-2018-19,A,,"The assignments should be clearer, some questions are confusing and lead to misinterpretation. ",en
-2018-19,P,,"The professor gave a clear explanation on the topics which I can understand very well. He carried the topic in a simple, understandable way without losing the essence of it. He was also available for a contact every time I ran into problems. ",en
-2018-19,A,,"Good course. The course was focused on practical work and self-learning by recommended readings. As an improvement point, I would like to have more theoric background of risk assessment ",en
-2018-19,P,,"The professor knows a lot about the topic. He has been researching about it, thus it was an excellent learning opportunity for the students. He is also very flexible with timetable and he managed to make a good environment in the classroom. As an improvement point, he could include more theoretical background for risk assessment in general e.g.including other hazards, like wind, snow..",en
-2018-19,P,No ha impartit classe a aquest grup,He did not teach on the course.,en
-2018-19,P,,"Very helpful, patient and easy to contact.",en
-2018-19,P,,Molt bon professor.,en
-2018-19,P,,Molt bon professor.,en
-2018-19,P,,Molt bon professor!,en
-2018-19,P,,Molt bon professor!,en
-2018-19,P,No ha impartit classe a aquest grup,No l'hem tingut.,en
-2018-19,A,,"All perfect, but sometimes the students were confused regarding the lecture halls, as those were changing frequnetly. But I understand this is an issue hard to avoid sometimes.",en
-2018-19,P,,"Prof Cristina is really great, she has been tolerating our slow progress with gis with a smile on her face, which must have been hard at times for sure. ",en
-2018-19,P,,"I was hearing only great comments about Luis from my collegues in the first semester, and was very happy to meet him in this semeter. He has a very good teaching methodology and skills, and was also very understanding when I was late to the meeting I have previously asked him to do. ",en
-2018-19,P,,"I had a pleasure of having this prof again in the second semeter. I like his teaching style, trying to get us to think rather than memorising bunch of facts which we always have access to anyways. Good job!  ",en
-2018-19,A,,I am satisfied with this subject,en
-2018-19,P,,She is a nice teacher and a nice person.,en
-2018-19,P,,He is really a good teacher,en
-2018-19,P,,He is a good teacher. He is very helpful.,en
-2018-19,P,,"Super nice profesor, thank you for driving us and tolerating a full vehicle of sleeping students!",en
-2018-19,A,,"This subject has a extensive workload and make difficult to follow with other signatres. Apart of that, the subject plays an important role in the formation.",en
-2018-19,P,,"The professor gets very nervous while doing explanations in English. Actually I think that she doesn't believe in her proficiency, even being capable, as seen on individual conversations.",en
+Aspects of improvement: Should have clear grading schemes before the examination.",en,en,en
+2018-19,A,,Interesing and useful,en,en,en
+2018-19,P,,"The profesor is great and helpful, and just like his other collegues from Valencia, I have enjoyed his lessons. ",en,en,en
+2018-19,A,,This will help me in future,en,en,en
+2018-19,P,,I liked his teaching,en,en,en
+2018-19,P,,Molt bon professor!,en,ca,en
+2018-19,P,,Molt bon professor!,en,ca,en
+2018-19,A,,"The assignments should be clearer, some questions are confusing and lead to misinterpretation. ",en,en,en
+2018-19,P,,"The professor gave a clear explanation on the topics which I can understand very well. He carried the topic in a simple, understandable way without losing the essence of it. He was also available for a contact every time I ran into problems. ",en,en,en
+2018-19,A,,"Good course. The course was focused on practical work and self-learning by recommended readings. As an improvement point, I would like to have more theoric background of risk assessment ",en,en,en
+2018-19,P,,"The professor knows a lot about the topic. He has been researching about it, thus it was an excellent learning opportunity for the students. He is also very flexible with timetable and he managed to make a good environment in the classroom. As an improvement point, he could include more theoretical background for risk assessment in general e.g.including other hazards, like wind, snow..",en,en,en
+2018-19,P,No ha impartit classe a aquest grup,He did not teach on the course.,en,en,en
+2018-19,P,,"Very helpful, patient and easy to contact.",en,en,en
+2018-19,P,,Molt bon professor.,en,ca,en
+2018-19,P,,Molt bon professor.,en,ca,en
+2018-19,P,,Molt bon professor!,en,ca,en
+2018-19,P,,Molt bon professor!,en,ca,en
+2018-19,P,No ha impartit classe a aquest grup,No l'hem tingut.,en,tk,en
+2018-19,A,,"All perfect, but sometimes the students were confused regarding the lecture halls, as those were changing frequnetly. But I understand this is an issue hard to avoid sometimes.",en,en,en
+2018-19,P,,"Prof Cristina is really great, she has been tolerating our slow progress with gis with a smile on her face, which must have been hard at times for sure. ",en,en,en
+2018-19,P,,"I was hearing only great comments about Luis from my collegues in the first semester, and was very happy to meet him in this semeter. He has a very good teaching methodology and skills, and was also very understanding when I was late to the meeting I have previously asked him to do. ",en,en,en
+2018-19,P,,"I had a pleasure of having this prof again in the second semeter. I like his teaching style, trying to get us to think rather than memorising bunch of facts which we always have access to anyways. Good job!  ",en,en,en
+2018-19,A,,I am satisfied with this subject,en,en,en
+2018-19,P,,She is a nice teacher and a nice person.,en,en,en
+2018-19,P,,He is really a good teacher,en,en,en
+2018-19,P,,He is a good teacher. He is very helpful.,en,en,en
+2018-19,P,,"Super nice profesor, thank you for driving us and tolerating a full vehicle of sleeping students!",en,en,en
+2018-19,A,,"This subject has a extensive workload and make difficult to follow with other signatres. Apart of that, the subject plays an important role in the formation.",en,en,en
+2018-19,P,,"The professor gets very nervous while doing explanations in English. Actually I think that she doesn't believe in her proficiency, even being capable, as seen on individual conversations.",en,en,en
 2018-19,A,Comentari de professor,"The lectures by Luis Serrano were relavant, but were rather chaotic, without a clear focus.
 The fieldtrips with Lluis Coll were very relevant and interesting.
-The practical sessions with Cristina Vega were rushed, but these were critical for developing important skills. The expectations for the assignments were unclear, and this could be improved by proving a written document summarising the expectations.",en
+The practical sessions with Cristina Vega were rushed, but these were critical for developing important skills. The expectations for the assignments were unclear, and this could be improved by proving a written document summarising the expectations.",en,en,en
 2018-19,P,,"
-The practical sessions with Cristina Vega were rushed, but these were critical for developing important skills. See previous",en
+The practical sessions with Cristina Vega were rushed, but these were critical for developing important skills. See previous",en,en,en
 2018-19,P,,"The lectures by Luis Serrano were relavant, but were rather chaotic, without a clear focus.
-Luis Serrano is passionate, but he had to schedule extra classes becuase he did not have enough time to complete all the teaching in the sessions.",en
-2018-19,P,,The fieldtrips with Lluis Coll were very relevant and interesting. See previous,en
-2018-19,A,,The course had a wide approach about landscape ecology. Field trips were very good to consolidate the knowledge. Theoretical background about the landscape metrics could be better approached due to their complexity.  ,en
-2018-19,P,,Strong background knowledge of the Mediterranean landscape was a strength. The evaluation method was good and push the students to do their best. ,en
-2018-19,P,,"A bit confusing teaching methodology, however, he is a good professor on ecology due to his knowledge.  ",en
-2018-19,P,,Very good professor! He knows a lot and the most important is that he knows how to extend it to the students. ,en
-2018-19,A,,could be more interesting if the practical hour would have more.,en
-2018-19,P,,she is a perfect professor but sometimes she speaks so fast and tries to teach quickly. I think it would be more interesting if she teaches a bit slower.,en
-2018-19,P,,I like the way how he teaches.,en
-2018-19,A,,The contents of the different modules of the course can be better coordinated in order to avoid the repetition of basic knowledge. It happened mainly with some invited lecturers.,en
-2018-19,P,,"Sometimes his methods are confusing. An information storm is not always the best method, an even less in short term lectures.",en
-2018-19,P,,He is a referent as a professional and as a person,en
-2018-19,A,,Could have an extra topic of landscape planning (e.g. designation of areas for afforestation based on landscape metrics),en
+Luis Serrano is passionate, but he had to schedule extra classes becuase he did not have enough time to complete all the teaching in the sessions.",en,en,en
+2018-19,P,,The fieldtrips with Lluis Coll were very relevant and interesting. See previous,en,en,en
+2018-19,A,,The course had a wide approach about landscape ecology. Field trips were very good to consolidate the knowledge. Theoretical background about the landscape metrics could be better approached due to their complexity.  ,en,en,en
+2018-19,P,,Strong background knowledge of the Mediterranean landscape was a strength. The evaluation method was good and push the students to do their best. ,en,en,en
+2018-19,P,,"A bit confusing teaching methodology, however, he is a good professor on ecology due to his knowledge.  ",en,en,en
+2018-19,P,,Very good professor! He knows a lot and the most important is that he knows how to extend it to the students. ,en,en,en
+2018-19,A,,could be more interesting if the practical hour would have more.,en,en,en
+2018-19,P,,she is a perfect professor but sometimes she speaks so fast and tries to teach quickly. I think it would be more interesting if she teaches a bit slower.,en,en,en
+2018-19,P,,I like the way how he teaches.,en,en,en
+2018-19,A,,The contents of the different modules of the course can be better coordinated in order to avoid the repetition of basic knowledge. It happened mainly with some invited lecturers.,en,en,en
+2018-19,P,,"Sometimes his methods are confusing. An information storm is not always the best method, an even less in short term lectures.",en,en,en
+2018-19,P,,He is a referent as a professional and as a person,en,en,en
+2018-19,A,,Could have an extra topic of landscape planning (e.g. designation of areas for afforestation based on landscape metrics),en,en,en
 2018-19,P,,"Some students had problems to follow the computer-lab instructions.
 
 Could have an extra topic of landscape planning (e.g. designation of areas for afforestation based on landscape metrics)
-",en
-2018-19,P,,"Could have worked the theory in a more applied perspective (e.g. management implications of maintaining high entropy levels, energy consumption, etc).",en
-2018-19,P,,The field trips were nice but for learning purposes would be nicer to have handouts and exercises to do while in the field trip.,en
-2018-19,A,,"Good course! The course content was diverse and we managed to get in touch with many different kinds of decision support systems. As an improvement point, the final exam could be replaced by reports or presentations.",en
-2018-19,P,,The professor managed very well the course. Good teaching methodology. ,en
-2018-19,A,,A project-work would be nice for this subject,en
-2018-19,P,,"Would be nice to have contact with people that deal with DSS inside private and public companies, because we only had the academic/research perspective. ",en
-2018-19,A,,this is the perfect course but if the real data would available then it would be more interesting,en
-2018-19,P,,he is the best among the professor that i found in Lleida,en
-2018-19,A,,An important topic for Forest Eng. The course could be longer (including more credits) to be able to cover other important topics of spatial statistics methods (e.g. kriging). Practical work was very important to consolidate knowledge. ,en
-2018-19,P,,"Very good professor! Good teaching methodology and managed to maintain a good learning environment, even though the complexity of the course was high.   ",en
-2018-19,A,,"This course must be better planned. Just approached on a small area of precision forestry, even so, the lectures were very confused and in the end, we did not learn much. ",en
-2018-19,P,,"The professor seemed to be not motivated and he did not plan the lectures. In my opinion, this course must be rebuild. Including Drones assessment (fly and image) on the course would be a strength.",en
-2018-19,A,,i haven't get any idea about the course lecture,en
-2018-19,P,,next time he would have to come with better knowledge of contant and preparation. ,en
-2018-19,A,,"There was no teaching plan, the lecturer was totally unprepared for the lectures and we could not learn anything. ",en
+",en,en,en
+2018-19,P,,"Could have worked the theory in a more applied perspective (e.g. management implications of maintaining high entropy levels, energy consumption, etc).",en,en,en
+2018-19,P,,The field trips were nice but for learning purposes would be nicer to have handouts and exercises to do while in the field trip.,en,en,en
+2018-19,A,,"Good course! The course content was diverse and we managed to get in touch with many different kinds of decision support systems. As an improvement point, the final exam could be replaced by reports or presentations.",en,en,en
+2018-19,P,,The professor managed very well the course. Good teaching methodology. ,en,en,en
+2018-19,A,,A project-work would be nice for this subject,en,en,en
+2018-19,P,,"Would be nice to have contact with people that deal with DSS inside private and public companies, because we only had the academic/research perspective. ",en,en,en
+2018-19,A,,this is the perfect course but if the real data would available then it would be more interesting,en,en,en
+2018-19,P,,he is the best among the professor that i found in Lleida,en,en,en
+2018-19,A,,An important topic for Forest Eng. The course could be longer (including more credits) to be able to cover other important topics of spatial statistics methods (e.g. kriging). Practical work was very important to consolidate knowledge. ,en,en,en
+2018-19,P,,"Very good professor! Good teaching methodology and managed to maintain a good learning environment, even though the complexity of the course was high.   ",en,en,en
+2018-19,A,,"This course must be better planned. Just approached on a small area of precision forestry, even so, the lectures were very confused and in the end, we did not learn much. ",en,en,en
+2018-19,P,,"The professor seemed to be not motivated and he did not plan the lectures. In my opinion, this course must be rebuild. Including Drones assessment (fly and image) on the course would be a strength.",en,en,en
+2018-19,A,,i haven't get any idea about the course lecture,en,en,en
+2018-19,P,,next time he would have to come with better knowledge of contant and preparation. ,en,en,en
+2018-19,A,,"There was no teaching plan, the lecturer was totally unprepared for the lectures and we could not learn anything. ",en,en,en
 2018-19,P,,"There was no teaching plan;
 The lecturer was totally unprepared for the lectures;
 There was very bad communication with the students;
-The lecturer did not show motivation.",en
+The lecturer did not show motivation.",en,en,en
 2018-19,A,,"strength: enhancement of knowledge about river restoration and rehabilitation
-aspects of improvement: too short and extensive, need more credit hours for better understanding the subject",en
+aspects of improvement: too short and extensive, need more credit hours for better understanding the subject",en,en,en
 2018-19,P,,"strengths: explains clearly, uses suitable methods
-aspects of improvement: could include updated software for analysis, if there are any",en
+aspects of improvement: could include updated software for analysis, if there are any",en,en,en
 2018-19,P,,"strengths: explains clearly, uses suitable methods
-aspects of improvement: could include updated software for analysis, if there are any",en
-2018-19,A,,"All great, the fieldtrip experience was amazing and also very funny! The only problem to report might be that there is not enough hours for this course. After the field trip, which was kind of exhausting due to the strong sun exposure, we went back to class where we were explained what we have to do in our reports. At this time I was tired and had a difficulty concentrating and following the crucial intructions, so perhaps, this two part should be separated in two days instead. ",en
-2018-19,P,,"I really like this prof, he explains well and simple, and he is also very kind are careful. ",en
-2018-19,P,,"Good profesor, altough with a very macho persona, which was not apperciated by me. Remember, there is no nice way to colonize an area, and saying that Spanish did a more friendly colonization than Britsh is not something I would expect to hear from an autorative figure such as profesor, especially in an international envornment where many students come from previosuly colonized countries. Non the less, I have learned some new tecnical measuring knowledge, and thanks for teaching us that!",en
-2018-19,A,,This course was beyond expectations! Great course!,en
-2018-19,P,,Molt bon professor,en
-2018-19,P,No ha impartit classe a aquest grup,No l'hem tingut,en
-2018-19,A,,Good course content! As an improvement point could include more about processed based models and more practical exercise with the studied models  ,en
-2018-19,P,,Good professor! ,en
-2018-19,P,,Good professor,en
-2018-19,P,,i like the way he interacts with student and gives a lot of good ideas. ,en
-2018-19,A,,Wide and complete approach to a complex and diverse field,en
-2018-19,P,,The sessions were very well put together,en
-2018-19,A,,It is a good subgect,en
-2018-19,P,,She is a good teacher,en
-2018-19,P,,She is a nice teacher,en
-2018-19,P,,He is also  a good teacher,en
-2018-19,P,,Molt bon professor.,en
+aspects of improvement: could include updated software for analysis, if there are any",en,en,en
+2018-19,A,,"All great, the fieldtrip experience was amazing and also very funny! The only problem to report might be that there is not enough hours for this course. After the field trip, which was kind of exhausting due to the strong sun exposure, we went back to class where we were explained what we have to do in our reports. At this time I was tired and had a difficulty concentrating and following the crucial intructions, so perhaps, this two part should be separated in two days instead. ",en,en,en
+2018-19,P,,"I really like this prof, he explains well and simple, and he is also very kind are careful. ",en,en,en
+2018-19,P,,"Good profesor, altough with a very macho persona, which was not apperciated by me. Remember, there is no nice way to colonize an area, and saying that Spanish did a more friendly colonization than Britsh is not something I would expect to hear from an autorative figure such as profesor, especially in an international envornment where many students come from previosuly colonized countries. Non the less, I have learned some new tecnical measuring knowledge, and thanks for teaching us that!",en,en,en
+2018-19,A,,This course was beyond expectations! Great course!,en,en,en
+2018-19,P,,Molt bon professor,en,ca,en
+2018-19,P,No ha impartit classe a aquest grup,No l'hem tingut,en,tk,en
+2018-19,A,,Good course content! As an improvement point could include more about processed based models and more practical exercise with the studied models  ,en,en,en
+2018-19,P,,Good professor! ,en,en,en
+2018-19,P,,Good professor,en,en,en
+2018-19,P,,i like the way he interacts with student and gives a lot of good ideas. ,en,en,en
+2018-19,A,,Wide and complete approach to a complex and diverse field,en,en,en
+2018-19,P,,The sessions were very well put together,en,en,en
+2018-19,A,,It is a good subgect,en,en,en
+2018-19,P,,She is a good teacher,en,en,en
+2018-19,P,,She is a nice teacher,en,en,en
+2018-19,P,,He is also  a good teacher,en,en,en
+2018-19,P,,Molt bon professor.,en,ca,en
 2018-19,A,,"strength: covers important content for experimental designs and analysis
-aspects of improvement: could provide the video or slides of each steps done in software in the class. Sometimes they are too quick for us to follow.",en
+aspects of improvement: could provide the video or slides of each steps done in software in the class. Sometimes they are too quick for us to follow.",en,en,en
 2018-19,P,,"strength: explains clearly
-aspects of improvements: could use the software a bit slowly, sometimes too fast to follow",en
+aspects of improvements: could use the software a bit slowly, sometimes too fast to follow",en,en,en
 2018-19,P,,"strength: explains clearly
-aspects of improvements: could use the software a bit slowly, sometimes too fast to follow",en
-2018-19,A,,Great course!,en
-2018-19,P,,Jordi is very well prepared and patience.,en
-2018-19,A,,It is an essential and a very good subject,en
-2018-19,P,,He is an excellent teacher,en
-2018-19,P,,He is an excellent professor.,en
-2018-19,A,,"The course was good! Field trips were very good. As an improvement point, the course could include more about economics and metrics to asses the ecosystem services.",en
-2018-19,P,,The professor knows a lot about the topic but had difficult to teach due to problems in the English language.  ,en
-2018-19,A,,could be best if we can see the example of field level implementation of the payment system.,en
-2018-19,P,,"she is a good professor but her level of English is very poor. during the classes, I could not get her properly because of language problem.",en
-2018-19,P,,Her english level must improve because sometimes it entails some difficulties in the classes. ,en
-2018-19,A,,"Could have worked more with the methodologies for PES in combination with case-study comparison, exploring positive and negative aspects.",en
+aspects of improvements: could use the software a bit slowly, sometimes too fast to follow",en,en,en
+2018-19,A,,Great course!,en,en,en
+2018-19,P,,Jordi is very well prepared and patience.,en,en,en
+2018-19,A,,It is an essential and a very good subject,en,en,en
+2018-19,P,,He is an excellent teacher,en,en,en
+2018-19,P,,He is an excellent professor.,en,en,en
+2018-19,A,,"The course was good! Field trips were very good. As an improvement point, the course could include more about economics and metrics to asses the ecosystem services.",en,en,en
+2018-19,P,,The professor knows a lot about the topic but had difficult to teach due to problems in the English language.  ,en,en,en
+2018-19,A,,could be best if we can see the example of field level implementation of the payment system.,en,en,en
+2018-19,P,,"she is a good professor but her level of English is very poor. during the classes, I could not get her properly because of language problem.",en,en,en
+2018-19,P,,Her english level must improve because sometimes it entails some difficulties in the classes. ,en,en,en
+2018-19,A,,"Could have worked more with the methodologies for PES in combination with case-study comparison, exploring positive and negative aspects.",en,en,en
 2018-19,P,,"Could have worked more with the methodologies for PES in combination with case-study comparison, exploring positive and negative aspects.
-Some students had language/communication problems.",en
-2018-19,P,,"Luis Serrano is a professor that loves his work, and it shows. Great professor!",en
-2018-19,A,,This subject matches with my interest fully,en
-2018-19,P,,"He is an excellent teacher, a good person and very friendly and helpful.",en
-2018-19,A,,I think that it would be better if there were more practical classes and less theoretical ,en
+Some students had language/communication problems.",en,en,en
+2018-19,P,,"Luis Serrano is a professor that loves his work, and it shows. Great professor!",en,en,en
+2018-19,A,,This subject matches with my interest fully,en,en,en
+2018-19,P,,"He is an excellent teacher, a good person and very friendly and helpful.",en,en,en
+2018-19,A,,I think that it would be better if there were more practical classes and less theoretical ,en,en,en
 2018-19,P,,"I really appreciate how passionate the teacher is. He is very good in what he is doing, he gives perfect and funny examples and can forward the information very well. I think he is a person in the right place.
-Thank you",en
-2018-19,P,No ha impartit classe a aquest grup,No l'hem tingut,en
-2018-19,P,No ha impartit classe a aquest grup,"NO l'he tingut com a professor, no el puc avaluar",en
-2018-19,A,,(Considering CAUFAC as evaluated course) Very intense and very good course. ,en
-2018-19,A,,"I found quite traditional assessment system. I prefer some kind of practical assessment, not the handwritten examination.",en
-2018-19,P,,"I like his teaching approach. but his English level is very poor, sometimes it makes me difficult to understand him.",en
-2018-19,P,,I prefer more field exercises in his part of the course. ,en
-2018-19,P,,"His english, mainly spoken skills, must improve ",en
-2018-19,P,,Molt bona professora.,en
+Thank you",en,en,en
+2018-19,P,No ha impartit classe a aquest grup,No l'hem tingut,en,tk,en
+2018-19,A,,(Considering CAUFAC as evaluated course) Very intense and very good course. ,en,en,en
+2018-19,A,,"I found quite traditional assessment system. I prefer some kind of practical assessment, not the handwritten examination.",en,en,en
+2018-19,P,,"I like his teaching approach. but his English level is very poor, sometimes it makes me difficult to understand him.",en,en,en
+2018-19,P,,I prefer more field exercises in his part of the course. ,en,en,en
+2018-19,P,,"His english, mainly spoken skills, must improve ",en,en,en
 2018-19,A,,"strength: got chance to update my knowledge and learn new things
-aspects of improvement: topics could selected which are more important globally and have higher concern",en
+aspects of improvement: topics could selected which are more important globally and have higher concern",en,en,en
 2018-19,P,,"strengths: Positive in thinking and helpful
-aspects for improvement: Could explain slowly and in depth without hurrying too much",en
-2018-19,A,,This subject matches with my interest ,en
-2018-19,P,,He is a good teacher,en
-2018-19,P,,She is an excellent professor,en
-2018-19,P,,she is a good teacher,en
-2018-19,P,,He is a very good professor and an excellent person.,en
-2018-19,A,,I think that this subject read the maximum possible number of teachers. The material will be perceived better without a constant change of teachers.,en
-2018-19,P,,"Unfortunately, Teresa managed to spend only a couple of classes.",en
-2019-20,P,,"Professor molt útil, bon professor.",en
-2019-20,P,,Perfecte,en
-2019-20,P,,Perfecte,en
-2019-20,P,,Tot be,en
-2019-20,P,,molt bon professor,en
-2019-20,P,,És molt bon professor.,en
-2019-20,P,No ha impartit classe a aquest grup,No l’hem tingut.,en
-2019-20,P,,Molt bona professional,en
-2019-20,P,,Bon profesor. ,en
-2019-20,P,,Un bon professor. ,en
-2019-20,P,,Molt bon professor.,en
-2019-20,P,,Molt bon professor,en
-2019-20,P,No ha impartit classe a aquest grup,No l’hem tingut a fisiologia II.,en
-2019-20,P,,"He is a great professor, i really like the way he does his classes. Very interesting and i believe we will learn a lot from him. ",en
-2019-20,P,,Molt bona professora,en
-2019-20,A,,Professorat inepte,en
-2019-20,P,,"ME HA GUSTADO MUCHO LA PROFESORA, SOBRE TODO, SU CALMA Y SEGURIDAD A LA HORA DE IMPARTIR CLASE!!",en
-2019-20,P,,"BUEN PROFESOR...HA DESPERTADO INTERÉS EN LA ASIGNATURA, LO CUAL ES IMPORTANTE PARA CUALQUIER ALUMNO.",en
-2019-20,P,,Correcte,en
-2019-20,P,,Molt bona professora,en
-2019-20,A,,Tot súper be inclús estudiant on line ,en
-2019-20,P,,The best one! ,en
-2019-20,P,,Bona profe.,en
-2019-20,P,,Molt bona professora.,en
-2019-20,P,,Molt bona professora,en
-2019-20,P,,"UNA GRAN PROFESSORA QUE ESPERO QUE SEGUEIXI A LA UDL MOLTS ANYS MÉS, S'HO MEREIX.",en
-2019-20,A,,"Their is no connection between the chapters and the exams, both oral and written ",en
-2019-20,P,,"All the positive aspects are mentioned above. However, I think teachers of English should have a good level of English. ",en
-2019-20,P,,"We did not have the chance to experience with her teaching methods.however, she was cooperative and accessible during on-line learning. ",en
-2019-20,P,No ha impartit classe a aquest grup,No l'he tingut com a professora,en
-2019-20,P,No ha impartit classe a aquest grup,No hem tingut a l'Olga com a professora.,en
-2019-20,A,,Tot correcte.,en
-2019-20,P,,L'hem tingut dues classes online i no hem sapigut re mes,en
-2019-20,P,No ha impartit classe a aquest grup,No he tingut al Juan!,en
-2019-20,P,,Increible com a professora,en
-2019-20,P,,Un bon professor. ,en
-2019-20,P,,"Molt bon professional, implicat i atent",en
-2019-20,P,,NA CARME MOLET ÉS UNA BONA PROFESSORA I EL QUE MÉS M'HA AGRADAT HA ESTAT QUE FA DESENVOLUPAR A L'ALUMNAT UNA MENT CRÍTICA. ,en
-2019-20,P,,"TOT I MANAR MOLTA FEINA EN ÈPOCA DE CONFINAMENT I NO ASSEQUIBLE AL NIVELL DE MÚSICA QUE TÉ L'ALUMNAT, CREC QUE HA ESTAT BASTANT COMPRENSIBLE I S'HA ADAPTAT PROU BÉ A CADA ALUMNE I HA SABUT BUSCAR L'APRENENTATGE SIGNIFICATIU DE CADASCÚ I CADASCUNA. M'HA AGRADAT MOLT LA SEVA ASSIGNATURA. ES NOTA QUE PORTA ANYS TREBALLANT AMB AIXÒ. ",en
-2019-20,A,,"LES CLASSES HAN ESTAT MOLT DINÀMIQUES I PENSO QUE LA PROFESSORA HA VETLLAT TOTA L'ESTONA PEL NOSTRE APRENENTATGE I HO HA ORGANITZAT BASTANT BÉ, FINS I TOT, AMB LES CIRCUMSTÀNCIES DE PANDÈMIA QUE ESTEM VIVINT.",en
-2019-20,P,,"JO CREC QUE COM HE DIT ABANS, QUE LA PROFESSORA HA ESTAT BASTANT ENCERTADA AMB EL TIPUS DE METODOLOGIA EMPRADA, I S'HA INTERESSAT EN CONÈIXER-NOS, COSA QUE NO TOTS NI TOTES LES PROFESSORES HO FAN, PARTINT QUE SOM D'INEFC I TENEN ASSUMIT QUE NO FAREM RES. QUAN EN VERITAT SOM EL GRUP QUE MÉS TREBALLEM .",en
-2019-20,P,,TANT EN JESÚS SAURET COM EN GUILLEM ROCA HAN ESTAT BONS PROFESSORS. ,en
+aspects for improvement: Could explain slowly and in depth without hurrying too much",en,en,en
+2018-19,A,,This subject matches with my interest ,en,en,en
+2018-19,P,,He is a good teacher,en,en,en
+2018-19,P,,She is an excellent professor,en,en,en
+2018-19,P,,she is a good teacher,en,en,en
+2018-19,P,,He is a very good professor and an excellent person.,en,en,en
+2018-19,A,,I think that this subject read the maximum possible number of teachers. The material will be perceived better without a constant change of teachers.,en,en,en
+2018-19,P,,"Unfortunately, Teresa managed to spend only a couple of classes.",en,en,en
+2019-20,P,,"Professor molt útil, bon professor.",en,fy,en
+2019-20,P,,Perfecte,en,en,en
+2019-20,P,,Perfecte,en,en,en
+2019-20,P,,Tot be,en,en,en
+2019-20,P,,molt bon professor,en,ca,en
+2019-20,P,,És molt bon professor.,en,ca,en
+2019-20,P,No ha impartit classe a aquest grup,No l’hem tingut.,en,tk,en
+2019-20,P,,Molt bona professional,en,ca,en
+2019-20,P,,Bon profesor. ,en,fy,en
+2019-20,P,,Un bon professor. ,en,fy,en
+2019-20,P,,Molt bon professor.,en,ca,en
+2019-20,P,,Muy buen profe!,en,es,en
+2019-20,P,,Molt bon professor,en,ca,en
+2019-20,P,No ha impartit classe a aquest grup,"Aquest professor aquest any no l'hem tingut, hem tingut al Adrian Cardil.",en,ca,en
+2019-20,P,No ha impartit classe a aquest grup,No l’hem tingut a fisiologia II.,en,tk,en
+2019-20,P,,"He is a great professor, i really like the way he does his classes. Very interesting and i believe we will learn a lot from him. ",en,en,en
+2019-20,P,,Molt bona professora.,en,ca,en
+2019-20,P,,Molt bona professora,en,ca,en
+2019-20,A,,Professorat inepte,en,fy,en
+2019-20,P,,"ME HA GUSTADO MUCHO LA PROFESORA, SOBRE TODO, SU CALMA Y SEGURIDAD A LA HORA DE IMPARTIR CLASE!!",en,es,en
+2019-20,P,,"BUEN PROFESOR...HA DESPERTADO INTERÉS EN LA ASIGNATURA, LO CUAL ES IMPORTANTE PARA CUALQUIER ALUMNO.",en,es,en
+2019-20,P,,Correcte,en,en,en
+2019-20,P,,Molt bona professora,en,ca,en
+2019-20,A,,Tot súper be inclús estudiant on line ,en,en,en
+2019-20,P,,The best one! ,en,en,en
+2019-20,P,,Bona profe.,en,fy,en
+2019-20,P,,Molt bona professora,en,ca,en
+2019-20,P,,"UNA GRAN PROFESSORA QUE ESPERO QUE SEGUEIXI A LA UDL MOLTS ANYS MÉS, S'HO MEREIX.",en,ca,en
+2019-20,A,,"Their is no connection between the chapters and the exams, both oral and written ",en,en,en
+2019-20,P,,"All the positive aspects are mentioned above. However, I think teachers of English should have a good level of English. ",en,en,en
+2019-20,P,,"We did not have the chance to experience with her teaching methods.however, she was cooperative and accessible during on-line learning. ",en,en,en
+2019-20,P,No ha impartit classe a aquest grup,No l'he tingut com a professora,en,en,en
+2019-20,A,,Tot correcte.,en,en,en
+2019-20,P,,L'hem tingut dues classes online i no hem sapigut re mes,en,en,en
+2019-20,P,No ha impartit classe a aquest grup,No he tingut al Juan!,en,ca,en
+2019-20,P,,Un bon professor. ,en,fy,en
+2019-20,P,,"Molt bon professional, implicat i atent",en,ca,en
+2019-20,P,,NA CARME MOLET ÉS UNA BONA PROFESSORA I EL QUE MÉS M'HA AGRADAT HA ESTAT QUE FA DESENVOLUPAR A L'ALUMNAT UNA MENT CRÍTICA. ,en,ca,en
+2019-20,P,,"TOT I MANAR MOLTA FEINA EN ÈPOCA DE CONFINAMENT I NO ASSEQUIBLE AL NIVELL DE MÚSICA QUE TÉ L'ALUMNAT, CREC QUE HA ESTAT BASTANT COMPRENSIBLE I S'HA ADAPTAT PROU BÉ A CADA ALUMNE I HA SABUT BUSCAR L'APRENENTATGE SIGNIFICATIU DE CADASCÚ I CADASCUNA. M'HA AGRADAT MOLT LA SEVA ASSIGNATURA. ES NOTA QUE PORTA ANYS TREBALLANT AMB AIXÒ. ",en,ca,en
+2019-20,A,,"LES CLASSES HAN ESTAT MOLT DINÀMIQUES I PENSO QUE LA PROFESSORA HA VETLLAT TOTA L'ESTONA PEL NOSTRE APRENENTATGE I HO HA ORGANITZAT BASTANT BÉ, FINS I TOT, AMB LES CIRCUMSTÀNCIES DE PANDÈMIA QUE ESTEM VIVINT.",en,ca,en
+2019-20,P,,"JO CREC QUE COM HE DIT ABANS, QUE LA PROFESSORA HA ESTAT BASTANT ENCERTADA AMB EL TIPUS DE METODOLOGIA EMPRADA, I S'HA INTERESSAT EN CONÈIXER-NOS, COSA QUE NO TOTS NI TOTES LES PROFESSORES HO FAN, PARTINT QUE SOM D'INEFC I TENEN ASSUMIT QUE NO FAREM RES. QUAN EN VERITAT SOM EL GRUP QUE MÉS TREBALLEM .",en,ca,en
+2019-20,P,,TANT EN JESÚS SAURET COM EN GUILLEM ROCA HAN ESTAT BONS PROFESSORS. ,en,ca,en
 2019-20,P,,"MOLTA BONA PROFESSORA. DE 10 SENSE DUBTE. 
 
-GESTIONS CREATIVES A TOPE!! ",en
-2019-20,P,,Bon professor.,en
-2019-20,P,,Uns professors increïbles!,en
-2019-20,P,,Molt bon professor,en
+GESTIONS CREATIVES A TOPE!! ",en,ca,en
+2019-20,P,,Bon professor.,en,fy,en
+2019-20,P,,Uns professors increïbles!,en,ca,en
+2019-20,P,,Molt bon professor,en,ca,en
 2019-20,A,,"I really appreciated the flexibility of the professors around changing the language in order to understand also the Erasmus students. 
-I also appreciated their willingness to collaborate with me. ",en
-2019-20,P,,"CREC TOT I HAVER LES CIRCUMSTÀNCIES DEL CONFINAMENT, LA YOLANDA HO HA GESTIONAT MOLT BÉ I QUE ÉS UNA BONA PROFESSORA. ",en
-2019-20,P,No ha impartit classe a aquest grup,UNA LLÀSTIMA NO HAVER POGUT DONAR CLASSE AMB ELL. ,en
-2019-20,A,,Criteris poc clars,en
-2019-20,P,,Molt bon professor!,en
-2019-20,P,,Molt bona professora. ,en
-2019-20,P,,Gran profesor.,en
-2019-20,P,,Bon professor,en
-2019-20,P,,Molt bon professor!,en
-2019-20,P,,Un crack!,en
-2019-20,P,,Bon professor,en
-2019-20,P,,Lee el power point,en
-2019-20,P,,NO HA FACILITADO NADA LA SITUACIÓN ACTUAL CON EL COVID19,en
-2019-20,A,,Ha sabut portar moly be les classes online,en
-2019-20,P,,"Ho ha fet molt be, molt ben portat les classes online. Pero molt dura",en
-2019-20,P,,"She's a great teacher, she's very close to the students and very loving. I really enjoy all her subjects and how she teaches. ",en
-2019-20,P,,He's a great teacher and I enjoy his lessons. ,en
-2019-20,A,,"It would be helpful if the second teacher of this assignment did videoconferences instead of sending a lot of PDFs so we can understand better. Overall, everything is ok.",en
-2019-20,A,,"I was really satisfied about how the professor set the course despite the coronavirus problems, she was always available. ",en
-2019-20,P,,"nothing to add but positive things. She has always been very clear in the lessons and helpful, even for me who I am an erasmus student.",en
-2019-20,P,,Thank you so much.,en
+I also appreciated their willingness to collaborate with me. ",en,en,en
+2019-20,P,,"CREC TOT I HAVER LES CIRCUMSTÀNCIES DEL CONFINAMENT, LA YOLANDA HO HA GESTIONAT MOLT BÉ I QUE ÉS UNA BONA PROFESSORA. ",en,ca,en
+2019-20,P,No ha impartit classe a aquest grup,UNA LLÀSTIMA NO HAVER POGUT DONAR CLASSE AMB ELL. ,en,ca,en
+2019-20,A,,Criteris poc clars,en,ca,en
+2019-20,P,,Molt bon professor!,en,ca,en
+2019-20,P,,Gran profesor.,en,fy,en
+2019-20,P,,Bon professor,en,fy,en
+2019-20,P,,Molt bon professor!,en,ca,en
+2019-20,P,,Un crack!,en,en,en
+2019-20,P,,Bon professor,en,fy,en
+2019-20,P,,Lee el power point,en,en,en
+2019-20,P,,NO HA FACILITADO NADA LA SITUACIÓN ACTUAL CON EL COVID19,en,es,en
+2019-20,A,,Ha sabut portar moly be les classes online,en,en,en
+2019-20,P,,"Ho ha fet molt be, molt ben portat les classes online. Pero molt dura",en,ca,en
+2019-20,P,,"She's a great teacher, she's very close to the students and very loving. I really enjoy all her subjects and how she teaches. ",en,en,en
+2019-20,P,,He's a great teacher and I enjoy his lessons. ,en,en,en
+2019-20,A,,"It would be helpful if the second teacher of this assignment did videoconferences instead of sending a lot of PDFs so we can understand better. Overall, everything is ok.",en,en,en
+2019-20,A,,"I was really satisfied about how the professor set the course despite the coronavirus problems, she was always available. ",en,en,en
+2019-20,P,,"nothing to add but positive things. She has always been very clear in the lessons and helpful, even for me who I am an erasmus student.",en,en,en
+2019-20,P,,Thank you so much.,en,en,en
 2019-20,P,,"Give us instructions when it comes to projects or assignments. We don’t know what is exactly being expected from us, we basically work by our own.
 When students send you emails asking for advice or to explain something they didn’t understand, don’t show attitude and be a proper teacher; help them understand better. 
-",en
-2019-20,A,,"A lot is expected from us when it comes to this subject. Constant worksheets and study guides, moreover we have to read a lot so we can complete the assignments. They need to have in mind we also have other subjects that expect work from us. ",en
-2019-20,A,,I think it's necessary to comment on the readings before taking the test or doing the exercises. ,en
-2019-20,P,,She's a great teacher and I really enjoy her lessons. ,en
-2019-20,P,,She's a great teacher and I really enjoy her lessons. ,en
-2019-20,A,,I think that it is a great idea to include a Poetry Slam in this subject even though we did not have the chance to do it this year. ,en
-2019-20,P,No ha impartit classe a aquest grup,NO HEM SAPIGUT RES D'ELL EN TOT EL CONFINAMENT,en
-2019-20,P,,"Bon professor, s'explica molt be",en
-2019-20,P,No ha impartit classe a aquest grup,No he tingut aquest professor.,en
-2019-20,P,,No he demanat cap tutoria.,en
+",en,en,en
+2019-20,A,,"A lot is expected from us when it comes to this subject. Constant worksheets and study guides, moreover we have to read a lot so we can complete the assignments. They need to have in mind we also have other subjects that expect work from us. ",en,en,en
+2019-20,A,,I think it's necessary to comment on the readings before taking the test or doing the exercises. ,en,en,en
+2019-20,P,,She's a great teacher and I really enjoy her lessons. ,en,en,en
+2019-20,P,,She's a great teacher and I really enjoy her lessons. ,en,en,en
+2019-20,A,,I think that it is a great idea to include a Poetry Slam in this subject even though we did not have the chance to do it this year. ,en,en,en
+2019-20,P,No ha impartit classe a aquest grup,NO HEM SAPIGUT RES D'ELL EN TOT EL CONFINAMENT,en,en,en
+2019-20,P,,"Bon professor, s'explica molt be",en,en,en
+2019-20,P,,´Metòdic i bon professor,en,oc,en
+2019-20,P,No ha impartit classe a aquest grup,No he tingut aquest professor.,en,ca,en
