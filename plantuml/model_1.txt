@@ -1,0 +1,7 @@
+@startuml
+start
+:Load_data;
+:Train_model;
+:Evaluate;
+end
+@enduml
