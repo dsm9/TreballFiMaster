@@ -1,0 +1,9 @@
+@startuml
+start
+:Load_data;
+:Show_parts_of_speech;
+:Train_matcher;
+:Predict_text;
+:Evaluate;
+end
+@enduml
