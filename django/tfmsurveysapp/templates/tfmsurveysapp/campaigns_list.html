@@ -1,10 +1,20 @@
 {% extends "tfmsurveysapp/base.html" %}
 {% block content %}
+
+<script language="JavaScript" type="text/javascript" class="init">
+$(document).ready(function() {
+var table = $('#Lista').DataTable();
+table
+    .order( [ 0, 'desc' ] )
+    .draw();
+} );
+</script>
+
 <div class="TituloPagina">Sel·lecci&oacute; de campanya:</div>
 <br/>
 <table align="center" width="95%">
 	<tr><td>
-<table align="center" id="Lista" class="display">
+<table align="center" id="Lista" class="display" >
 <!--	<table align="center" id="Lista">  -->
  	<thead>
 	<tr>

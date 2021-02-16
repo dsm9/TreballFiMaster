@@ -1,15 +1,14 @@
-Feature: List Campaign Surveys
-In order to list the surveys and comments associated with a campaign imported from Lime database
+Feature: List Campaigns
+In order to list the campaings imported from Lime
 As a user
-I want to see a list of all imported campaigns where I can select the one I'm interested in
+I want to see a list of all imported campaigns
 
 Background: There is a registered user
   Given Exists a user "user" with password "password"
-  And I login as user "user" with password "password"
 
-  Scenario: Select a campaign
-  from a list
-    Given A set of campaign types had been imported from Lime
+  Scenario: Select a campaign from a list
+    Given I login as user "user" with password "password"
+      And A set of campaign types had been imported from Lime
     | id  | cod_tipo_campania_lime  | name                                                |
     | 7   | 7                       | Enquesta de final de programa - Grau                |
     | 8   | 8                       | Enquesta de final de programa - Master              |
@@ -17,8 +16,7 @@ Background: There is a registered user
     | 11  | 11                      | Enquesta de Pràcticum - Tutor acadèmic              |
     | 16  | 16                      | Enquesta de Pràcticum - Tutor empresa               |
     | 25  | 25                      | Enquesta assignatura-professor grau i màster univ.  |
-
-    And A set of campaigns had been imported from Lime
+      And A set of campaigns had been imported from Lime
     | id | cod_campania_lime | fecha_extraccion_lime | name | import_date | type_campaign_id |
     |101|101|2019-10-18|18-19 Assignatura-professor màsters P 1r S|2020-11-06|25|
     |112|112|2019-09-25|18-19 Assignatura-professor màsters P 2n S|2020-11-06|25|
@@ -33,8 +31,7 @@ Background: There is a registered user
     |106|106|2020-02-03|18-19 Titulats Doble Grau AQU|2020-11-06|7|
     |168|168|2020-03-18|19-20 Pràctiques externes - estudiantat (GEM - 1P)|2020-11-06|9|
 
-    And I'm viewing the list of campaigns
-      | Cod. campanya | Nom campanya  | Tipus campanya | Data extacció |
-    When I select the campaign "18-19 Assignatura-professor màsters P 2n S"
-    Then I see a list of surveys from campaign "18-19 Assignatura-professor màsters P 2n S"
-
+    When I list the campaigns
+    Then I'm viewing a list of campaigns
+      | Codi campanya | Nom campanya  | Codi tipus campanya | Tipus campanya | Data extacció |
+      | 168 | 19-20 Pràctiques externes - estudiantat (GEM - 1P) | 9 | Enquesta de Pràcticum - Estudiantat | Nov. 17, 2020 |

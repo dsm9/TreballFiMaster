@@ -26,5 +26,5 @@ def step_impl(context):
 
 @then('I\'m viewing a list of campaigns')
 def step_impl(context):
-    assert len(context.browser.find_by_css('div#content ul'))
+    assert len(context.browser.find_by_css('div#content table thead tr'))
 #    raise NotImplementedError('STEP: Then I\'m viewing a list of campaigns')

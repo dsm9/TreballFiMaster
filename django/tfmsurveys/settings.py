@@ -76,8 +76,32 @@ WSGI_APPLICATION = 'tfmsurveys.wsgi.application'
 
 DATABASES = {
     'default': {
+                'ENGINE': 'django.db.backends.mysql',
+                'NAME': 'tfm_surveys',
+                'USER': 'tfm',
+                'PASSWORD': 'Opalo_121',
+                'HOST': 'localhost',
+                'PORT': '3306'
+    },
+    'encuestas': {
                'ENGINE': 'django.db.backends.mysql',
                 'NAME': 'tfm_surveys',
+                'USER': 'tfm',
+                'PASSWORD': 'Opalo_121',
+                'HOST': 'localhost',
+                'PORT': '3306'
+    },
+    'lime': {
+                'ENGINE': 'django.db.backends.mysql',
+                'NAME': 'lime',
+                'USER': 'tfm',
+                'PASSWORD': 'Opalo_121',
+                'HOST': 'localhost',
+                'PORT': '3306'
+    },
+    'uxxi_resul': {
+               'ENGINE': 'django.db.backends.mysql',
+                'NAME': 'uxxi_resul',
                 'USER': 'tfm',
                 'PASSWORD': 'Opalo_121',
                 'HOST': 'localhost',

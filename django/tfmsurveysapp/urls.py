@@ -22,12 +22,6 @@ urlpatterns = [
             context_object_name='comments_list',
             template_name='tfmsurveysapp/comments_list.html'),
         name='comments_list'),
-    path('campaigns2/<int:pk>',
-        ListView.as_view(
-            queryset=Campaign.objects.get(id=3),
-            context_object_name='campaign_detail',
-            template_name='tfmsurveysapp/comments_list.html'),
-        name='campaign_detail'),
     path('comments/<int:pk>',
          CommentDetail.as_view(),
          name='comment_detail'
