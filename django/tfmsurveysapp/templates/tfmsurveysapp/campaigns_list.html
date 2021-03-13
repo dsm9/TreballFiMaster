@@ -1,5 +1,6 @@
 {% extends "tfmsurveysapp/base.html" %}
 {% block content %}
+{% load static %}
 
 <script language="JavaScript" type="text/javascript" class="init">
 $(document).ready(function() {
@@ -12,35 +13,71 @@ table
 
 <div class="TituloPagina">Sel·lecci&oacute; de campanya:</div>
 <br/>
+<table width="95%" align="center" border="0" cellspacing="0" cellpadding="5">
+	<tr>
+		<td align="right">
+			Tipus de campanya:
+			<select id="BuscaTipusCampanya" name="BuscaTipusCampanya">
+				<option value="0">&nbsp;</option>
+			{% for campaigntype in campaigntypes_list %}
+				<option value="{{ campaigntype.id }}">{{ campaigntype.name }}</option>
+			{% endfor %}
+			</select>
+		</td>
+	</tr>
+</table>
 <table align="center" width="95%">
 	<tr><td>
 <table align="center" id="Lista" class="display" >
 <!--	<table align="center" id="Lista">  -->
  	<thead>
 	<tr>
-		<th height="17" align="center">Codi campanya</td>
-		<th align="center">Nom campanya</td>
-		<th align="center">Codi Tipus campanya</td>
+		<th height="17" align="center">Codi campanya</th>
+		<th align="center">Nom campanya</th>
+		<th align="center">Codi Tipus campanya</th>
 		<th align="center">Tipus campanya</th>
-		<th align="center">Data extracci&oacute;</td>
+		<th align="center">Data extracci&oacute; Lime</th>
+		<th align="center">Data importació</th>
+		<th align="center">Accions</th>
 	</tr>
 	</thead>
 	<tbody>
     {% for campaign in campaigns_list %}
-    <tr>
+	<tr
+		{% if campaign.import_date is None %}
+			class="FilaInactiva"
+		{% else %}
+			class="FilaActiva"
+		{% endif %}
+		>
 		<td align="center">
-			<a href="{% url 'tfmsurveysapp:comments_list' campaign.id %}">
-			{{ campaign.cod_campania_lime }}
-			</a>
+			{% if campaign.import_date is None %}
+				{{ campaign.cod_campania_lime }}
+			{% else %}
+				<a href="{% url 'tfmsurveysapp:comments_list' campaign.cod_campania_lime %}">
+					{{ campaign.cod_campania_lime }}
+				</a>
+			{% endif %}
 		</td>
 		<td>
-			<a href="{% url 'tfmsurveysapp:comments_list' campaign.id %}">
-			{{ campaign.name }}
-			</a>
+			{% if campaign.import_date is None %}
+				{{ campaign.name }}
+			{% else %}
+				<a href="{% url 'tfmsurveysapp:comments_list' campaign.cod_campania_lime %}">
+					{{ campaign.name }}
+				</a>
+			{% endif %}
 		</td>
 		<td align="center">{{ campaign.type_campaign_id }}</td>
 		<td>{{ campaign.type_campaign.name }}</td>
-		<td align="center">{{ campaign.import_date }}</td>
+		<td align="center">{{ campaign.fecha_extraccion_lime|date:'d-m-Y' }}</td>
+		<td align="center">{{ campaign.import_date|default_if_none:" "|date:'d-m-Y' }}</td>
+		<td align="center">
+			<a href="{% url 'tfmsurveysapp:campaigns_list' %}" onMouseOut="MM_swapImgRestore()"
+				   onMouseOver="MM_swapImage('btnImportar{{ campaign.cod_campania_lime }}','','{% static 'img/boton_importar_32_up.png' }%',1)">
+      			<img src="{% static 'img/boton_importar_32.png' %}" alt="Importar" title="Importar campanya"
+					 name="btnImportar{{ campaign.cod_campania_lime }}" id="btnImportar{{ campaign.cod_campania_lime }}" width="32" height="32" border="0"></a>
+		</td>
 	</tr>
     {% empty %}<div align="center">No existeixen campanyes que acompleixin aquestes condicions.</div>
     {% endfor %}

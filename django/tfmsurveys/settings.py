@@ -91,24 +91,24 @@ DATABASES = {
                 'HOST': 'localhost',
                 'PORT': '3306'
     }
-    ,
-    'lime': {
-                'ENGINE': 'django.db.backends.mysql',
-                'NAME': 'lime',
-                'USER': 'tfm',
-                'PASSWORD': 'Opalo_121',
-                'HOST': 'localhost',
-                'PORT': '3306'
-    }
-    ,
-    'uxxienc_resul': {
-               'ENGINE': 'django.db.backends.mysql',
-                'NAME': 'uxxienc_resul',
-                'USER': 'tfm',
-                'PASSWORD': 'Opalo_121',
-                'HOST': 'localhost',
-                'PORT': '3306'
-    }
+#    ,
+#    'lime': {
+#                'ENGINE': 'django.db.backends.mysql',
+#                'NAME': 'lime',
+#                'USER': 'tfm',
+#                'PASSWORD': 'Opalo_121',
+#                'HOST': 'localhost',
+#                'PORT': '3306'
+#    }
+#    ,
+#    'uxxienc_resul': {
+#               'ENGINE': 'django.db.backends.mysql',
+#                'NAME': 'uxxienc_resul',
+#                'USER': 'tfm',
+#                'PASSWORD': 'Opalo_121',
+#                'HOST': 'localhost',
+#                'PORT': '3306'
+#    }
 }
 
 DATABASE_ROUTERS = ['tfmsurveysapp.router.EncuestasRouter']
@@ -131,6 +131,8 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/

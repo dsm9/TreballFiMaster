@@ -133,3 +133,9 @@ a:hover {
 .Marco {
     border: 1px;
 }
+.FilaActiva{
+    color: black;
+}
+.FilaInactiva{
+    color: #808080;
+}

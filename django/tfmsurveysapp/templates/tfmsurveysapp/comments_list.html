@@ -1,22 +1,33 @@
 {% extends "tfmsurveysapp/base.html" %}
 {% block content %}
+{% load static %}
+
 <div class="TituloPagina">Sel·lecci&oacute; de comentari:</div>
 <table width="100%" class="TituloPagina">
 	<tr>
 		<td class="EtiquetaTitulo">Campanya:</td>
-		<td>{{ comments_list.first.survey.campaign.name }}</td>
+		<td>{{ comments_list.first.survey.campaign.name }}
+		({{ comments_list.first.survey.campaign.cod_campania_lime }})
+		</td>
 		<td class="EtiquetaTitulo">Tipus campanya:</td>
 		<td>{{ comments_list.first.survey.campaign.type_campaign.name }} </td>
 		<td class="EtiquetaTitulo">Data exportaci&oacute;:</td>
-		<td>{{ comments_list.first.survey.campaign.fecha_extraccion_lime }}</td>
-		<td>&nbsp;</td>
+		<td>{{ comments_list.first.survey.campaign.fecha_extraccion_lime|date:'d-m-Y' }}</td>
+		<td>
+			<a href="{% url 'tfmsurveysapp:campaigns_list' %}" target="_self"
+          		onmouseover="MM_swapImage('btnCerrar','','{% static 'img/cerrar32_up.png' %}',1)"
+          		onmouseout="MM_swapImgRestore()">
+          		<img src="{% static 'img/cerrar32b.png' %}" alt="Tancar" name="btnCerrar"
+          		width="32" height="32" border="0" id="btnCerrar" />
+          	</a>
+		</td>
 	</tr>
 </table>
 <br/>
 <table align="center" width="95%">
 	<tr><td>
-		{{ campaign_detail.survey_set  }}
-<table align="center" id="Lista" class="display">
+		{{ comments_list.survey_set  }}
+<table align="center" id="Lista" name="Lista" class="display">
 <!--	<table align="center" id="Lista">  -->
  	<thead>
 	<tr>
@@ -29,23 +40,30 @@
 		<th align="left">Tipus incid&egrave;ncia</th>
 		<th align="left">Soluci&oacute;</th>
 		<th align="left">Comentari proposat</th>
-		<th align="center">Acceptar</th>
+		<th align="center">Accions</th>
 	</tr>
 	</thead>
 	<tbody>
     {% for comment in comments_list %}
 
     <tr>
-		<td align="center">{{ comment.survey.sid_lime }}</td>
+		<td align="center">{{ comment.survey.sid_lime }} {{ comment.id }}</td>
 		<td align="left">{{ comment.survey.name }}</td>
 		<td align="center">{{ comment.question_id_lime }}</td>
 		<td align="left">{{ comment.question }}</td>
 		<td align="center">{{ comment.tid_lime }}</td>
 		<td align="left">{{ comment.original_value }}</td>
-		<td align="left">.</td>
-		<td align="left">.</td>
-		<td align="left">{{ comment.new_value }}</td>
-		<td align="center"><a href="{% url 'tfmsurveysapp:comment_detail' comment.id %}">Editar</a></td>
+		<td align="left">&nbsp;</td>
+		<td align="left">&nbsp;</td>
+		<td align="left">{{ comment.new_value|default_if_none:" " }}</td>
+		<td align="center">
+			<a href="{% url 'tfmsurveysapp:comment_detail' comment.survey.sid_lime comment.id %}" target="_self"
+          		onmouseover="MM_swapImage('btnEditar{{ comment.id }}','','{% static 'img/editar32_up.png' %}',1)"
+          		onmouseout="MM_swapImgRestore()">
+          		<img src="{% static 'img/editar32.png' %}" alt="Tancar" name="btnEditar{{ comment.id }}"
+          		width="52" height="32" border="0" id="btnEditar{{ comment.id }}" />
+          	</a>
+		</td>
 	</tr>
     {% empty %}<div align="center">No existeixen comentaris a la campanya sel·leccinada.</div>
     {% endfor %}

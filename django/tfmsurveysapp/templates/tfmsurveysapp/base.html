@@ -63,8 +63,10 @@
 			</td>
       		<td width="10%" align="center" valign="middle" nowrap bgcolor="#831453">
       		{% if user.is_authenticated %}
-      			<a href="{% url 'login' %}" onMouseOut="MM_swapImgRestore()" title="Sortir" onMouseOver="MM_swapImage('bntSalir','','{% static 'img/salir_up.gif' %}',1)">
-      			<img src="{% static 'img/salir.gif' %}" alt="Sortir" name="bntSalir" width="32" height="32" border="0"></a>
+      			<a href="{% url 'logout' %}" onMouseOut="MM_swapImgRestore()" title="Sortir"
+				   onMouseOver="MM_swapImage('btnSalir','','{% static 'img/salir_up.gif' %}',1)">
+      				<img src="{% static 'img/salir.gif' %}" alt="Sortir" name="btnSalir" width="32" height="32" border="0">
+				</a>
       		{% endif %}
       		</td>
     	</tr>

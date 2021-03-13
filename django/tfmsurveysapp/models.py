@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 # Create your models here.
 
@@ -53,6 +54,8 @@ class Comment(models.Model):
     new_value = models.CharField("Comentari nou", max_length=2000, null=True)
     changed = models.BooleanField("Modificat", default=False)
 
+    def get_absolute_url(self):
+        return reverse('tfmsurveysapp:comment_detail', kwargs={'cod_campania_lime': self.survey.campaign.cod_campania_lime, 'pk': self.id})
 
 class CommentIssue(models.Model):
     comment = models.ForeignKey(Comment, on_delete=models.CASCADE)
@@ -73,7 +76,7 @@ class TipoCampania(models.Model):
     usuario_modificacion = models.CharField(db_column='USUARIO_MODIFICACION', max_length=50, blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'TIPO_CAMPANIA'
 
 

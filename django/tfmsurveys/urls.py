@@ -23,6 +23,6 @@ urlpatterns = [
     path('', RedirectView.as_view(pattern_name='tfmsurveysapp:campaigns_list'), name='home'),
     path('admin/', admin.site.urls),
     path('tfmsurveysapp/', include('tfmsurveysapp.urls', namespace='tfmsurveysapp')),
-    path('tfmsurveysapp/login/', views.LoginView.as_view(), name='login'),
-    path('tfmsurveysapp/logout/', views.LogoutView.as_view(), name='logout'),
+    path('accounts/login/', views.LoginView.as_view(), name='login'),
+    path('accounts/logout/', views.LogoutView.as_view(), name='logout'),
 ]

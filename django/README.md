@@ -192,7 +192,82 @@ This file defines the Django settings to load and test, the context to be passed
 Development of the TfmSurveysApp Features
 =========================================
 
-Now, I have implemented the identified features. I will start implementing the different steps that constitute each scenario and the application code to make it show the expected behaviour.
+Now, I have implemented the identified features. 
+
+Previously to implement the features we must implement the authentication management since all the features will 
+validate the user is logged before show his information.
+
+## Authentication
+The first step is link the login an logout views from django.contrib.auth.views in the project urls file, _tfmsurveysapp/urls.py_:
+
+
+```from django.urls import path, include
+from django.contrib import admin
+from django.contrib.auth import views
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('accounts/login/', views.LoginView.as_view(), name='login'),
+    path('accounts/logout/', views.LogoutView.as_view(), name='logout'),
+] 
+```
+Then we might create the login form template in _registration/login.html_, as expected by the Django login view.
+
+We must create the folder _tfmsurveysapp/templates_ and register this folder as default templates folder in _tfmsurveys/settings.py_  
+
+```
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'APP_DIRS': True,
+        ...
+```
+Following we will create the login form in _templates/registration/login.html_
+
+It must include some minimum elements, for example: specific form _action_, _form.username_ and _form.password_ input texts and hidden _next_ field.
+
+```
+<form method="post" action="{% url 'login' %}">
+	    <table align="center" border="0" cellpadding="10" cellspacing="0" bgcolor="#831453" style="border:solid thin black;">
+            <tr>
+                <td class="TextoLogin">{{ form.username.label_tag }}</td>
+                <td>{{ form.username }}</td>
+            </tr>
+            <tr>
+                <td class="TextoLogin" >{{ form.password.label_tag }}</td>
+                <td>{{ form.password }}</td>
+            </tr>
+            <tr>
+                <td><input type="hidden" name="next" value="{{ next }}"/></td>
+            </tr>
+            <tr>
+	    	    <td colspan="4" align="center">
+                    <input type="submit" value="login" />
+                </td>
+            </tr>
+        </table>
+    </form>
+```
+We also might add in all the views a decorator to force Django redirect to the login form in case the user weren't logged. For example:
+```
+@login_required()
+def campaigns_list(request):
+    ...
+```
+
+And finally we must define in the file _settings.py_ the default redirection file after the login or logout actions. 
+In this case we will redirect to the root directory. 
+
+```
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+```
+
+I will start implementing the different steps that constitute each scenario and the application code to make it show the expected behaviour.
 
 ## Feature: List Campaign Surveys ##
+
+
+
 
