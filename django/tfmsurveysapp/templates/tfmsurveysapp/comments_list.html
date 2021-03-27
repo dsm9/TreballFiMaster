@@ -33,6 +33,7 @@
 	<tr>
 		<th height="17" align="center">sid</td>
 		<th align="left">Descripci&oacute;</td>
+		<th align="center">Tipus preg.</th>
 		<th align="center">Codi pregunta</td>
 		<th align="left">Pregunta</th>
 		<th align="center">tid</td>
@@ -49,15 +50,16 @@
     <tr>
 		<td align="center">{{ comment.survey.sid_lime }} {{ comment.id }}</td>
 		<td align="left">{{ comment.survey.name }}</td>
+		<td align="center">{{ comment.block_type }}</td>
 		<td align="center">{{ comment.question_id_lime }}</td>
 		<td align="left">{{ comment.question }}</td>
 		<td align="center">{{ comment.tid_lime }}</td>
 		<td align="left">{{ comment.original_value }}</td>
-		<td align="left">&nbsp;</td>
-		<td align="left">&nbsp;</td>
+		<td align="left">{{ comment.issue_type.name }}</td>
+		<td align="left">{{ comment.solution_type.name }}</td>
 		<td align="left">{{ comment.new_value|default_if_none:" " }}</td>
 		<td align="center">
-			<a href="{% url 'tfmsurveysapp:comment_detail' comment.survey.sid_lime comment.id %}" target="_self"
+			<a href="{% url 'tfmsurveysapp:comment_detail' comment.survey.campaign.cod_campania_lime comment.id %}" target="_self"
           		onmouseover="MM_swapImage('btnEditar{{ comment.id }}','','{% static 'img/editar32_up.png' %}',1)"
           		onmouseout="MM_swapImgRestore()">
           		<img src="{% static 'img/editar32.png' %}" alt="Tancar" name="btnEditar{{ comment.id }}"

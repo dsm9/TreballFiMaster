@@ -46,24 +46,21 @@
 <table align="center" width="50%" border="0" cellpadding="0" cellspacing="10" class="TablaComentario">
 	<tr>
 		<td class="EtiquetaComentario" width="20%">
-			<label for="id_block_type">Tipus pregunta:</label>
+			Tipus pregunta:
 		</td>
 		<td width="15%">
 			<div class="CampoComentarioInactivo">{{ comment.block_type }}</div>
-<!--		{{ form.block_type }}	-->
-		</td>
+		</tdi>
 		<td class="EtiquetaComentario" width="15%">
 			Codi pregunta:
 		</td>
 		<td width="15%">
-<!--			{{ form.question_id_lime }}	-->
 			<div class="CampoComentarioInactivo">{{ comment.question_id_lime }}</div>
 		</td>
 		<td class="EtiquetaComentario" width="15%">
 			Tid:
 		</td>
 		<td width="15%">
-<!--			{{ form.tid_lime }}	-->
 			<div class="CampoComentarioInactivo">{{ comment.tid_lime }}</div>
 		</td>
 	</tr>
@@ -72,22 +69,19 @@
 			Pregunta:
 		</td>
 		<td colspan="5">
-<!--			{{ form.question }}		-->
 			<div align="left" class="CampoComentarioInactivo">{{ comment.question }}</div>
 		</td>
 	</tr>
 	<tr valign="top">
 		<td class="EtiquetaComentario">Comentari original:</td>
 		<td colspan="5">
-<!--			{{ form.original_value }}	-->
 			<div class="CampoComentarioInactivo">{{ comment.original_value }}</div>
 		</td>
 	</tr>
 	<tr valign="top">
 		<td class="EtiquetaComentario">Tipus incid&egrave;ncia:</td>
 		<td colspan="5">
-			{{ form.issue_type }}
-<!--			<select class="CampoComentario" id="issue_type" name="issue_type">
+			<select class="CampoComentario" id="issue_type" name="issue_type">
 				{{ comment.issue_type.id }}
 				<option value="0">&nbsp;</option>
 				{% for issuetype in issuetypes_list %}
@@ -96,14 +90,13 @@
 						{{ issuetype.name }}
 					</option>
 				{% endfor %}
-			</select>  -->
+			</select>
 		</td>
 	</tr>
 	<tr valign="top">
 		<td class="EtiquetaComentario">Proposta soluci&oacute;:</td>
 		<td colspan="5">
-			{{ form.solution_type }}
-<!--			<select id="solution_type" name="solution_type"  class="CampoComentario">
+			<select id="solution_type" name="solution_type"  class="CampoComentario">
 				<option value="0">&nbsp;</option>
 				{% for solutiontype in solutiontypes_list %}
 					<option value="{{ solutiontype.id }}"
@@ -111,16 +104,14 @@
 						{{ solutiontype.name }}
 					</option>
 				{% endfor %}
-			</select>  -->
+			</select>
 		</td>
 	</tr>
 	<tr valign="top">
 		<td class="EtiquetaComentario">Comentari proposat:</td>
 		<td colspan="5">
-			{{ form.new_value }}
-<!--
 			<textarea id="new_value" name="new_value" class="CampoComentario"
-					  cols="80" rows="10">{{ comment.new_value|default_if_none:" " }}</textarea>	-->
+					  cols="80" rows="10">{{ comment.new_value|default_if_none:" " }}</textarea>
 		</td>
 	</tr>
 	<tr>

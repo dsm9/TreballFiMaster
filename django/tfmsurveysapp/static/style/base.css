@@ -120,7 +120,7 @@ a:hover {
 .TablaComentario {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	border: thin solid #000000;
-	background-color: #F2F2FF;
+	background-color: #FcFcFc;
 }
 .EtiquetaComentario {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
@@ -129,6 +129,18 @@ a:hover {
 .CampoComentario {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	font-size: 14px;
+}
+.CampoComentarioInactivo {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	background-color: #F0F0F0;
+	padding-left: 2px;
+	padding-right: 2px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #C0C0C0;
 }
 .Marco {
     border: 1px;
