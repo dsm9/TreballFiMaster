@@ -1,0 +1,7 @@
+@startuml
+(*) --> "Login"
+"Login" --> "Select Campaign"
+"Select Campaign" --> "Select Comment"
+"Select Comment" --> "Edit Comment"
+"Edit Comment" --> (*)
+@enduml

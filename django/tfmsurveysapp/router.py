@@ -1,43 +1,39 @@
 class EncuestasRouter:
     """
-    A router to control all database operations on models in the
-    Encuestas applications.
+    A router to control all database operations on models e
+    Models go to db with same name than his app
     """
-    route_app_labels = {'tipocampania'}
+    route_app_labels = {'encuestas', 'uxxienc_resul'}
 
     def db_for_read(self, model, **hints):
         """
-        Attempts to read TipoCampania models go to Encuestas db.
+        Attempts to read models
         """
-        if model._meta.label_lower in self.route_app_labels:
-            return 'encuestas'
+        if model._meta.app_label in self.route_app_labels:
+            return model._meta.app_label
         return None
 
     def db_for_write(self, model, **hints):
         """
-        Attempts to write TipoCampania models go to Encuestas db.
+        Attempts to write models
         """
-        if model._meta.label_lower in self.route_app_labels:
-            return 'encuestas'
+        if model._meta.app_label in self.route_app_labels:
+            return model._meta.app_label
         return None
 
     def allow_relation(self, obj1, obj2, **hints):
         """
-        Allow relations if a model in the auth or contenttypes apps is
-        involved.
+        Allow relations if models are in the same app
         """
-        if (
-            obj1._meta.label_lower in self.route_app_labels or
-            obj2._meta.label_lower in self.route_app_labels
-        ):
+        if (obj1._meta.app_label == obj2._meta.app_label):
            return True
-        return None
+        else:
+            return None
 
     def allow_migrate(self, db, app_label, model_name=None, **hints):
         """
-        Make sure the models only appear in the
-        'Encuestas' database.
+        Make sure the models only appear in his database
         """
         if app_label in self.route_app_labels:
-            return db == 'encuestas'
-        return None
+            return (db == app_label)
+        return False

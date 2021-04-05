@@ -32,6 +32,8 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'tfmsurveysapp',
+    'encuestas',
+    'uxxienc_resul',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -100,15 +102,15 @@ DATABASES = {
 #                'HOST': 'localhost',
 #                'PORT': '3306'
 #    }
-#    ,
-#    'uxxienc_resul': {
-#               'ENGINE': 'django.db.backends.mysql',
-#                'NAME': 'uxxienc_resul',
-#                'USER': 'tfm',
-#                'PASSWORD': 'Opalo_121',
-#                'HOST': 'localhost',
-#                'PORT': '3306'
-#    }
+    ,
+    'uxxienc_resul': {
+               'ENGINE': 'django.db.backends.mysql',
+                'NAME': 'uxxienc_resul',
+                'USER': 'tfm',
+                'PASSWORD': 'Opalo_121',
+                'HOST': 'localhost',
+                'PORT': '3306'
+    }
 }
 
 DATABASE_ROUTERS = ['tfmsurveysapp.router.EncuestasRouter']
@@ -152,3 +154,17 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'root': {
+        'handlers': ['console'],
+        'level': 'WARNING',
+    },
+}

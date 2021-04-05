@@ -87,17 +87,33 @@ class CommentSolution(models.Model):
 
 # Database ENCUESTAS
 
-class TipoCampania(models.Model):
-    cod_tipo_campania = models.AutoField(db_column='COD_TIPO_CAMPANIA', primary_key=True)  # Field name made lowercase.
-    descripcion = models.CharField(db_column='DESCRIPCION', max_length=100, blank=True, null=True)  # Field name made lowercase.
-    editable = models.CharField(db_column='EDITABLE', max_length=1)  # Field name made lowercase.
-    fecha_modificacion = models.DateTimeField(db_column='FECHA_MODIFICACION', blank=True, null=True)  # Field name made lowercase.
-    usuario_modificacion = models.CharField(db_column='USUARIO_MODIFICACION', max_length=50, blank=True, null=True)  # Field name made lowercase.
+#class TipoCampania(models.Model):
+#    cod_tipo_campania = models.AutoField(db_column='COD_TIPO_CAMPANIA', primary_key=True)  # Field name made lowercase.
+#    descripcion = models.CharField(db_column='DESCRIPCION', max_length=100, blank=True, null=True)  # Field name made lowercase.
+#    editable = models.CharField(db_column='EDITABLE', max_length=1)  # Field name made lowercase.
+#    fecha_modificacion = models.DateTimeField(db_column='FECHA_MODIFICACION', blank=True, null=True)  # Field name made lowercase.
+#    usuario_modificacion = models.CharField(db_column='USUARIO_MODIFICACION', max_length=50, blank=True, null=True)  # Field name made lowercase.
+#
+#    class Meta:
+#        managed = False
+#        db_table = 'TIPO_CAMPANIA'
 
-    class Meta:
-        managed = False
-        db_table = 'TIPO_CAMPANIA'
 
+# Database UXXIENC_RESUL
+
+#class CampaniasExtraidas(models.Model):
+#    idextraccion = models.AutoField(db_column='idExtraccion', primary_key=True)  # Field name made lowercase.
+#    codcampania = models.IntegerField(db_column='codCampania', unique=True)  # Field name made lowercase.
+#    nombrecampania = models.CharField(db_column='nombreCampania', max_length=50)  # Field name made lowercase.
+#    descripcioncampania = models.CharField(db_column='descripcionCampania', max_length=256)  # Field name made lowercase.
+#    tipocampania = models.CharField(db_column='tipoCampania', max_length=50)  # Field name made lowercase.
+#    formatotitulo = models.CharField(db_column='formatoTitulo', max_length=512)  # Field name made lowercase.
+#    estado = models.CharField(max_length=50)
+#    fechaextraccion = models.DateTimeField(db_column='fechaExtraccion', blank=True, null=True)  # Field name made lowercase.
+#
+#    class Meta:
+#        managed = False
+#        db_table = 'CAMPANIAS_EXTRAIDAS'
 
 
 # python3 manage.py makemigrations tfmsurveysapp

@@ -28,6 +28,50 @@ table
 	</tr>
 </table>
 -->
+<table width="100%" border="1" cellpadding="0" cellspacing="0" style="display:none">
+	<tr>
+		<td>
+			<table align="center" border="1" cellspacing="0" cellpadding="0">
+				<tr>
+					<th>
+						cod_campania
+					</th>
+					<th>
+						descripcion
+					</th>
+				</tr>
+				{%	for campania in campania_lime %}
+				<tr>
+					<td>
+						{{ campania.cod_tipo_campania }}
+					</td>
+					<td>
+						{{ campania.descripcion }}
+					</td>
+				</tr>
+				{% endfor %}
+			</table>
+		</td>
+		<td>
+			<table align="center" border="1" cellspacing="0" cellpadding="0">
+				<tr>
+					<th>cod_campania_lime</th>
+					<th>name</th>
+				</tr>
+				{% for campaign in campaign_tfm %}
+				<tr>
+					<td>
+						{{ campaign.cod_tipo_campania_lime }}
+					</td>
+					<td>
+						{{ campaign.name }}
+					</td>
+				</tr>
+    			{% endfor %}
+			</table>
+		</td>
+	</tr>
+</table>
 <table align="center" width="95%">
 	<tr><td>
 <table align="center" id="Lista" class="display" >
@@ -63,7 +107,7 @@ table
 		<td align="center">{{ campaign.fecha_extraccion_lime|date:'d-m-Y' }}</td>
 		<td align="center">{{ campaign.import_date|default_if_none:" "|date:'d-m-Y' }}</td>
 		<td align="center" nowrap="nowrap" >
-			<a href="{% url 'tfmsurveysapp:campaigns_list' %}"
+			<a href="{% url 'tfmsurveysapp:import_campaign' campaign.cod_campania_lime %}"
 			    onMouseOut="MM_swapImgRestore()"
 			    onMouseOver="MM_swapImage('btnImportar{{ campaign.cod_campania_lime }}','','{% static 'img/importar_up.png' }%',1)">
       			<img src="{% static 'img/importar.png' %}" alt="Importar" title="Importar campanya"

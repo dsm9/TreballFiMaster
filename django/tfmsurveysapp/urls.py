@@ -4,7 +4,7 @@ from django.utils import timezone
 from django.views.generic import DetailView, ListView
 from . import views
 from tfmsurveysapp.models import Campaign, Survey, Comment
-from tfmsurveysapp.views import CommentDetail, CommentsList
+from tfmsurveysapp.views import CommentDetail, CommentsList, ImportCampaign
 from tfmsurveysapp.forms import CommentForm
 
 app_name = "tfmsurveysapp"
@@ -32,6 +32,14 @@ urlpatterns = [
     # Show the details of a comment
     path('campaigns/<int:cod_campania_lime>/<int:pk>',
          CommentDetail.as_view(),
-         name='comment_detail')
+         name='comment_detail'),
+
+#    path('campaigns/<int:cod_campania_lime>/import',
+#         views.import_campaign,
+#         name='import_campaign'),
+
+    path('campaigns/<int:cod_campania_lime>/import',
+         ImportCampaign.as_view(),
+         name='import_campaign'),
 
 ]
