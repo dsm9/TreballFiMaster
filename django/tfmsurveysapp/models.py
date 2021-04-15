@@ -37,7 +37,7 @@ class Survey(models.Model):
 class Professor(models.Model):
     survey = models.ForeignKey(Survey, on_delete=models.CASCADE)
     sid_lime = models.IntegerField("sid")
-    num_prof_lime = models.CharField("Num. professor", max_length= 2)
+    pid_lime = models.CharField("Num. professor", max_length= 2)
     name = models.CharField("Nom professor", max_length=50)
     surname1 = models.CharField("Cognom1 professor", max_length=50)
     surname2 = models.CharField("Cognom2 professor", max_length=50, null=True)
@@ -61,7 +61,7 @@ class Comment(models.Model):
     survey = models.ForeignKey(Survey, on_delete=models.CASCADE)
     qid_lime = models.IntegerField("qid Lime")
     tid_lime = models.IntegerField("Cod enquestat Lime")
-    question_id_lime = models.CharField("Cod pregunta Lime", max_length=5, null=True)
+    question_id_lime = models.CharField("Cod pregunta Lime", max_length=10, null=True)
     question = models.CharField("Pregunta", max_length=500, null=True)
     block_type = models.CharField("Tipus pregunta", max_length=1)
     professor = models.ForeignKey(Professor, on_delete=models.CASCADE, null=True)

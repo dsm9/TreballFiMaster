@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'tfmsurveysapp',
     'encuestas',
+    'lime',
     'uxxienc_resul',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -93,15 +94,15 @@ DATABASES = {
                 'HOST': 'localhost',
                 'PORT': '3306'
     }
-#    ,
-#    'lime': {
-#                'ENGINE': 'django.db.backends.mysql',
-#                'NAME': 'lime',
-#                'USER': 'tfm',
-#                'PASSWORD': 'Opalo_121',
-#                'HOST': 'localhost',
-#                'PORT': '3306'
-#    }
+    ,
+    'lime': {
+                'ENGINE': 'django.db.backends.mysql',
+                'NAME': 'lime',
+                'USER': 'tfm',
+                'PASSWORD': 'Opalo_121',
+                'HOST': 'localhost',
+                'PORT': '3306'
+    }
     ,
     'uxxienc_resul': {
                'ENGINE': 'django.db.backends.mysql',
@@ -135,6 +136,10 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+
+#   Session timeout (1 h)
+SESSION_COOKIE_AGE = 3600
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/

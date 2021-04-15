@@ -13,6 +13,7 @@ urlpatterns = [
     # List campaigns
     # Option 1: url - view method
     path('', views.campaigns_list, name='campaigns_list'),
+    path('campaigns/', views.campaigns_list, name='campaigns_list2'),
 
     # List comments of a campaign
     # Opcion 2: ListView

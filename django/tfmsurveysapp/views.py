@@ -1,23 +1,19 @@
 from django.shortcuts import render
-from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import logout
-from django.core.exceptions import PermissionDenied, ObjectDoesNotExist
-from django.urls import reverse, reverse_lazy
-from django.http import HttpResponse
-from django.http import HttpResponseRedirect
-from django.shortcuts import get_object_or_404
+from django.core.exceptions import PermissionDenied
+from django.urls import reverse
 from django.utils.decorators import method_decorator
-from django.views.generic import DetailView, ListView, RedirectView
-from django.views.generic.edit import CreateView, UpdateView, FormView
+from django.views.generic import ListView, RedirectView
+from django.views.generic.edit import UpdateView
 
-from datetime import date
+from datetime import date, time, datetime
 
 from tfmsurveysapp.forms import CommentForm
-from tfmsurveysapp.models import Campaign, CampaignType, SolutionType
-from tfmsurveysapp.models import Survey, Comment, IssueType
-from encuestas.models import TipoCampania
-from uxxienc_resul.models import CampaniasExtraidas
+from tfmsurveysapp.models import Campaign, CampaignType, SolutionType, Survey, Professor
+from tfmsurveysapp.models import Comment, IssueType
+from encuestas.models import TipoCampania, Encuesta
+from lime.models import LimeOcuEncuestasCampania
+from uxxienc_resul.models import CampaniasExtraidas, SBProf, SBRes
 
 import logging
 
@@ -122,15 +118,202 @@ class ImportCampaign(RedirectView):
     permanent = False
 
     def get_redirect_url(self, *args, **kwargs):
-
-        update_import_date(cod_campania_lime=kwargs['cod_campania_lime'])
+        cod_campania_lime = kwargs['cod_campania_lime']
+        self.delete_surveys(cod_campania_lime)
+        self.import_surveys(cod_campania_lime)
+        self.import_profes(cod_campania_lime)
+        self.import_comments(cod_campania_lime)
+        self.update_import_date(cod_campania_lime)
 
         return reverse('tfmsurveysapp:campaigns_list')
 
-def update_import_date(cod_campania_lime):
-    campaign = Campaign.objects.get(cod_campania_lime=cod_campania_lime)
-    campaign.import_date = date.today()
-    campaign.save()
+    # Delete survey information of the campaign
+    def delete_surveys(self, cod_campania_lime):
+
+        surveys = Survey.objects.filter(campaign__cod_campania_lime=cod_campania_lime).delete()
+
+        return True
+
+    #   Import information from surveys
+    def import_surveys(self, cod_campania_lime):
+        campaign = Campaign.objects.get(cod_campania_lime=cod_campania_lime)
+        encuestas = Encuesta.objects.filter(campania_id=cod_campania_lime)
+        print("Import_campaigns: Num. enquestes: ", len(encuestas))
+        surveys_list = []
+        time_ini = datetime.now()
+        for encuesta in encuestas:
+            try:
+                limeencuesta = LimeOcuEncuestasCampania.objects.get(codencuesta=encuesta.cod_encuesta)
+                print(campaign.cod_campania_lime,
+                    encuesta.cod_encuesta,
+                    limeencuesta.sid,
+                    encuesta.titulo)
+                survey = Survey(
+                    campaign = campaign,
+                    cod_encuesta_lime = encuesta.cod_encuesta,
+                    sid_lime = limeencuesta.sid,
+                    name = encuesta.titulo
+                )
+                surveys_list.append(survey)
+                #survey.save()
+
+            except LimeOcuEncuestasCampania.DoesNotExist:
+                print('import_survey: LimeOcuEncuestasCampania Not Exist: codencuesta=%s', encuesta.cod_encuesta)
+
+        Survey.objects.bulk_create(surveys_list)
+
+        time_fin = datetime.now()
+        time_dif = time_fin - time_ini
+        print("ImportCampaign: Execution time: ", time_dif)
+
+        # campaign: 162
+        # surveys: 492
+        # batch_create: 0,60 s
+        # batch_create(100): 0,73 s
+        # save: 66,83 s
+
+        return True
+
+# Import list of professors included in the campaign
+    def import_profes(self, cod_campania_lime):
+
+        query = "SELECT prof.sid, " \
+                "LPAD(prof.num_profe, 2, '0') pid, " \
+                "MAX(IF(metadato = 'APELLIDO1PROFE', valor, null)) surname1, " \
+                "MAX(IF(metadato = 'APELLIDO2PROFE', valor, null)) surname2, " \
+                "MAX(IF(metadato = 'NOMBREPROFE', valor, null)) name " \
+            "FROM " \
+            "(SELECT sid, " \
+            " CASE " \
+                "when metadato LIKE 'DNIPROFE%%' then 'DNIPROFE' " \
+                "when metadato LIKE 'APELLIDO1PROFE%%' then 'APELLIDO1PROFE' " \
+                "when metadato LIKE 'APELLIDO2PROFE%%' then 'APELLIDO2PROFE' " \
+                "when metadato LIKE 'NOMBREPROFE%%' then 'NOMBREPROFE' " \
+                "else metadato " \
+            "END AS metadato," \
+            "CASE " \
+                "when metadato LIKE 'DNIPROFE%%' then substr(metadato, 9, 2) " \
+                "when metadato LIKE 'APELLIDO1PROFE%%' then substr(metadato, 15, 2) " \
+                "when metadato LIKE 'APELLIDO2PROFE%%' then substr(metadato, 15, 2) " \
+                "when metadato LIKE 'NOMBREPROFE%%' then substr(metadato, 12, 2) " \
+                "else 0 " \
+            "END AS num_profe, " \
+            "valor " \
+        "FROM uxxienc_resul.SB_%s_META_SURVEY " \
+        "WHERE valor is not null " \
+            "AND (metadato LIKE 'DNIPROFE%%' " \
+                "OR metadato LIKE 'APELLIDO%%' " \
+                "OR metadato LIKE 'NOMBREPROFE%%') " \
+            ") prof " \
+        "GROUP BY sid, pid"
+
+        profes = SBProf.objects.raw(query, [cod_campania_lime])
+        print("Import_profes: Num. profes: ", len(profes))
+        profes_list = []
+        for profe in profes:
+            print (profe.sid,
+                   profe.pid,
+                   profe.surname1,
+                   profe.surname2,
+                   profe.name)
+            try:
+                survey = Survey.objects.get(sid_lime = profe.sid)
+                if profe.name is not None and profe.surname1 is not None:
+                    tfmprofe = Professor(
+                        sid_lime = profe.sid,
+                        pid_lime = profe.pid,
+                        name = profe.name,
+                        surname1 = profe.surname1,
+                        surname2 = profe.surname2,
+                        survey = survey
+                    )
+                    #tfmprofe.save()
+                    profes_list.append(tfmprofe)
+
+            except Survey.DoesNotExist:
+                print("Import_profes: Survey Does not exist: ", profe.sid)
+        Professor.objects.bulk_create(profes_list)
+
+        return True
+
+    def import_comments(self, cod_campania_lime):
+
+        campaign = Campaign.objects.get(cod_campania_lime = cod_campania_lime)
+        print("Import_comment: campaign: ", campaign.name, campaign.type_campaign.name)
+        if ('Assignatura' in campaign.type_campaign.name):
+            survey_type = 1     # Assignatura-professor
+        else:
+            survey_type = 2     # Altres enquestes
+
+        comments_list = []
+        query = "SELECT r.sid, r.tid, r.gid, r.type, r.parent_qid, r.qid, r.sqid, r.ssqid, r.question, " \
+	        "r.sub_question, r.sub_sub_question, r.answer, r.fieldname, r.response, r.token, " \
+            "q.title question_id " \
+            "FROM uxxienc_resul.SB_%s_RES r INNER JOIN lime.lime_questions q ON r.qid = q.qid " \
+            "WHERE r.type = 'T' AND q.language = 'ca' AND r.response > ''"
+        comments = SBRes.objects.raw(query, [cod_campania_lime])
+        print("Import_commnets: num_comentaris: ", len(comments))
+        for comment in comments:
+            print(comment.sid,
+                  comment.tid,
+                  comment.gid,
+                  comment.type,
+                  comment.fieldname,
+                  comment.question_id,
+                  comment.question,
+                  comment.sub_question,
+                  comment.answer,
+                  comment.response)
+
+            try:
+                survey = Survey.objects.get(sid_lime = comment.sid)
+
+                if survey_type == 1:
+                    if len(comment.question_id) > 3:
+                        block_type = 'P'
+                    else:
+                        block_type = 'A'
+                    pid = comment.question_id[3:5]
+                    print("Import_comment: block_type=", block_type, " pdi=", pid)
+                    if pid != "":
+                        try:
+                            professor = Professor.objects.get(sid_lime=comment.sid, pid_lime=pid)
+                            print(professor.surname1, professor.surname2, professor.name)
+                        except Professor.DoesNotExist:
+                            professor = None
+                            print("Import_comment: Professor Does not exist: ", comment.sid)
+                    else:
+                        professor = None
+                else:
+                    block_type = ""
+                    pid = None
+                    professor = None
+
+                tfmcomment = Comment(
+                    survey = survey,
+                    qid_lime = comment.qid,
+                    tid_lime = comment.tid,
+                    question_id_lime = comment.question_id,
+                    question = comment.question,
+                    block_type = block_type,
+                    professor = professor,
+                    original_value = comment.response
+                )
+                comments_list.append(tfmcomment)
+                #tfmcomment.save()
+
+            except Survey.DoesNotExist:
+                print("Import_profes: Survey Does not exist: ", comment.sid)
+
+        Comment.objects.bulk_create(comments_list)
+
+        return True
+
+        # Updates de importing date of the campaign
+    def update_import_date(self, cod_campania_lime):
+        campaign = Campaign.objects.get(cod_campania_lime=cod_campania_lime)
+        campaign.import_date = date.today()
+        campaign.save()
 
 #   Import then campaign types from Lime to TFM
 def import_campaign_types():
@@ -201,8 +384,4 @@ def import_campaigns():
             print("import_campaign: delete: ", campaign_tfm.cod_campania_lime, ' - ',
                   campaign_tfm.name)
             campaign_tfm.delete()
-
-#   Import information from surveys
-def import_survey():
-
     return True

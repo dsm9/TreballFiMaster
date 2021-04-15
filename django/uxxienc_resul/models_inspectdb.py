@@ -23,18 +23,19 @@ class CampaniasExtraidas(models.Model):
         db_table = 'CAMPANIAS_EXTRAIDAS'
 
 
-class Sb100MetaSurvey(models.Model):
-    sid = models.IntegerField(blank=True, null=True)
+class SBMetaSurvey(models.Model):
+    sid = models.IntegerField(blank=True, null=True,primary_key=True)
     metadato = models.CharField(max_length=20, blank=True, null=True)
     valor = models.TextField(blank=True, null=True)
 
     class Meta:
+        unique_together = (('sid','metadato',))
         managed = False
-        db_table = 'SB_100_META_SURVEY'
+#        db_table = 'SB_100_META_SURVEY'
 
 
-class Sb100MetaUser(models.Model):
-    sid = models.IntegerField(blank=True, null=True)
+class SBMetaUser(models.Model):
+    sid = models.IntegerField(blank=True, null=True, primary_key=True)
     tid = models.IntegerField(blank=True, null=True)
     participant_id = models.CharField(max_length=50, blank=True, null=True)
     token = models.CharField(max_length=100, blank=True, null=True)
@@ -43,12 +44,13 @@ class Sb100MetaUser(models.Model):
     attribute_value = models.CharField(max_length=255, blank=True, null=True)
 
     class Meta:
+        unique_together = (('sid','tid','fieldname'),)
         managed = False
         db_table = 'SB_100_META_USER'
 
 
-class Sb100Res(models.Model):
-    sid = models.IntegerField(blank=True, null=True)
+class SBRes(models.Model):
+    sid = models.IntegerField(blank=True, null=True, primary_key=True)
     tid = models.IntegerField(blank=True, null=True)
     gid = models.IntegerField(blank=True, null=True)
     type = models.CharField(max_length=20, blank=True, null=True)
@@ -65,5 +67,6 @@ class Sb100Res(models.Model):
     token = models.CharField(max_length=100, blank=True, null=True)
 
     class Meta:
+        unique_together = (('sid','tid','qid'))
         managed = False
         db_table = 'SB_100_RES'

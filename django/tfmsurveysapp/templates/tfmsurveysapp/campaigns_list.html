@@ -9,8 +9,22 @@ table
     .order( [ 0, 'desc' ] )
     .draw();
 } );
-</script>
 
+
+</script>
+<script language="JavaScript" type="text/javascript">
+function importarCampanya(url, import_date) {
+	// alert("importarCampanya: cod_campania=" + cod_campania_lime + ", import_date=" + import_date);
+	if (import_date != '')
+		result = confirm("S'esborrarán les enquestes i comentaris anteriors.\nVoleu continuar?");
+	else
+		result = true;
+	if (result == true) {
+		document.getElementById('divProcesando').style.display='block';
+		window.location.href = url;
+	}
+}
+</script>
 <div class="TituloPagina">Sel·lecci&oacute; de campanya:</div>
 <br/>
 <!--
@@ -28,6 +42,10 @@ table
 	</tr>
 </table>
 -->
+<div id="divProcesando" style="display:none">
+	<img src="{% static "img/procesando.gif" %}"
+	style="position:absolute;left:50%;top:50%;transform: translate(-50%, -50%);z-index:1;">
+</div>
 <table width="100%" border="1" cellpadding="0" cellspacing="0" style="display:none">
 	<tr>
 		<td>
@@ -107,16 +125,29 @@ table
 		<td align="center">{{ campaign.fecha_extraccion_lime|date:'d-m-Y' }}</td>
 		<td align="center">{{ campaign.import_date|default_if_none:" "|date:'d-m-Y' }}</td>
 		<td align="center" nowrap="nowrap" >
-			<a href="{% url 'tfmsurveysapp:import_campaign' campaign.cod_campania_lime %}"
+			<a
 			    onMouseOut="MM_swapImgRestore()"
-			    onMouseOver="MM_swapImage('btnImportar{{ campaign.cod_campania_lime }}','','{% static 'img/importar_up.png' }%',1)">
+			    onMouseOver="MM_swapImage('btnImportar{{ campaign.cod_campania_lime }}','','{% static 'img/importar_up.png' }%',1)"
+				onclick="importarCampanya('{% url 'tfmsurveysapp:import_campaign' campaign.cod_campania_lime %}',
+										'{{ campaign.import_date|date:'d-m-Y' }}')"
+				style="cursor: pointer">
       			<img src="{% static 'img/importar.png' %}" alt="Importar" title="Importar campanya"
 					 name="btnImportar{{ campaign.cod_campania_lime }}" id="btnImportar{{ campaign.cod_campania_lime }}" width="32" height="32" border="0">
 			</a>
+<!--
+			<a href="{% url 'tfmsurveysapp:import_campaign' campaign.cod_campania_lime %}"
+			    onMouseOut="MM_swapImgRestore()"
+			    onMouseOver="MM_swapImage('btnImportar{{ campaign.cod_campania_lime }}','','{% static 'img/importar_up.png' }%',1)"
+				onclick="document.getElementById('divProcesando').style.display='block'">
+      			<img src="{% static 'img/importar.png' %}" alt="Importar" title="Importar campanya"
+					 name="btnImportar{{ campaign.cod_campania_lime }}" id="btnImportar{{ campaign.cod_campania_lime }}" width="32" height="32" border="0">
+			</a>
+-->
 			{% if not campaign.import_date is None %}
 				<a href="{% url 'tfmsurveysapp:comments_list' campaign.cod_campania_lime %}" target="_self"
           			onmouseover="MM_swapImage('btnEditar{{ campaign.cod_campania_lime }}','','{% static 'img/editar_up.png' %}',1)"
-          			onmouseout="MM_swapImgRestore()">
+          			onmouseout="MM_swapImgRestore()"
+					>
           			<img src="{% static 'img/editar.png' %}" alt="Editar" title="Editar campanya" name="btnEditar{{ campaign.cod_campania_lime }}"
           			width="32" height="32" border="0" id="btnEditar{{ campaign.cod_campania_lime }}" />
           		</a>

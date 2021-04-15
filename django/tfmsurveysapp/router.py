@@ -3,7 +3,7 @@ class EncuestasRouter:
     A router to control all database operations on models e
     Models go to db with same name than his app
     """
-    route_app_labels = {'encuestas', 'uxxienc_resul'}
+    route_app_labels = {'encuestas', 'lime', 'uxxienc_resul'}
 
     def db_for_read(self, model, **hints):
         """
