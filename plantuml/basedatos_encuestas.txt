@@ -1,0 +1,27 @@
+@startuml
+package encuestas {
+	class TipoCampania {
+		#cod_tipo_campania
+		--
+		descripcion
+	}
+	
+	class Campania {
+		#cod_campania
+		--
+		cod_tipo_campania
+		nombre_campania
+	}
+	
+	class Encuesta {
+		#cod_encuesta
+		--
+		cod_campania
+		titulo
+	}
+	
+	TipoCampania "1"--"*" Campania
+	Campania "1"--"*" Encuesta
+}
+
+@enduml

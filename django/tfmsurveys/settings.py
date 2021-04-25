@@ -93,8 +93,7 @@ DATABASES = {
                 'PASSWORD': 'Opalo_121',
                 'HOST': 'localhost',
                 'PORT': '3306'
-    }
-    ,
+    },
     'lime': {
                 'ENGINE': 'django.db.backends.mysql',
                 'NAME': 'lime',
@@ -102,8 +101,7 @@ DATABASES = {
                 'PASSWORD': 'Opalo_121',
                 'HOST': 'localhost',
                 'PORT': '3306'
-    }
-    ,
+    },
     'uxxienc_resul': {
                'ENGINE': 'django.db.backends.mysql',
                 'NAME': 'uxxienc_resul',

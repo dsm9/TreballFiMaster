@@ -240,7 +240,7 @@ class ImportCampaign(RedirectView):
 
         campaign = Campaign.objects.get(cod_campania_lime = cod_campania_lime)
         print("Import_comment: campaign: ", campaign.name, campaign.type_campaign.name)
-        if ('Assignatura' in campaign.type_campaign.name):
+        if ('assignatura' in campaign.type_campaign.name):
             survey_type = 1     # Assignatura-professor
         else:
             survey_type = 2     # Altres enquestes
@@ -268,17 +268,36 @@ class ImportCampaign(RedirectView):
             try:
                 survey = Survey.objects.get(sid_lime = comment.sid)
 
+                question = comment.question
+                #  Obtain professor
                 if survey_type == 1:
                     if len(comment.question_id) > 3:
                         block_type = 'P'
                     else:
                         block_type = 'A'
                     pid = comment.question_id[3:5]
-                    print("Import_comment: block_type=", block_type, " pdi=", pid)
+                    #print("Import_comments: block_type=", block_type, " pdi=", pid)
                     if pid != "":
                         try:
                             professor = Professor.objects.get(sid_lime=comment.sid, pid_lime=pid)
-                            print(professor.surname1, professor.surname2, professor.name)
+                            #print("Import_comments: Professor: ", professor.surname1, professor.surname2, professor.name)
+
+                            question = self.replace_macro(question, "NOMBREPROFE", professor.name)
+                            question = self.replace_macro(question, "APELLIDO1PROFE", professor.surname1)
+                            question = self.replace_macro(question, "APELLIDO2PROFE", professor.surname2)
+                            print ("Import_comments: new_question: ", question)
+
+                            # Replace professor name
+#                            question = comment.question
+#                            pos1 = question.find("{NOMBREPROFE")
+#                            if pos1 != -1:
+#                                pos2 = question.find("}", pos1+1)
+#                                macro = question[pos1: pos2+1]
+#                                print ("Import_comments macro: ", macro)
+#
+#                                question = question.replace(macro, professor.name)
+#                                print ("Import_comments: new questions: ", question)
+
                         except Professor.DoesNotExist:
                             professor = None
                             print("Import_comment: Professor Does not exist: ", comment.sid)
@@ -294,7 +313,7 @@ class ImportCampaign(RedirectView):
                     qid_lime = comment.qid,
                     tid_lime = comment.tid,
                     question_id_lime = comment.question_id,
-                    question = comment.question,
+                    question = question,
                     block_type = block_type,
                     professor = professor,
                     original_value = comment.response
@@ -309,11 +328,26 @@ class ImportCampaign(RedirectView):
 
         return True
 
-        # Updates de importing date of the campaign
+    # Updates de importing date of the campaign
     def update_import_date(self, cod_campania_lime):
         campaign = Campaign.objects.get(cod_campania_lime=cod_campania_lime)
         campaign.import_date = date.today()
         campaign.save()
+
+    # Replace the macro by the value in the question
+    def replace_macro(self, question, macro,  value):
+
+        #print ("Replace_macro")
+        pos1 = question.find("{" + macro)
+        if pos1 != -1:
+            pos2 = question.find("}", pos1 + 1)
+            macro = question[pos1: pos2 + 1]
+            #print("Replace macro: macro:", macro)
+
+            question = question.replace(macro, value)
+            #print("Replace_macro: new questions: ", question)
+
+        return question
 
 #   Import then campaign types from Lime to TFM
 def import_campaign_types():

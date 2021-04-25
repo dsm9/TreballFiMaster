@@ -1,4 +1,29 @@
 @startuml
+package encuestas {
+	class TipoCampania {
+		#cod_tipo_campania
+		--
+		descripcion
+	}
+	
+	class Campania {
+		#cod_campania
+		--
+		cod_tipo_campania
+		nombre_campania
+	}
+	
+	class Encuesta {
+		#cod_encuesta
+		--
+		cod_campania
+		titulo
+	}
+	
+	TipoCampania "1"--"*" Campania
+	Campania "1"--"*" Encuesta
+}
+
 package lime {
 	class lime_surveys_languagesettings {
 		#surveyls_survey_id
@@ -65,7 +90,15 @@ package lime {
 		sortorder
 		assessment_value
 	}
+	lime_surveys "1"--"*" lime_surveys_languagesettings
+	lime_surveys "1"--"1" lime_ocu_encuestas_campania
+	lime_surveys "1"--"*" lime_groups
+	lime_surveys "1"--"*" lime_questions
+	lime_groups "1"--"*" lime_questions
+	lime_questions "1"--"*" lime_answers
+
 }
+
 package result {
 	class sb_xx_meta_survey {
 		#sid
@@ -97,12 +130,8 @@ package result {
 	}
 }
 
-lime_surveys "1"--"*" lime_surveys_languagesettings
-lime_surveys "1"--"1" lime_ocu_encuestas_campania
-lime_surveys "1"--"*" lime_groups
-lime_surveys "1"--"*" lime_questions
-lime_groups "1"--"*" lime_questions
-lime_questions "1"--"*" lime_answers
+Campania "1"--"*" lime_ocu_encuestas_campania
+Encuesta "1"--"*" lime_ocu_encuestas_campania
 lime_surveys "1"--"*" sb_xx_meta_survey
 lime_surveys "1"--"*" sb_xx_meta_user
 lime_surveys "1"--"*" sb_xx_res

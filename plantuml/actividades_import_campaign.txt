@@ -1,0 +1,5 @@
+@startuml
+(*) --> "Import campaign types"
+"Import campaign types" --> "Import campaigns"
+"Import campaigns" --> (*)
+@enduml

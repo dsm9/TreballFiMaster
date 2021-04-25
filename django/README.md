@@ -264,6 +264,13 @@ LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 ```
 
+If we want the session expires after some time or when the navigator is closed we must defined the following parameters in _settings.py_.
+
+```
+SESSION_COOKIE_AGE = 3600
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+```
+
 I will start implementing the different steps that constitute each scenario and the application code to make it show the expected behaviour.
 
 ## Feature: List Campaign Surveys ##
