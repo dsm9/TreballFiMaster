@@ -1,0 +1,10 @@
+@startuml
+(*) --> "Confirm import"
+"Confirm import" --> "Delete surveys"
+"Delete surveys" --> "Import surveys"
+"Import surveys" --> "Import profes"
+"Import profes" --> "Import comments"
+"Import comments" -right-> "<b>Detect language</b>"
+"<b>Detect language</b>" -left-> "Import comments"
+"Import comments" --> (*)
+@enduml

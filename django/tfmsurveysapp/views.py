@@ -1,3 +1,4 @@
+from django.db.models import Count
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import PermissionDenied
@@ -9,13 +10,15 @@ from django.views.generic.edit import UpdateView
 from datetime import date, time, datetime
 
 from tfmsurveysapp.forms import CommentForm
-from tfmsurveysapp.models import Campaign, CampaignType, SolutionType, Survey, Professor
+from tfmsurveysapp.models import Campaign, CampaignType, SolutionType, Survey, Professor, CommentIssue
 from tfmsurveysapp.models import Comment, IssueType
 from encuestas.models import TipoCampania, Encuesta
 from lime.models import LimeOcuEncuestasCampania
 from uxxienc_resul.models import CampaniasExtraidas, SBProf, SBRes
 
 import logging
+from tfmsurveysapp.spacy.tfm_lang_detector import TfmLangDetector
+from tfmsurveysapp.spacy.model_1_execution import TfmCategorizerModel1
 
 logger = logging.getLogger(__name__)
 
@@ -51,6 +54,80 @@ def campaigns_list(request):
                'campania_lime': campania_lime}
     return render(request, 'tfmsurveysapp/campaigns_list.html', context)
 
+
+#   Import then campaign types from Lime to TFM
+def import_campaign_types():
+    tipocampanias_lime = TipoCampania.objects.all()
+
+    # New and update campaign types
+    for tipocampania_lime in tipocampanias_lime:
+        try:
+            campaigntype_tfm = CampaignType.objects.get(cod_tipo_campania_lime = tipocampania_lime.cod_tipo_campania)
+            if (campaigntype_tfm.name != tipocampania_lime.descripcion):
+                campaigntype_tfm.name = tipocampania_lime.descripcion
+                campaigntype_tfm.save()
+                print("import_campaign_type: update: ", tipocampania_lime.cod_tipo_campania, ' - ', tipocampania_lime.descripcion)
+        except CampaignType.DoesNotExist:
+            new_campaigntype = CampaignType(
+                cod_tipo_campania_lime = tipocampania_lime.cod_tipo_campania,
+                name = tipocampania_lime.descripcion)
+            new_campaigntype.save()
+            print("import_campaign_type: new: ", new_campaigntype.cod_tipo_campania_lime, ' - ', new_campaigntype.name)
+            #logger.debug("import_campaign_type: new: ", new_campaigntype)
+
+    # Delete campaign types
+    campaigntypes_tfm = CampaignType.objects.all()
+    for campaigntype_tfm in campaigntypes_tfm:
+        try:
+            tipocampania_lime = TipoCampania.objects.get(cod_tipo_campania = campaigntype_tfm.cod_tipo_campania_lime)
+        except TipoCampania.DoesNotExist:
+            print("import_campaign_type: delete: ", campaigntype_tfm.cod_tipo_campania_lime, ' - ', campaigntype_tfm.name)
+            campaigntype_tfm.delete()
+
+    return True
+
+
+#   Import then campaign types from Lime to TFM
+def import_campaigns():
+    campanias_lime = CampaniasExtraidas.objects.all()
+
+    # New and update campaign types
+    for campania_lime in campanias_lime:
+        try:
+            campaign_tfm = Campaign.objects.get(cod_campania_lime=campania_lime.codcampania)
+            if (campaign_tfm.name != campania_lime.nombrecampania):
+                campaign_tfm.name = campania_lime.nombrecampania
+                campaign_tfm.fecha_extraccion_lime = campania_lime.fechaextraccion
+                campaign_tfm.save()
+                print("import_campaign: update: ", campania_lime.codcampania, ' - ',
+                      campania_lime.nombrecampania)
+        except Campaign.DoesNotExist:
+            try:
+                campaign_type_tfm = CampaignType.objects.get(name=campania_lime.tipocampania)
+                new_campaign = Campaign(
+                    cod_campania_lime=campania_lime.codcampania,
+                    name=campania_lime.nombrecampania,
+                    fecha_extraccion_lime=campania_lime.fechaextraccion,
+                    type_campaign=campaign_type_tfm
+                )
+                new_campaign.save()
+                print("import_campaign: new: ", new_campaign.cod_campania_lime, ' - ', new_campaign.name)
+            except CampaignType.DoesNotExist:
+                print("import_campaign: Campaign_type: except: ", campania_lime.tipocampania)
+
+            # logger.debug("import_campaign_type: new: ", new_campaigntype)
+
+    # Delete campaigns
+    campaigns_tfm = Campaign.objects.all()
+    for campaign_tfm in campaigns_tfm:
+        try:
+            campania_lime = CampaniasExtraidas.objects.get(codcampania=campaign_tfm.cod_campania_lime)
+        except CampaniasExtraidas.DoesNotExist:
+            print("import_campaign: delete: ", campaign_tfm.cod_campania_lime, ' - ',
+                  campaign_tfm.name)
+            campaign_tfm.delete()
+    return True
+
 # List comments:
 @method_decorator(login_required, name='dispatch')
 class CommentsList(ListView):
@@ -59,7 +136,29 @@ class CommentsList(ListView):
     template_name = 'tfmsurveysapp/comments_list.html'
 
     def get_queryset(self):
-        return Comment.objects.filter(survey__campaign__cod_campania_lime=self.kwargs['cod_campania_lime'])
+        print("CommentsList:get_queryset:", self.kwargs)
+        #issue_type = self.kwargs['issue_type']
+
+        comments_list = Comment.objects.filter(survey__campaign__cod_campania_lime=self.kwargs['cod_campania_lime'])
+        self.languages_summary = comments_list.values('language').annotate(lang_count=Count('id'))
+        self.model1_count = comments_list.filter(issue_type__id=1).count()
+        self.total_count = comments_list.count()
+
+        if "language" in self.kwargs:
+            comments_list = comments_list.filter(language=self.kwargs['language'])
+
+        if "issue_type" in self.kwargs:
+            comments_list = comments_list.filter(issue_type__id=self.kwargs['issue_type'])
+
+        #self.model1_count = Comment.objects.filter(survey__campaign__cod_campania_lime=self.kwargs['cod_campania_lime']).count()
+        return comments_list
+
+    def get_context_data(self, **kwargs):
+        context = super(CommentsList, self).get_context_data(**kwargs)
+        context['languages_summary'] = self.languages_summary
+        context['model1_count'] = self.model1_count
+        context['total_count'] = self.total_count
+        return context
 
 # Details of comment:
 # Opcion 3: url - view class
@@ -116,6 +215,7 @@ class CommentDetail(UpdateView):
 class ImportCampaign(RedirectView):
     query_string = False
     permanent = False
+    pattern_name = "tfmsurveysapp:comments_list"
 
     def get_redirect_url(self, *args, **kwargs):
         cod_campania_lime = kwargs['cod_campania_lime']
@@ -125,7 +225,8 @@ class ImportCampaign(RedirectView):
         self.import_comments(cod_campania_lime)
         self.update_import_date(cod_campania_lime)
 
-        return reverse('tfmsurveysapp:campaigns_list')
+        return super().get_redirect_url( *args, **kwargs)
+#        return reverse('tfmsurveysapp:campaigns_list')
 
     # Delete survey information of the campaign
     def delete_surveys(self, cod_campania_lime):
@@ -238,6 +339,10 @@ class ImportCampaign(RedirectView):
 
     def import_comments(self, cod_campania_lime):
 
+        #   Init language detector
+        lang_detector = TfmLangDetector()
+
+
         campaign = Campaign.objects.get(cod_campania_lime = cod_campania_lime)
         print("Import_comment: campaign: ", campaign.name, campaign.type_campaign.name)
         if ('assignatura' in campaign.type_campaign.name):
@@ -265,6 +370,9 @@ class ImportCampaign(RedirectView):
                   comment.answer,
                   comment.response)
 
+            lang = lang_detector.detect(comment.response)
+            print ("Language: ", lang)
+
             try:
                 survey = Survey.objects.get(sid_lime = comment.sid)
 
@@ -281,22 +389,20 @@ class ImportCampaign(RedirectView):
                         try:
                             professor = Professor.objects.get(sid_lime=comment.sid, pid_lime=pid)
                             #print("Import_comments: Professor: ", professor.surname1, professor.surname2, professor.name)
+                            name = professor.name
+                            if name is None:
+                                name = ''
+                            surname1 = professor.surname1
+                            if surname1 is None:
+                                surname1 = ''
+                            surname2 = professor.surname2
+                            if surname2 is None:
+                                surname2 = ''
 
-                            question = self.replace_macro(question, "NOMBREPROFE", professor.name)
-                            question = self.replace_macro(question, "APELLIDO1PROFE", professor.surname1)
-                            question = self.replace_macro(question, "APELLIDO2PROFE", professor.surname2)
+                            question = self.replace_macro(question, "NOMBREPROFE", name)
+                            question = self.replace_macro(question, "APELLIDO1PROFE", surname1)
+                            question = self.replace_macro(question, "APELLIDO2PROFE", surname2)
                             print ("Import_comments: new_question: ", question)
-
-                            # Replace professor name
-#                            question = comment.question
-#                            pos1 = question.find("{NOMBREPROFE")
-#                            if pos1 != -1:
-#                                pos2 = question.find("}", pos1+1)
-#                                macro = question[pos1: pos2+1]
-#                                print ("Import_comments macro: ", macro)
-#
-#                                question = question.replace(macro, professor.name)
-#                                print ("Import_comments: new questions: ", question)
 
                         except Professor.DoesNotExist:
                             professor = None
@@ -316,7 +422,8 @@ class ImportCampaign(RedirectView):
                     question = question,
                     block_type = block_type,
                     professor = professor,
-                    original_value = comment.response
+                    original_value = comment.response,
+                    language = lang
                 )
                 comments_list.append(tfmcomment)
                 #tfmcomment.save()
@@ -349,73 +456,40 @@ class ImportCampaign(RedirectView):
 
         return question
 
-#   Import then campaign types from Lime to TFM
-def import_campaign_types():
-    tipocampanias_lime = TipoCampania.objects.all()
-
-    # New and update campaign types
-    for tipocampania_lime in tipocampanias_lime:
-        try:
-            campaigntype_tfm = CampaignType.objects.get(cod_tipo_campania_lime = tipocampania_lime.cod_tipo_campania)
-            if (campaigntype_tfm.name != tipocampania_lime.descripcion):
-                campaigntype_tfm.name = tipocampania_lime.descripcion
-                campaigntype_tfm.save()
-                print("import_campaign_type: update: ", tipocampania_lime.cod_tipo_campania, ' - ', tipocampania_lime.descripcion)
-        except CampaignType.DoesNotExist:
-            new_campaigntype = CampaignType(
-                cod_tipo_campania_lime = tipocampania_lime.cod_tipo_campania,
-                name = tipocampania_lime.descripcion)
-            new_campaigntype.save()
-            print("import_campaign_type: new: ", new_campaigntype.cod_tipo_campania_lime, ' - ', new_campaigntype.name)
-            #logger.debug("import_campaign_type: new: ", new_campaigntype)
-
-    # Delete campaign types
-    campaigntypes_tfm = CampaignType.objects.all()
-    for campaigntype_tfm in campaigntypes_tfm:
-        try:
-            tipocampania_lime = TipoCampania.objects.get(cod_tipo_campania = campaigntype_tfm.cod_tipo_campania_lime)
-        except TipoCampania.DoesNotExist:
-            print("import_campaign_type: delete: ", campaigntype_tfm.cod_tipo_campania_lime, ' - ', campaigntype_tfm.name)
-            campaigntype_tfm.delete()
 
 
-#   Import then campaign types from Lime to TFM
-def import_campaigns():
-    campanias_lime = CampaniasExtraidas.objects.all()
 
-    # New and update campaign types
-    for campania_lime in campanias_lime:
-        try:
-            campaign_tfm = Campaign.objects.get(cod_campania_lime=campania_lime.codcampania)
-            if (campaign_tfm.name != campania_lime.nombrecampania):
-                campaign_tfm.name = campania_lime.nombrecampania
-                campaign_tfm.fecha_extraccion_lime = campania_lime.fechaextraccion
-                campaign_tfm.save()
-                print("import_campaign: update: ", campania_lime.codcampania, ' - ',
-                      campania_lime.nombrecampania)
-        except Campaign.DoesNotExist:
-            try:
-                campaign_type_tfm = CampaignType.objects.get(name=campania_lime.tipocampania)
-                new_campaign = Campaign(
-                    cod_campania_lime=campania_lime.codcampania,
-                    name=campania_lime.nombrecampania,
-                    fecha_extraccion_lime=campania_lime.fechaextraccion,
-                    type_campaign=campaign_type_tfm
-                )
-                new_campaign.save()
-                print("import_campaign: new: ", new_campaign.cod_campania_lime, ' - ', new_campaign.name)
-            except CampaignType.DoesNotExist:
-                print("import_campaign: Campaign_type: except: ", campania_lime.tipocampania)
+class ProcessComments(RedirectView):
+    query_string = False
+    permanent = False
+    pattern_name = "tfmsurveysapp:comments_list"
 
-            # logger.debug("import_campaign_type: new: ", new_campaigntype)
+    def get_redirect_url(self, *args, **kwargs):
+        cod_campania_lime = kwargs['cod_campania_lime']
+        self.process_model1(cod_campania_lime)
 
-    # Delete campaign types
-    campaigns_tfm = Campaign.objects.all()
-    for campaign_tfm in campaigns_tfm:
-        try:
-            campania_lime = CampaniasExtraidas.objects.get(codcampania=campaign_tfm.cod_campania_lime)
-        except CampaniasExtraidas.DoesNotExist:
-            print("import_campaign: delete: ", campaign_tfm.cod_campania_lime, ' - ',
-                  campaign_tfm.name)
-            campaign_tfm.delete()
-    return True
+        return super().get_redirect_url( *args, **kwargs)
+
+    def process_model1(self, cod_campania_lime):
+
+        issue_type = IssueType.objects.get(id=1)
+        languages = {"ca","es","en"}
+        for language in languages:
+            nlp = TfmCategorizerModel1(language)
+            #print ("ProcessComments: Model readed: ", language )
+
+            comments = Comment.objects.filter(survey__campaign__cod_campania_lime=cod_campania_lime, language=language)
+            print("ProcessComments: process_model1: Comments=", len(comments))
+
+            positives = 0
+            for comment in comments:
+                result = nlp.test(comment.original_value)
+                if (result['POSITIVE'] > 0.5):
+                    positives = positives + 1;
+                    print("ProcessComments: process_model1: comment: ", comment.original_value)
+                    print("ProcessComments: process_model1: comment: ", result)
+                    comment.issue_type = issue_type
+                    comment.save()
+            print("ProcessComments: process_model1: Positives: ", positives)
+
+        return True

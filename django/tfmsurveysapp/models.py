@@ -70,6 +70,8 @@ class Comment(models.Model):
     issue_type = models.ForeignKey(IssueType, on_delete=models.CASCADE, null=True, blank=True)
     solution_type = models.ForeignKey(SolutionType, on_delete=models.CASCADE, null=True, blank=True)
     changed = models.BooleanField("Modificat", default=False)
+    language = models.CharField("Idioma", max_length=2, null=True)
+#    issue_types = models.ManyToManyField(IssueType, through='CommentIssue')
 
     def __str__(self):
         return self.original_value

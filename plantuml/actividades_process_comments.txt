@@ -1,0 +1,18 @@
+@startuml
+(*) --> "Open Process comments view"
+partition "Process Model 1" {
+  "Open Process comments view" --> "Loop languages"
+  "Loop languages" --> "Filter comments (language)"
+  "Filter comments (language)" --> "Loop comments"
+  "Loop comments" --> "Test comment"
+  if "test > 0.5" then
+    --> [true] "Save issue type"
+    "Save issue type" --> == S1 ==
+  else
+    --> [false] == S1 ==
+  endif 
+}
+== S1 == --> "Open Comments list"
+
+"Open Comments list" --> (*)
+@enduml

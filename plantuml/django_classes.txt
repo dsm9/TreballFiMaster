@@ -1,0 +1,13 @@
+@startuml
+
+class TfmLangDetector {
+	init()
+	detect(comment)
+}
+
+class TfmCategorizerModel1 {
+	init(language)
+	test(comment)
+}
+
+@enduml

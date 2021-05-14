@@ -1,0 +1,6 @@
+@startuml
+(*) --> "Open Process comments view"
+"Open Process comments view" --> "Process Model 1"
+"Process Model 1" --> "Open Comments list"
+"Open Comments list" --> (*)
+@enduml

@@ -955,3 +955,47 @@ def update_import_date(self, cod_campania_lime):
    campaign.import_date = date.today()
    campaign.save()
 ```
+
+## Integration Django - Spacy
+
+### Language Detection
+#### Creation of the TfmLangDetector class
+ with init and detect method.
+
+#### Call from ImportCampaign view
+import_comments
+
+#### Modification of Comment model: language field
+
+#### Add 'Idioma' column to the comments_list.html template.
+
+#### Modification in edit comment form
+
+#### Obtain language summary
+Use of aggregation to obtain language summary
+
+#### Filter by language
+
+
+### Model 1 Issue type detection
+
+#### Creation of the TfmCategorizerModel1 class
+
+#### Templates modification
+Add button to campaings_list.html template
+
+#### Creation of view ProcessComments
+
+#### Creation of url process_comments
+
+#### Call to url process_comments 
+from campaign_list template
+from comments_list template
+
+#### Obtain language summary
+Use of aggregation to obtain language summary
+
+#### Obtain issues summary 
+Use count to obtain issues summary
+
+####

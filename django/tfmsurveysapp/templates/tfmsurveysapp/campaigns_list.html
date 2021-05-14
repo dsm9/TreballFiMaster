@@ -9,8 +9,6 @@ table
     .order( [ 0, 'desc' ] )
     .draw();
 } );
-
-
 </script>
 <script language="JavaScript" type="text/javascript">
 function importarCampanya(url, import_date) {
@@ -23,6 +21,15 @@ function importarCampanya(url, import_date) {
 		document.getElementById('divProcesando').style.display='block';
 		window.location.href = url;
 	}
+}
+
+function processarComentaris(url) {
+	// alert("processarComentaris");
+	result = confirm("S'esborrarà la detecció d'incidències anterior i és tornarà a calcular.\nVoleu continuar?");
+	if (result == true) {
+    	document.getElementById('divProcesando').style.display='block';
+    	window.location.href = url;
+    }
 }
 </script>
 <div class="TituloPagina">Sel·lecci&oacute; de campanya:</div>
@@ -126,23 +133,14 @@ function importarCampanya(url, import_date) {
 		<td align="center">{{ campaign.import_date|default_if_none:" "|date:'d-m-Y' }}</td>
 		<td align="center" nowrap="nowrap" >
 			<a
-			    onMouseOut="MM_swapImgRestore()"
-			    onMouseOver="MM_swapImage('btnImportar{{ campaign.cod_campania_lime }}','','{% static 'img/importar_up.png' }%',1)"
 				onclick="importarCampanya('{% url 'tfmsurveysapp:import_campaign' campaign.cod_campania_lime %}',
-										'{{ campaign.import_date|date:'d-m-Y' }}')"
+						'{{ campaign.import_date|date:'d-m-Y' }}')"
+			    onmouseout="MM_swapImgRestore()"
+			    onmouseover="MM_swapImage('btnImportar{{ campaign.cod_campania_lime }}','','{% static 'img/importar_up.png' }%',1)"
 				style="cursor: pointer">
       			<img src="{% static 'img/importar.png' %}" alt="Importar" title="Importar campanya"
 					 name="btnImportar{{ campaign.cod_campania_lime }}" id="btnImportar{{ campaign.cod_campania_lime }}" width="32" height="32" border="0">
 			</a>
-<!--
-			<a href="{% url 'tfmsurveysapp:import_campaign' campaign.cod_campania_lime %}"
-			    onMouseOut="MM_swapImgRestore()"
-			    onMouseOver="MM_swapImage('btnImportar{{ campaign.cod_campania_lime }}','','{% static 'img/importar_up.png' }%',1)"
-				onclick="document.getElementById('divProcesando').style.display='block'">
-      			<img src="{% static 'img/importar.png' %}" alt="Importar" title="Importar campanya"
-					 name="btnImportar{{ campaign.cod_campania_lime }}" id="btnImportar{{ campaign.cod_campania_lime }}" width="32" height="32" border="0">
-			</a>
--->
 			{% if not campaign.import_date is None %}
 				<a href="{% url 'tfmsurveysapp:comments_list' campaign.cod_campania_lime %}" target="_self"
           			onmouseover="MM_swapImage('btnEditar{{ campaign.cod_campania_lime }}','','{% static 'img/editar_up.png' %}',1)"
@@ -150,6 +148,13 @@ function importarCampanya(url, import_date) {
 					>
           			<img src="{% static 'img/editar.png' %}" alt="Editar" title="Editar campanya" name="btnEditar{{ campaign.cod_campania_lime }}"
           			width="32" height="32" border="0" id="btnEditar{{ campaign.cod_campania_lime }}" />
+          		</a>
+				<a  onclick="processarComentaris('{% url 'tfmsurveysapp:process_comments' campaign.cod_campania_lime %}')"
+          			onmouseover="MM_swapImage('btnCalcular{{ campaign.cod_campania_lime }}','','{% static 'img/calcular_up.png' %}',1)"
+          			onmouseout="MM_swapImgRestore()"
+					style="cursor: pointer">
+          			<img src="{% static 'img/calcular.png' %}" alt="Editar" title="Processar incidencies comentaris" name="btnCalcular{{ campaign.cod_campania_lime }}"
+          			width="32" height="32" border="0" id="btnCalcular{{ campaign.cod_campania_lime }}" />
           		</a>
 			{% endif %}
 		</td>

@@ -2,18 +2,41 @@
 {% block content %}
 {% load static %}
 
+<script language="JavaScript" type="text/javascript" class="init">
+$(document).ready(function() {
+var table = $('#Lista').DataTable();
+table
+    .order( [ 0, 'desc' ] )
+    .draw();
+} );
+</script>
+<script language="JavaScript" type="text/javascript">
+function processarComentaris(url) {
+	// alert("processarComentaris");
+	result = confirm("S'esborrarà la detecció d'incidències anterior i és tornarà a calcular.\nVoleu continuar?");
+	if (result == true) {
+    	document.getElementById('divProcesando').style.display='block';
+    	window.location.href = url;
+    }
+}
+</script>
+
+<div id="divProcesando" style="display:none">
+	<img src="{% static "img/procesando.gif" %}"
+	style="position:absolute;left:50%;top:50%;transform: translate(-50%, -50%);z-index:1;">
+</div>
 <div class="TituloPagina">Sel·lecci&oacute; de comentari:</div>
-<table width="100%" class="TituloPagina">
+<table width="100%" class="TituloPagina" border="0" cellspacing="0" cellpadding="0" >
 	<tr>
-		<td class="EtiquetaTitulo">Campanya:</td>
-		<td>{{ comments_list.first.survey.campaign.name }}
+		<td class="EtiquetaTitulo" width="8%">Campanya:</td>
+		<td width="28%">{{ comments_list.first.survey.campaign.name }}
 		({{ comments_list.first.survey.campaign.cod_campania_lime }})
 		</td>
-		<td class="EtiquetaTitulo">Tipus campanya:</td>
-		<td>{{ comments_list.first.survey.campaign.type_campaign.name }} </td>
-		<td class="EtiquetaTitulo">Data exportaci&oacute;:</td>
-		<td>{{ comments_list.first.survey.campaign.fecha_extraccion_lime|date:'d-m-Y' }}</td>
-		<td>
+		<td class="EtiquetaTitulo" width=12%">Tipus campanya:</td>
+		<td width="28%">{{ comments_list.first.survey.campaign.type_campaign.name }} </td>
+		<td class="EtiquetaTitulo" width="10%">Data importaci&oacute;:</td>
+		<td width="10%">{{ comments_list.first.survey.campaign.import_date|date:'d-m-Y' }}</td>
+		<td rowspan="2" valign="top" width="4%">
 			<a href="{% url 'tfmsurveysapp:campaigns_list' %}" target="_self"
           		onmouseover="MM_swapImage('btnCerrar','','{% static 'img/cerrar32_up.png' %}',1)"
           		onmouseout="MM_swapImgRestore()">
@@ -21,6 +44,67 @@
           		width="32" height="32" border="0" id="btnCerrar" />
           	</a>
 		</td>
+	</tr>
+<table width="100%" class="SubtituloPagina" border="0" cellspacing="0" cellpadding="0">
+	<tr valign="top">
+		<td class="EtiquetaSubtitulo" width="8%">Idiomes:</td>
+		<td width="28%">
+		<table ><tr>
+			<td class="EtiquetaSubtitulo" width="50%">
+				{% for language_summary in languages_summary  %}
+					{% if language_summary.language == 'ca' %}
+						Catal&agrave;
+					{% elif language_summary.language == 'es'  %}
+						Castell&agrave;
+					{% elif language_summary.language == 'en'  %}
+						Angl&egrave;s
+					{% endif %}
+					<br/>
+				{% endfor %}
+				<b>Total</b>
+			</td>
+			<td align="right" width="50%" class="EtiquetaSubtitulo">
+				{% for language_summary in languages_summary  %}
+					<a href="{% url 'tfmsurveysapp:comments_list_language' comments_list.first.survey.campaign.cod_campania_lime language_summary.language %}">
+						{{ language_summary.lang_count }}
+					</a>
+					<br/>
+				{% endfor %}
+				<a href="{% url 'tfmsurveysapp:comments_list' comments_list.first.survey.campaign.cod_campania_lime %}">
+					{{ total_count }}
+				</a>
+			</td>
+		</tr></table>
+		<td class="EtiquetaSubtitulo" width="12%">Incid&egrave;ncies:</td>
+		<td width="14%">
+		<table><tr>
+			<td class="EtiquetaSubtitulo" width="33%">
+				Model 1<br/>
+				Total
+			</td>
+			<td width="33%" align="right" class="EtiquetaSubtitulo">
+				<a href="{% url 'tfmsurveysapp:comments_list_issue_type' comments_list.first.survey.campaign.cod_campania_lime 1 %}">
+					{{ model1_count }}
+				</a><br/>
+				<a href="{% url 'tfmsurveysapp:comments_list' comments_list.first.survey.campaign.cod_campania_lime %}">
+					{{ total_count }}
+				</a>
+			</td>
+		</tr>
+		</table>
+		</td>
+		<td width="33%">
+			<a  onclick="processarComentaris('{% url 'tfmsurveysapp:process_comments' comments_list.first.survey.campaign.cod_campania_lime %}')"
+       			onmouseover="MM_swapImage('btnCalcular{{ campaign.cod_campania_lime }}','','{% static 'img/calcular2_up.png' %}',1)"
+       			onmouseout="MM_swapImgRestore()"
+				style="cursor: pointer">
+   			<img src="{% static 'img/calcular2.png' %}" alt="Processar comentaris" title="Processar incidencies comentaris"
+				 name="btnCalcular{{ campaign.cod_campania_lime }}" id="btnCalcular{{ campaign.cod_campania_lime }}"
+		    	 width="32" height="32" border="0" />
+				</a>
+		</td>
+		<td >&nbsp;</td>
+		<td>&nbsp;</td>
 	</tr>
 </table>
 <br/>
@@ -37,6 +121,7 @@
 		<th align="center">Codi pregunta</td>
 		<th align="left">Pregunta</th>
 		<th align="center">tid</td>
+		<th align="center">Idioma</th>
 		<th align="left">Comentari original</th>
 		<th align="left">Tipus incid&egrave;ncia</th>
 		<th align="left">Soluci&oacute;</th>
@@ -54,8 +139,10 @@
 		<td align="center">{{ comment.question_id_lime }}</td>
 		<td align="left">{{ comment.question }}</td>
 		<td align="center">{{ comment.tid_lime }}</td>
+		<td align="center">{{ comment.language }}</td>
 		<td align="left">{{ comment.original_value }}</td>
-		<td align="left">{{ comment.issue_type.name }}</td>
+		<td align="left">{{ comment.issue_type.name }}
+		</td>
 		<td align="left">{{ comment.solution_type.name }}</td>
 		<td align="left">{{ comment.new_value|default_if_none:" " }}</td>
 		<td align="center">

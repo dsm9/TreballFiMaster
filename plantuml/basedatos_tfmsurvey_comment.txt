@@ -1,0 +1,17 @@
+@startuml
+	
+	class comment {
+		#id
+		--
+		survey_id
+		qid_lime
+		tid_lime
+		name
+		bloq_type
+		professor_id
+		original_value
+		new_value
+		<b>language</b>
+	}
+
+@enduml

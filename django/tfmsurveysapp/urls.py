@@ -4,7 +4,7 @@ from django.utils import timezone
 from django.views.generic import DetailView, ListView
 from . import views
 from tfmsurveysapp.models import Campaign, Survey, Comment
-from tfmsurveysapp.views import CommentDetail, CommentsList, ImportCampaign
+from tfmsurveysapp.views import CommentDetail, CommentsList, ImportCampaign, ProcessComments
 from tfmsurveysapp.forms import CommentForm
 
 app_name = "tfmsurveysapp"
@@ -25,10 +25,20 @@ urlpatterns = [
 #         name='comments_list'),
 
     # Opcion 3: ListView (class)
+    # include all the comments
      path('campaigns/<int:cod_campania_lime>',
           CommentsList.as_view(),
           name='comments_list'),
 
+    # include comments in a language
+    path('campaigns/<int:cod_campania_lime>/lang/<str:language>',
+         CommentsList.as_view(),
+         name='comments_list_language'),
+
+    # include comments of a issue type
+    path('campaigns/<int:cod_campania_lime>/issue/<int:issue_type>',
+         CommentsList.as_view(),
+         name='comments_list_issue_type'),
 
     # Show the details of a comment
     path('campaigns/<int:cod_campania_lime>/<int:pk>',
@@ -39,8 +49,14 @@ urlpatterns = [
 #         views.import_campaign,
 #         name='import_campaign'),
 
+    # Imports the information from a campaign
     path('campaigns/<int:cod_campania_lime>/import',
          ImportCampaign.as_view(),
          name='import_campaign'),
+
+    # Process comments to classify it in type of issues
+    path('campaigns/<int:cod_campania_lime>/process',
+         ProcessComments.as_view(),
+         name='process_comments'),
 
 ]
