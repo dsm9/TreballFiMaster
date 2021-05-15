@@ -956,46 +956,321 @@ def update_import_date(self, cod_campania_lime):
    campaign.save()
 ```
 
-## Integration Django - Spacy
+## Integration of Django - Spacy
 
-### Language Detection
-#### Creation of the TfmLangDetector class
- with init and detect method.
+In this iteration we will integrate web development done using Django with the Artificial Intelligence functions created with Spacy. This task will force us to adapt the resulting function form Spacy and the views and templates to call the functions and show the results. 
 
-#### Call from ImportCampaign view
-import_comments
+It will be necessary to create two classes that will control language detection and the classification of comments that match the issue type called ‘model 1 - profesor don’t have participated in the subject’.
 
-#### Modification of Comment model: language field
+The language detection will be called when reading the comments from the import surveys functionality and it will save the detected language as an attribute of the comment.
 
-#### Add 'Idioma' column to the comments_list.html template.
+In order to know the result of the language detection the comments list page will show a summary with the number of comments in every language. Also will be possible filter by language, to validate the detection correctness and change the language value in the edit comment form.
 
-#### Modification in edit comment form
+The issue type detection will be called from the campaigns list with a new button in a similar way as done with the import campaign functionality. This button will be also in the comments list page. 
 
-#### Obtain language summary
-Use of aggregation to obtain language summary
+The result of the issue detection could be shown as a column in the comments list and a summary in the header of this page. It will be possible to filter the detected issues and change the issue type from the edit comment page.
 
-#### Filter by language
+The implementation of this iteration has consist in the following steps:
 
+### Creation of classes TfmLangDetect and TfmCategorizerModel1
 
-### Model 1 Issue type detection
+The code related with Spacy implementation has been placed in the folder ‘tfmsurveysapp/spacy’. The resulting models from the Spacy training are located in the folder ‘‘tfmsurveysapp/spacy/nlp_models’.
 
-#### Creation of the TfmCategorizerModel1 class
+The final classes are relatively simple because all the work was made in his initial analysis. As explained in the design part TfmLangDetector has two functions:
+ 
+- **_init_**: Load the English standard model and add the LanguageDetector class in the pipe that use Spacy
 
-#### Templates modification
-Add button to campaings_list.html template
+```
+def __init__(self):
+    ...
+    self.nlp = spacy.load("en_core_web_sm")
+    self.nlp.add_pipe(LanguageDetector(), name='language_detector', last=True)
+    ...
+```
+- **_detect_**: This function receives a comment and mixes the language detected by Spacy and Pycld2, to obtain an improved prediction. In the language detection iteration was explained on how this mix is done.  This is part of the code:
 
-#### Creation of view ProcessComments
+```
+def detect(self, comment):
+    # Language detected by Spacy
+    lang_spacy = self.nlp(comment)._.language["language"]
+        
+    # Language detecte by Pycld2 
+    isReliable, textBytesFound, details = cld2.detect(comment.encode('utf-8', 'replace'),                               isPlainText=True, bestEffort=True, returnVectors=False)
+    lang_pycld2 = details[0][1]
 
-#### Creation of url process_comments
+    # Mix of predictions
+    language = lang_spacy
+    if (lang_spacy != "ca") & (lang_pycld2 == "ca"):
+    ...
+return language 
+```
+The class _TfmCategorizerModel1_ has also two functions as described in the design:
+- **_init_**: Loads the model created in the training iteration. 
+Every language has his own model placed in a subfolder the folder _tfmsurveysapp/models_. 
+For example: _nlp_models/ca_, _nlp_models/es_ or _nlp_models/en_. 
 
-#### Call to url process_comments 
-from campaign_list template
-from comments_list template
+- **_test_**: This function creates an _Spacy_ doc object from the received comment. 
+This object contains the _cats_ object that indicates the probability that the comment matches with the issue type ‘1 - Professor hasn't done classes’.
 
-#### Obtain language summary
-Use of aggregation to obtain language summary
+This is an example of the _cats_ object, where we can show the probability that the comment matches this type of issue is more than 99%:
+```
+{'POSITIVE': 0.9999936819076538, 'NEGATIVE': 6.376371402438963e-06}
+```
+This is the code of the class:
+```
+class TfmCategorizerModel1():
 
-#### Obtain issues summary 
-Use count to obtain issues summary
+    def __init__(self, language):
+        ...
+        self.nlp = spacy.load(pathmodel + language)
+        ...
 
-####
+    def test(self, comment):
+        doc = self.nlp(comment)
+        ...
+        return doc.cats
+```
+### Calculating language in ImportCampaign view
+
+The calculation of the comment language had been added in the _import_comments_ function that is included in the _ImportCampaign_ view.
+
+In the beginning of the function _lang_detector_ variable is created as an instance of _TfmLangDetector_. This action executes automatically the init function of the class.
+
+As shown in the previous iteration, comments are read using a raw query and iterating through them.
+
+The language is obtained by calling the detect function of the lang_detector object.
+
+And the _language_ information is stored in the _tfmcomment_ object and the _tfmcomment_ is saved to disk.
+
+This is the part of the code added in this iteration to manage the language detection:
+```
+class ImportCampaign(RedirectView):
+    ... 
+    def get_redirect_url(self, *args, **kwargs):
+        ...
+        self.import_comments(cod_campania_lime)
+        ...
+
+    def import_comments(self, cod_campania_lime):
+
+        #   Init language detector
+        lang_detector = TfmLangDetector()
+        ...
+        comments = SBRes.objects.raw(query, [cod_campania_lime])
+        for comment in comments:
+            ...
+            lang = lang_detector.detect(comment.response)
+            ...
+            tfmcomment = Comment(
+            ...
+                language = lang
+            )
+            comments_list.append(tfmcomment)
+        ...
+        Comment.objects.bulk_create(comments_list)
+        ...
+
+```
+### Modification of Comment model
+
+The _Comment_ model had been modified to add the language field where save the language detected in the previous step. It will contain the code of the language (ca, es or en)
+
+```
+class Comment(models.Model):
+    ...
+    language = models.CharField("Idioma", max_length=2, null=True)
+```
+### Modification in template comments_list.html to identify language
+
+It has been added the ‘Idioma’ column to the table of comments:
+
+```
+...
+<table align="center" id="Lista" name="Lista" class="display">
+   <tr>
+        ...
+        <th align="center">Idioma</th>
+        ...
+    </tr>
+    {% for comment in comments_list %}
+    <tr>
+        ...
+        <td align="center">{{ comment.language }}</td>
+        ...
+    </tr>
+    ...
+```
+### Modification in templates to process issue type of comments
+
+To execute the **process** of identifying **comments** of issue type 1 has been added a button in the _campaign_list_ and _comments_list_ templates. 
+This button calls a script function that redirects the page to the _process_comments_ view with the parameter _cod_campania_lime_. 
+
+This is the code added to the _campaign_list_:
+```
+<a  onclick="processarComentaris('{% url 'tfmsurveysapp:process_comments' campaign.cod_campania_lime %}')"
+    ...    
+</a>
+```
+And this is the code added to the _comments_list_:
+```
+<a  onclick="processarComentaris('{% url 'tfmsurveysapp:process_comments' comments_list.first.survey.campaign.cod_campania_lime %}')"
+    ...
+</a>
+```
+And this is the script who made the redirection:
+```
+function processarComentaris(url) {
+    ...
+    window.location.href = url;
+}
+```
+
+### Creation of ProcessComments view
+
+The main part in the task of process comments is done by the _ProcessComments_ view, 
+included in the _views.py_ configuration file.
+
+This view obtains the _cod_campania_lime_ parameter from the url, executes the _process_model1_ function 
+and redirects the page to the _comments_list_ view using the _pattern_name_ attribute of the view.
+
+The _process_model1_ function executes the following steps:
+
+1. Iterate through the possible languages (ca, es, en).
+
+2. Load the model corresponding to the language, creating a _nlp_ object, that is an instance of the _TfmCategorizerModel1_ class. 
+This step calls the init function of the class.
+
+3. Filter the comments by the desired language.
+
+4. Iterate through the comments.
+
+5. For every comment evaluate if the comment matches with the issue type. 
+This action calls the test function of the _nlp_ object, 
+that is an instance of the _TfmCategorizerModel1_ class.
+
+6. If the result of the test is higher than 50% the _isue_type_ field is completed 
+and the comment saved with the new value. 
+Percentage can be adjusted to be more accurate in the selection of comments.
+
+This is the code of the _ProcessModel1_ view:
+```
+class ProcessComments(RedirectView):
+    query_string = False
+    permanent = False
+    pattern_name = "tfmsurveysapp:comments_list"
+
+    def get_redirect_url(self, *args, **kwargs):
+        cod_campania_lime = kwargs['cod_campania_lime']
+        self.process_model1(cod_campania_lime)
+
+        return super().get_redirect_url( *args, **kwargs)
+```
+And this the more relevant code of the proces_model1 function:
+```
+def process_model1(self, cod_campania_lime):
+
+    issue_type = IssueType.objects.get(id=1)
+    languages = {"ca","es","en"}
+    for language in languages:
+        nlp = TfmCategorizerModel1(language)
+        
+        comments = Comment.objects.filter( survey__campaign__cod_campania_lime=cod_campania_lime,language=language)
+
+        for comment in comments:
+            result = nlp.test(comment.original_value)
+            if (result['POSITIVE'] > 0.5):
+                comment.issue_type = issue_type
+                comment.save()
+
+        return True
+```
+### Definition of url to process comments
+Next step consists in defining the url to access the ‘_ProcessComments_’ view in the _url.py_ configuration file. 
+Exemple: _campaigns/123/process_
+```
+path('campaigns/<int:cod_campania_lime>/process',
+         ProcessComments.as_view(),
+         name='process_comments'),
+```
+### Summary of languages and issue types
+
+So as to validate the language and issue types calculation have been added both summary tables in the comments list page. 
+Calculation is done in the _CommentList_ view. 
+
+In the case of language summary values of _comments_list_ hare grouped using the value method and making a count using the annotate method. 
+This returns a list of language codes and number of comments.
+
+In the case of issue type summary _comments_list_ is filtered by issue type 
+and the count method returns the final number. 
+This codification is possible because there is only one type of issue at this moment.
+
+Summaries are stored in the context to be recovered in the template.
+
+This is the part of code corresponding to summary calculation:
+```
+class CommentsList(ListView):
+    ...
+    def get_queryset(self):
+        ...
+        comments_list = Comment.objects.filter( survey__campaign__cod_campania_lime=self.kwargs['cod_campania_lime'])
+        self.languages_summary = comments_list.values('language'). annotate(lang_count=Count('id'))
+        self.model1_count = comments_list.filter(issue_type__id=1). count()
+        self.total_count = comments_list.count()
+        ...
+    def get_context_data(self, **kwargs):
+        context = super(CommentsList, self).get_context_data(**kwargs)
+        context['languages_summary'] = self.languages_summary
+        context['model1_count'] = self.model1_count
+        context['total_count'] = self.total_count
+        return context
+```
+### Filter by language and issue type
+
+The previously calculated summaries enable filter the comment list by language or by issue type. 
+
+_CommentList_ view could be called using three different formats of url. For example:
+
+- `campaigns/123`: Will show all the comments of the campaign 123.
+- `campaigns/123/lang/ca`: Will show comments in catalan language of the campaign 123
+- `campaigns/123/issue/1`: Will show comments with issue type 1 of the campaign 123
+
+This formats are defined in the _url.py_ configuration file:
+
+The _CommentList_, defined in the _view.py_ configuration file, obtains the _cod_campania_lime_, _language_ and _issue_type_ as parameters and it applies the corresponding filter.
+```
+class CommentsList(ListView):
+    ...
+    def get_queryset(self):
+        ...
+        comments_list = Comment.objects.filter( survey__campaign__cod_campania_lime=self.kwargs['cod_campania_lime'])
+        ...
+        if "language" in self.kwargs:
+            comments_list = comments_list.filter( language=self.kwargs['language'])
+
+        if "issue_type" in self.kwargs:
+            comments_list = comments_list.filter( issue_type__id=self.kwargs['issue_type'])
+        ...
+        return comments_list
+```
+
+This urls are used in the _comments_list_.html template:
+
+```
+...
+{% for language_summary in languages_summary  %}
+	<a href="{% url 'tfmsurveysapp:comments_list_language' comments_list.first.survey.campaign.cod_campania_lime language_summary.language %}">
+		{{ language_summary.lang_count }}
+	</a>
+	<br/>
+{% endfor %}
+<a href="{% url 'tfmsurveysapp:comments_list' comments_list.first.survey.campaign.cod_campania_lime %}">
+	{{ total_count }}
+</a>
+...
+<a href="{% url 'tfmsurveysapp:comments_list_issue_type' comments_list.first.survey.campaign.cod_campania_lime 1 %}">
+	{{ model1_count }}
+</a>
+...
+```
+.
+
