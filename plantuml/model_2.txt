@@ -1,0 +1,9 @@
+@startuml
+(*) --> "Load_data"
+"Load_data" --> "create_text_and_cats_comments"
+"Load_data" --> "create_text_and_cats_sentences"
+"create_text_and_cats_comments" --> "Train_model"
+"create_text_and_cats_sentences" --> "Train_model"
+"Train_model" --> "Evaluate"
+"Evaluate" --> (*)
+@enduml
