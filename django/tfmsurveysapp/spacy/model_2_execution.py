@@ -16,22 +16,22 @@ from spacy.util import minibatch, compounding
 from spacy import displacy
 from spacy.matcher import Matcher
 
-pathmodel = "tfmsurveysapp/spacy/nlp_models/model1/"
+pathmodel = "tfmsurveysapp/spacy/nlp_models/model2/"
 languages = {"ca":"ca_fasttext_wiki_lg", "es":"es_core_news_lg", "en":"en_core_web_sm" }
 debug = 1
 
-class TfmCategorizerModel1():
+class TfmCategorizerModel2():
 
     def __init__(self, language):
         model = languages[language]
 
         self.nlp = spacy.load(pathmodel + language)
         if debug >= 1 :
-            print("TfmCategorizeModel1: init: Model read: ", model)
+            print("TfmCategorizeModel2: init: Model read: ", model)
 
     def test(self, comment):
         doc = self.nlp(comment)
         if debug >= 2:
-            print("TfmCategorizerModel1: test", doc.cats)
+            print("TfmCategorizerModel2: test", doc.cats)
 
         return doc.cats

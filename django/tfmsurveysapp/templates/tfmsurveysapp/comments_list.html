@@ -21,9 +21,9 @@ function processarComentaris(url) {
 }
 </script>
 
-<div id="divProcesando" style="display:none">
+<div id="divProcesando" style="display:none;position:absolute;left:50%;top:50%;transform: translate(-50%, -50%);z-index:1;border=1">
 	<img src="{% static "img/procesando.gif" %}"
-	style="position:absolute;left:50%;top:50%;transform: translate(-50%, -50%);z-index:1;">
+	>
 </div>
 <div class="TituloPagina">Sel·lecci&oacute; de comentari:</div>
 <table width="100%" class="TituloPagina" border="0" cellspacing="0" cellpadding="0" >
@@ -49,8 +49,8 @@ function processarComentaris(url) {
 	<tr valign="top">
 		<td class="EtiquetaSubtitulo" width="8%">Idiomes:</td>
 		<td width="28%">
-		<table ><tr>
-			<td class="EtiquetaSubtitulo" width="50%">
+		<table border="0" ><tr>
+			<td class="EtiquetaSummary" width="50%">
 				{% for language_summary in languages_summary  %}
 					{% if language_summary.language == 'ca' %}
 						Catal&agrave;
@@ -63,7 +63,7 @@ function processarComentaris(url) {
 				{% endfor %}
 				<b>Total</b>
 			</td>
-			<td align="right" width="50%" class="EtiquetaSubtitulo">
+			<td align="right" width="50%" class="EtiquetaSummary">
 				{% for language_summary in languages_summary  %}
 					<a href="{% url 'tfmsurveysapp:comments_list_language' comments_list.first.survey.campaign.cod_campania_lime language_summary.language %}">
 						{{ language_summary.lang_count }}
@@ -76,21 +76,34 @@ function processarComentaris(url) {
 			</td>
 		</tr></table>
 		<td class="EtiquetaSubtitulo" width="12%">Incid&egrave;ncies:</td>
-		<td width="14%">
-		<table><tr>
-			<td class="EtiquetaSubtitulo" width="33%">
-				Model 1<br/>
-				Total
+		<td width="22%">
+		<table border="0" cellpadding="0" cellspacing="0">
+			<tr>
+			<td class="EtiquetaSummary" nowrap="nowrap">
+				Model 1 - No classes
 			</td>
-			<td width="33%" align="right" class="EtiquetaSubtitulo">
+			<td align="center" class="EtiquetaSummary" width="100px">
 				<a href="{% url 'tfmsurveysapp:comments_list_issue_type' comments_list.first.survey.campaign.cod_campania_lime 1 %}">
 					{{ model1_count }}
-				</a><br/>
-				<a href="{% url 'tfmsurveysapp:comments_list' comments_list.first.survey.campaign.cod_campania_lime %}">
-					{{ total_count }}
 				</a>
 			</td>
-		</tr>
+			</tr>
+			<tr>
+				<td class="EtiquetaSummary" nowrap="nowrap">Model 2 - Comentari problem&agrave;tic</td>
+				<td align="center" class="EtiquetaSummary">
+					<a href="{% url 'tfmsurveysapp:comments_list_issue_type' comments_list.first.survey.campaign.cod_campania_lime 6 %}">
+					{{ model2_count }}
+					</a>
+				</td>
+			</tr>
+			<tr>
+				<td class="EtiquetaSummary"><b>Total</b></td>
+				<td align="center" class="EtiquetaSummary">
+					<b><a href="{% url 'tfmsurveysapp:comments_list' comments_list.first.survey.campaign.cod_campania_lime %}">
+						{{ total_count }}
+					</a></b>
+				</td>
+			</tr>
 		</table>
 		</td>
 		<td width="33%">

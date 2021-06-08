@@ -19,6 +19,7 @@ from uxxienc_resul.models import CampaniasExtraidas, SBProf, SBRes
 import logging
 from tfmsurveysapp.spacy.tfm_lang_detector import TfmLangDetector
 from tfmsurveysapp.spacy.model_1_execution import TfmCategorizerModel1
+from tfmsurveysapp.spacy.model_2_execution import TfmCategorizerModel2
 
 logger = logging.getLogger(__name__)
 
@@ -142,6 +143,7 @@ class CommentsList(ListView):
         comments_list = Comment.objects.filter(survey__campaign__cod_campania_lime=self.kwargs['cod_campania_lime'])
         self.languages_summary = comments_list.values('language').annotate(lang_count=Count('id'))
         self.model1_count = comments_list.filter(issue_type__id=1).count()
+        self.model2_count = comments_list.filter(issue_type__id=6).count()
         self.total_count = comments_list.count()
 
         if "language" in self.kwargs:
@@ -157,6 +159,7 @@ class CommentsList(ListView):
         context = super(CommentsList, self).get_context_data(**kwargs)
         context['languages_summary'] = self.languages_summary
         context['model1_count'] = self.model1_count
+        context['model2_count'] = self.model2_count
         context['total_count'] = self.total_count
         return context
 
@@ -457,7 +460,7 @@ class ImportCampaign(RedirectView):
         return question
 
 
-
+# ViewClass that evaluate comments and redirect to list of comments
 
 class ProcessComments(RedirectView):
     query_string = False
@@ -466,30 +469,45 @@ class ProcessComments(RedirectView):
 
     def get_redirect_url(self, *args, **kwargs):
         cod_campania_lime = kwargs['cod_campania_lime']
-        self.process_model1(cod_campania_lime)
+        self.process_models(cod_campania_lime)
 
         return super().get_redirect_url( *args, **kwargs)
 
-    def process_model1(self, cod_campania_lime):
+    def process_models(self, cod_campania_lime):
 
-        issue_type = IssueType.objects.get(id=1)
+        issue_type1 = IssueType.objects.get(id=1)
+        issue_type2 = IssueType.objects.get(id=6)
         languages = {"ca","es","en"}
         for language in languages:
-            nlp = TfmCategorizerModel1(language)
+            nlp1 = TfmCategorizerModel1(language)
+            if language != "en":
+                nlp2 = TfmCategorizerModel2(language)
             #print ("ProcessComments: Model readed: ", language )
 
             comments = Comment.objects.filter(survey__campaign__cod_campania_lime=cod_campania_lime, language=language)
             print("ProcessComments: process_model1: Comments=", len(comments))
 
-            positives = 0
+            positives1 = 0
+            positives2 = 0
             for comment in comments:
-                result = nlp.test(comment.original_value)
-                if (result['POSITIVE'] > 0.5):
-                    positives = positives + 1;
+                result1 = nlp1.test(comment.original_value)
+                if result1['POSITIVE'] > 0.5:
+                    positives1 = positives1 + 1;
                     print("ProcessComments: process_model1: comment: ", comment.original_value)
-                    print("ProcessComments: process_model1: comment: ", result)
-                    comment.issue_type = issue_type
+                    print("ProcessComments: process_model1: comment: ", result1)
+                    comment.issue_type = issue_type1
                     comment.save()
-            print("ProcessComments: process_model1: Positives: ", positives)
+
+                if language != "en":
+                    result2 = nlp2.test(comment.original_value)
+                    if result2['POSITIVE'] > 0.5:
+                        positives2 = positives2 + 1;
+                        print("ProcessComments: process_model1: comment: ", comment.original_value)
+                        print("ProcessComments: process_model1: comment: ", result2)
+                        comment.issue_type = issue_type2
+                        comment.save()
+
+            print("ProcessComments: process_model1: Positives: ", positives1)
+            print("ProcessComments: process_model2: Positives: ", positives2)
 
         return True

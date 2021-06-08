@@ -116,6 +116,15 @@ a:hover {
 a.EtiquetaSubtitulo {
     color: #FFFFFF;
 }
+.EtiquetaSummary {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+    font-weight: normal;
+	color: #FFFFFF;
+}
+a.EtiquetaSummary {
+    color: #FFFFFF;
+}
 a:link {
     color: #FFFFFF;
 }
