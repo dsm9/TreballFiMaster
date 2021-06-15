@@ -20,6 +20,7 @@ import logging
 from tfmsurveysapp.spacy.tfm_lang_detector import TfmLangDetector
 from tfmsurveysapp.spacy.model_1_execution import TfmCategorizerModel1
 from tfmsurveysapp.spacy.model_2_execution import TfmCategorizerModel2
+from tfmsurveysapp.tasks import add, process_models_task
 
 logger = logging.getLogger(__name__)
 
@@ -54,6 +55,7 @@ def campaigns_list(request):
                'campaign_tfm': campaign_tfm,
                'campania_lime': campania_lime}
     return render(request, 'tfmsurveysapp/campaigns_list.html', context)
+
 
 
 #   Import then campaign types from Lime to TFM
@@ -469,8 +471,14 @@ class ProcessComments(RedirectView):
 
     def get_redirect_url(self, *args, **kwargs):
         cod_campania_lime = kwargs['cod_campania_lime']
-        self.process_models(cod_campania_lime)
+        #res = add.delay(2, 3)
+        # res.get()
+        #print("add: ", res)
+        #process_models_task(cod_campania_lime)
+        result = process_models_task.delay(cod_campania_lime)
+        #self.process_models(cod_campania_lime)
 
+        #return render(request, 'display_progress.html', context={'task_id': result.task_id})
         return super().get_redirect_url( *args, **kwargs)
 
     def process_models(self, cod_campania_lime):
@@ -511,3 +519,10 @@ class ProcessComments(RedirectView):
             print("ProcessComments: process_model2: Positives: ", positives2)
 
         return True
+
+def progress_view(request):
+    cod_campania_lime = 170
+    result = process_models_task.delay(cod_campania_lime)
+    print("progress_view: task_id = ", result.task_id )
+    context = {'task_ids': [result.task_id]}
+    return render(request, 'tfmsurveysapp/display_progress.html', context)

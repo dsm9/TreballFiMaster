@@ -10,4 +10,9 @@ class TfmCategorizerModel1 {
 	test(comment)
 }
 
+class TfmCategorizerModel2 {
+	init(language)
+	test(comment)
+}
+
 @enduml

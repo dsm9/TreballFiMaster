@@ -18,6 +18,7 @@ from django.urls import path, include
 from django.contrib import admin
 from django.contrib.auth import views
 from django.views.generic import RedirectView
+from django.urls import re_path, include
 
 urlpatterns = [
     path('', RedirectView.as_view(pattern_name='tfmsurveysapp:campaigns_list'), name='home'),
@@ -25,4 +26,6 @@ urlpatterns = [
     path('tfmsurveysapp/', include('tfmsurveysapp.urls', namespace='tfmsurveysapp')),
     path('accounts/login/', views.LoginView.as_view(), name='login'),
     path('accounts/logout/', views.LogoutView.as_view(), name='logout'),
+    re_path(r'^celery-progress/', include('celery_progress.urls')),  # the endpoint is configurable
+
 ]
