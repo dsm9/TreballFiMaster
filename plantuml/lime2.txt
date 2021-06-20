@@ -131,8 +131,8 @@ package result {
 	}
 }
 
-Campania "1"--"*" lime_ocu_encuestas_campania  
-Encuesta "1"--"1" lime_ocu_encuestas_campania  
+lime_ocu_encuestas_campania "*"--"1" Campania   
+lime_ocu_encuestas_campania "1"--"1" Encuesta    
 lime_surveys "1"--"*" sb_xx_meta_survey
 lime_surveys "1"--"*" sb_xx_meta_user
 lime_surveys "1"--"*" sb_xx_res

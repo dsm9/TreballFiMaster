@@ -4,6 +4,12 @@
 
 <script language="JavaScript" type="text/javascript" class="init">
 $(document).ready(function() {
+
+{% if  comments_list.first.survey.campaign.estat == "Processant comentaris..." %}
+	//alert("abriendo pagina");
+	setTimeout(refrescar, 5000);
+{% endif %}
+
 var table = $('#Lista').DataTable();
 table
     .order( [ 0, 'desc' ] )
@@ -19,6 +25,12 @@ function processarComentaris(url) {
     	window.location.href = url;
     }
 }
+
+function refrescar() {
+	url = "{% url 'tfmsurveysapp:comments_list' comments_list.first.survey.campaign.cod_campania_lime %}"
+	window.location.href = url;
+}
+
 </script>
 
 <div id="divProcesando" style="display:none;position:absolute;left:50%;top:50%;transform: translate(-50%, -50%);z-index:1;border=1">
@@ -108,11 +120,11 @@ function processarComentaris(url) {
 		</td>
 		<td width="33%">
 			<a  onclick="processarComentaris('{% url 'tfmsurveysapp:process_comments' comments_list.first.survey.campaign.cod_campania_lime %}')"
-       			onmouseover="MM_swapImage('btnCalcular{{ campaign.cod_campania_lime }}','','{% static 'img/calcular2_up.png' %}',1)"
+       			onmouseover="MM_swapImage('btnCalcular','','{% static 'img/calcular2_up.png' %}',1)"
        			onmouseout="MM_swapImgRestore()"
 				style="cursor: pointer">
    			<img src="{% static 'img/calcular2.png' %}" alt="Processar comentaris" title="Processar incidencies comentaris"
-				 name="btnCalcular{{ campaign.cod_campania_lime }}" id="btnCalcular{{ campaign.cod_campania_lime }}"
+				 name="btnCalcular" id="btnCalcular"
 		    	 width="32" height="32" border="0" />
 				</a>
 		</td>
@@ -120,6 +132,33 @@ function processarComentaris(url) {
 		<td>&nbsp;</td>
 	</tr>
 </table>
+{% if  comments_list.first.survey.campaign.estat > "" %}
+	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="Info">
+		<tr valign="top">
+			<td width="6%">
+				&nbsp;
+			</td>
+			<td align="center" >
+				<b>{{ comments_list.first.survey.campaign.estat }}</b>
+				&nbsp;
+				{{ comments_list.first.survey.campaign.subestat }}
+				&nbsp;
+			</td>
+			<td width="6%" align="center">
+			{% if  comments_list.first.survey.campaign.estat == "Comentaris processats" %}
+			<a  href="{% url 'tfmsurveysapp:close_info' comments_list.first.survey.campaign.cod_campania_lime %}" target="_self"
+       			onmouseover="MM_swapImage('btnCerrarInfo','','{% static 'img/boton_cerrar_info_up_32.png' %}',1)"
+       			onmouseout="MM_swapImgRestore()"
+				style="cursor: pointer">
+				<img src="{% static 'img/boton_cerrar_info_32.png' %}" alt="Tancar informació" title="Tancar informació"
+				 name="btnCerrarInfo" id="btnCerrarInfo"
+		    	 width="24" height="24" border="0"  />
+			</a>
+				{% endif %}
+			</td>
+		</tr>
+	</table>
+{% endif %}
 <br/>
 <table align="center" width="95%">
 	<tr><td>

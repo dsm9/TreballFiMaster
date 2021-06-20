@@ -18,6 +18,8 @@ class Campaign(models.Model):
     fecha_extraccion_lime = models.DateField("Data extracció Lime")
     name = models.CharField("Nom", max_length=50)
     import_date = models.DateField("Data importació")
+    estat = models.CharField("Estat", max_length=50, null=True)
+    subestat = models.CharField("Subestat", max_length=50, null=True)
 
     def get_absolute_url(self):
         return reverse('tfmsurveysapp:commments_list', kwargs={'pk': self.pk})

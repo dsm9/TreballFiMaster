@@ -20,7 +20,7 @@ import logging
 from tfmsurveysapp.spacy.tfm_lang_detector import TfmLangDetector
 from tfmsurveysapp.spacy.model_1_execution import TfmCategorizerModel1
 from tfmsurveysapp.spacy.model_2_execution import TfmCategorizerModel2
-from tfmsurveysapp.tasks import add, process_models_task
+from tfmsurveysapp.tasks import process_models_task
 
 logger = logging.getLogger(__name__)
 
@@ -461,7 +461,6 @@ class ImportCampaign(RedirectView):
 
         return question
 
-
 # ViewClass that evaluate comments and redirect to list of comments
 
 class ProcessComments(RedirectView):
@@ -471,58 +470,43 @@ class ProcessComments(RedirectView):
 
     def get_redirect_url(self, *args, **kwargs):
         cod_campania_lime = kwargs['cod_campania_lime']
+
+        campaign = Campaign.objects.get(cod_campania_lime=cod_campania_lime)
+        campaign.estat = "Processant comentaris..."
+        campaign.subestat = "Iniciant process de calcul"
+        campaign.save()
+
+        result = process_models_task.delay(cod_campania_lime)
+
         #res = add.delay(2, 3)
         # res.get()
         #print("add: ", res)
         #process_models_task(cod_campania_lime)
-        result = process_models_task.delay(cod_campania_lime)
+        #result = process_models_task.delay(cod_campania_lime)
         #self.process_models(cod_campania_lime)
 
         #return render(request, 'display_progress.html', context={'task_id': result.task_id})
         return super().get_redirect_url( *args, **kwargs)
 
-    def process_models(self, cod_campania_lime):
+# Deletes then information from the comments processing
 
-        issue_type1 = IssueType.objects.get(id=1)
-        issue_type2 = IssueType.objects.get(id=6)
-        languages = {"ca","es","en"}
-        for language in languages:
-            nlp1 = TfmCategorizerModel1(language)
-            if language != "en":
-                nlp2 = TfmCategorizerModel2(language)
-            #print ("ProcessComments: Model readed: ", language )
+class CloseInfo(RedirectView):
+    query_string = False
+    permanent = False
+    pattern_name = "tfmsurveysapp:comments_list"
 
-            comments = Comment.objects.filter(survey__campaign__cod_campania_lime=cod_campania_lime, language=language)
-            print("ProcessComments: process_model1: Comments=", len(comments))
+    def get_redirect_url(self, *args, **kwargs):
+        cod_campania_lime = kwargs['cod_campania_lime']
+        campaign = Campaign.objects.get(cod_campania_lime=cod_campania_lime)
+        campaign.estat = ""
+        campaign.subestat = ""
+        campaign.save()
 
-            positives1 = 0
-            positives2 = 0
-            for comment in comments:
-                result1 = nlp1.test(comment.original_value)
-                if result1['POSITIVE'] > 0.5:
-                    positives1 = positives1 + 1;
-                    print("ProcessComments: process_model1: comment: ", comment.original_value)
-                    print("ProcessComments: process_model1: comment: ", result1)
-                    comment.issue_type = issue_type1
-                    comment.save()
-
-                if language != "en":
-                    result2 = nlp2.test(comment.original_value)
-                    if result2['POSITIVE'] > 0.5:
-                        positives2 = positives2 + 1;
-                        print("ProcessComments: process_model1: comment: ", comment.original_value)
-                        print("ProcessComments: process_model1: comment: ", result2)
-                        comment.issue_type = issue_type2
-                        comment.save()
-
-            print("ProcessComments: process_model1: Positives: ", positives1)
-            print("ProcessComments: process_model2: Positives: ", positives2)
-
-        return True
+        return super().get_redirect_url(*args, **kwargs)
 
 def progress_view(request):
     cod_campania_lime = 170
     result = process_models_task.delay(cod_campania_lime)
     print("progress_view: task_id = ", result.task_id )
-    context = {'task_ids': [result.task_id]}
+    context = {'task_id': result.task_id}
     return render(request, 'tfmsurveysapp/display_progress.html', context)

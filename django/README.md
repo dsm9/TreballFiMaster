@@ -137,9 +137,9 @@ $ python3 manage.py migrate
 
 Agile Behaviour Driven Development (BDD)
 ========================================
-Following the Agile Behavour Drive Development the features of the project have been defined:
+Following the Agile Behaviour Driven Development the features of the project have been defined:
 
-The goal of this application it's manage de revision, analysis and modification of comments in the surveys of the UdL.
+The goal of this application it's manage the revision, analysis and modification of comments in the surveys of the UdL.
 
 The detected features are:
 

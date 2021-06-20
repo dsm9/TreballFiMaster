@@ -17,7 +17,7 @@ from spacy import displacy
 from spacy.matcher import Matcher
 
 pathmodel = "tfmsurveysapp/spacy/nlp_models/model2/"
-languages = {"ca":"ca_fasttext_wiki_lg", "es":"es_core_news_lg", "en":"en_core_web_sm" }
+languages = {"ca":"ca_fasttext_wiki", "es":"es_core_news_lg", "en":"en_core_web_sm" }
 debug = 1
 
 class TfmCategorizerModel2():

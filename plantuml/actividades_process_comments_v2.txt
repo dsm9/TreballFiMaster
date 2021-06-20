@@ -1,9 +1,9 @@
 @startuml
 (*) --> "Open Process comments view"
 "Open Process comments view" --> "Process Models"
-"Process Models" --> "Test Model 1"
-"Process Models" --> "Test Model 2"
-"Test Model 1" --> "Open Comments list"
-"Test Model 2" --> "Open Comments list"
+"Process Models" --> "Process Model 1"
+"Process Models" --> "Process Model 2"
+"Process Model 1" --> "Open Comments list"
+"Process Model 2" --> "Open Comments list"
 "Open Comments list" --> (*)
 @enduml

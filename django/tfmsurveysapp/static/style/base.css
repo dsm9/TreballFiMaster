@@ -174,3 +174,13 @@ a:hover {
 .FilaInactiva{
     color: #808080;
 }
+.Info {
+    background-color: #FFFF80;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	padding-top: 2px;
+	padding-bottom: 0px;
+    border-style: solid;
+	border-width: 1px;
+	border-color: #C0C0C0;
+}

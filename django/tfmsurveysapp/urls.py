@@ -4,7 +4,7 @@ from django.utils import timezone
 from django.views.generic import DetailView, ListView
 from . import views
 from tfmsurveysapp.models import Campaign, Survey, Comment
-from tfmsurveysapp.views import CommentDetail, CommentsList, ImportCampaign, ProcessComments, progress_view
+from tfmsurveysapp.views import CommentDetail, CommentsList, ImportCampaign, ProcessComments, progress_view, CloseInfo
 from tfmsurveysapp.forms import CommentForm
 
 app_name = "tfmsurveysapp"
@@ -58,6 +58,11 @@ urlpatterns = [
     path('campaigns/<int:cod_campania_lime>/process',
          ProcessComments.as_view(),
          name='process_comments'),
+
+    # Deletes the progress information of comments processing
+    path('campaigns/<int:cod_campania_lime>/closeinfo',
+         CloseInfo.as_view(),
+         name='close_info'),
 
     path('campaigns/process',
          views.progress_view,
