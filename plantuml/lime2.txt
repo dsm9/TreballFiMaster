@@ -1,25 +1,42 @@
 @startuml
 
-package lime {
-	class lime_surveys_languagesettings {
-		#surveyls_survey_id
-		#surveyls_language
-		#sid
+package encuestas {
+	class TipoCampania {
+		#cod_tipo_campania
 		--
-		survey_title
+		descripcion
 	}
 	
+	class Campania {
+		#cod_campania
+		--
+		cod_tipo_campania
+		nombre_campania
+	}
+	
+	class Encuesta {
+		#cod_encuesta
+		--
+		cod_campania
+		titulo
+	}
+	
+	TipoCampania "1"--"*" Campania
+	Campania "1"--"*" Encuesta
+}
+
+package lime {
 	class lime_ocu_encuestas_campania {
 		#sid
 		--
-		codEncuesta
-		codCampania
-		nombreCampania
 		codTipoCampania
+		codCampania
+		codEncuesta
 		descripcionTipoCampania
+		nombreCampania
 		flagArchivada	
 	}
-
+	
 	class lime_surveys {
 		#sid
 		--
@@ -30,6 +47,14 @@ package lime {
 		listpublic
 	}
 
+	class lime_surveys_languagesettings {
+		#surveyls_survey_id
+		#surveyls_language
+		#sid
+		--
+		survey_title
+	}
+	
 	class lime_groups {
 		#gid
 		#language
@@ -66,7 +91,7 @@ package lime {
 		sortorder
 		assessment_value
 	}
-	lime_ocu_encuestas_campania "1"--"1" lime_surveys
+	lime_ocu_encuestas_campania "1"-right-"1" lime_surveys
 	lime_surveys "1"--"*" lime_surveys_languagesettings	
 	lime_surveys "1"--"*" lime_groups
 	lime_surveys "1"--"*" lime_questions
@@ -75,30 +100,6 @@ package lime {
 
 }
 
-package encuestas {
-	class TipoCampania {
-		#cod_tipo_campania
-		--
-		descripcion
-	}
-	
-	class Campania {
-		#cod_campania
-		--
-		cod_tipo_campania
-		nombre_campania
-	}
-	
-	class Encuesta {
-		#cod_encuesta
-		--
-		cod_campania
-		titulo
-	}
-	
-	TipoCampania "1"--"*" Campania
-	Campania "1"--"*" Encuesta
-}
 
 package result {
 	class sb_xx_meta_survey {
@@ -129,10 +130,14 @@ package result {
 		fieldname
 		response
 	}
+	
+	sb_xx_meta_survey -[hidden]- sb_xx_meta_user
+	sb_xx_meta_user -[hidden]- sb_xx_res
 }
 
-lime_ocu_encuestas_campania "*"--"1" Campania   
-lime_ocu_encuestas_campania "1"--"1" Encuesta    
+TipoCampania "1"--"*" lime_ocu_encuestas_campania  
+Campania "1"--"*" lime_ocu_encuestas_campania   
+Encuesta "1"-right-"1" lime_ocu_encuestas_campania
 lime_surveys "1"--"*" sb_xx_meta_survey
 lime_surveys "1"--"*" sb_xx_meta_user
 lime_surveys "1"--"*" sb_xx_res

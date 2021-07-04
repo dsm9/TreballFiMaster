@@ -35,3 +35,8 @@ Background: There is a registered user
     Then I'm viewing a list of campaigns
       | Codi campanya | Nom campanya  | Codi tipus campanya | Tipus campanya | Data extacció |
       | 168 | 19-20 Pràctiques externes - estudiantat (GEM - 1P) | 9 | Enquesta de Pràcticum - Estudiantat | Nov. 17, 2020 |
+
+    Scenario: Try to see list of campaigns but not logged in
+    Given I'm not logged in
+    When I list the campaigns
+    Then I'm redirected to the login form
