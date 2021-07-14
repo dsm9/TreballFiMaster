@@ -1,0 +1,39 @@
+@startuml
+package tfmsurvey {
+	class campaign_type {
+
+	}
+	
+	class campaign {
+
+	}
+	
+	class survey {
+
+	}
+	
+	class professor {
+
+	}
+	
+	class comment {
+
+	}
+	
+	class issue_type {
+
+	} 
+	
+	class solution_type {
+
+	}
+	
+	campaign_type "1"--"*" campaign
+	campaign "1"--"*" survey
+	survey "1"--"*" comment
+	professor "0"--"*" comment
+	issue_type "*"--"*" comment : comment_issue
+	solution_type "*"--"*" comment : comment_solution
+}
+
+@enduml

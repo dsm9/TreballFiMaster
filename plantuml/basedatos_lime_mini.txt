@@ -1,0 +1,78 @@
+@startuml
+
+package encuestas {
+	class TipoCampania {
+	}
+	
+	class Campania {
+
+	}
+	
+	class Encuesta {
+
+	}
+	
+	TipoCampania "1"--"*" Campania
+	Campania "1"--"*" Encuesta
+}
+
+package lime {
+	class lime_ocu_encuestas_campania {
+
+	}
+	
+	class lime_surveys {
+
+	}
+
+	class lime_surveys_languagesettings {
+
+	}
+	
+	class lime_groups {
+
+	}
+
+	class lime_questions {
+
+	}
+
+	class lime_answers {
+
+	}
+	lime_ocu_encuestas_campania "1"-right-"1" lime_surveys
+	lime_surveys "1"--"*" lime_surveys_languagesettings	
+	lime_surveys "1"--"*" lime_groups
+	lime_surveys "1"--"*" lime_questions
+	lime_groups "1"--"*" lime_questions
+	lime_questions "1"--"*" lime_answers
+
+}
+
+
+package result {
+	class sb_xx_meta_survey {
+
+	}
+
+	class sb_xx_meta_user {
+
+	}
+
+	class sb_xx_res {
+
+	}
+	
+	sb_xx_meta_survey -[hidden]- sb_xx_meta_user
+	sb_xx_meta_user -[hidden]- sb_xx_res
+}
+
+TipoCampania "1"--"*" lime_ocu_encuestas_campania  
+Campania "1"--"*" lime_ocu_encuestas_campania   
+Encuesta "1"-right-"1" lime_ocu_encuestas_campania
+lime_surveys "1"--"*" sb_xx_meta_survey
+lime_surveys "1"--"*" sb_xx_meta_user
+lime_surveys "1"--"*" sb_xx_res
+
+
+@enduml
